@@ -1,0 +1,155 @@
+.android-small-1, .android-small-1 * {
+   box-sizing: border-box;
+   }
+.android-small-1 {
+  background: #22052a;
+   width: 360px;
+   height: 640px;
+   position: relative;
+   overflow: hidden;
+  }
+
+.login-completo {
+  display: flex;
+   flex-direction: column;
+   gap: 37px;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   left: calc(50% - 99px);
+  top: 271px;
+  }
+
+.login-pass {
+  display: flex;
+   flex-direction: column;
+   gap: 13px;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   position: relative;
+  }
+
+.log {
+  border-radius: 5px;
+   border-style: solid;
+   border-color: #7f1684;
+   border-width: 1px;
+   padding: 10px;
+   display: flex;
+   flex-direction: row;
+   gap: 50px;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   width: 200px;
+   height: 35px;
+   position: relative;
+   box-shadow: 0px 6px 16px 0px rgba(246, 93, 182, 1.00);
+  }
+
+.youmail-xhino-com {
+  color: rgba(243, 243, 243, 0.10);
+   text-align: left;
+   font: 400 12px 'Inter', sans-serif;
+   position: relative;
+  }
+
+.check {
+  flex-shrink: 0;
+   position: relative;
+   overflow: visible;
+  }
+
+.pas {
+  border-radius: 5px;
+   border-style: solid;
+   border-color: #7b1378;
+   border-width: 1px;
+   padding: 10px;
+   display: flex;
+   flex-direction: row;
+   gap: 50px;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   width: 200px;
+   height: 35px;
+   position: relative;
+   box-shadow: 0px 6px 16px 0px rgba(130, 23, 134, 1.00);
+  }
+
+. {
+  color: rgba(243, 243, 243, 0.10);
+   text-align: left;
+   font: 400 12px 'Inter', sans-serif;
+   position: relative;
+   width: 114px;
+   height: 11px;
+  }
+
+.eye-off {
+  flex-shrink: 0;
+   position: relative;
+   overflow: visible;
+  }
+
+.btn-01 {
+  background: #0fb4fb;
+   border-radius: 20px;
+   padding: 8px 15px 8px 15px;
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   position: relative;
+  }
+
+.conectar {
+  color: #22052a;
+   text-align: left;
+   font: 500 12px 'Inter', sans-serif;
+   text-transform: uppercase;
+   position: relative;
+  }
+
+.no-account-register-now {
+  text-align: left;
+   font: var(--bodytext, 400 16px/160% 'Mulish', sans-serif);
+   position: absolute;
+   left: 84px;
+  top: 473px;
+  }
+
+.no-account-register-now-span {
+  
+          color: var(--bodytextcolor, #4c4c60);
+  
+          font: var(--bodytext, 400 16px/160% 'Mulish', sans-serif);
+  
+          
+          
+      }
+
+.no-account-register-now-span2 {
+  
+          color: var(--linkcolor, #ff5887);
+  
+          font: var(--bodytext, 400 16px/160% 'Mulish', sans-serif);
+  
+          
+          
+      }
+
+.frame-1 {
+  border-radius: 10px;
+   width: 245px;
+   height: 143px;
+   position: absolute;
+   left: calc(50% - 122px);
+  top: 77px;
+   overflow: hidden;
+  }
+
