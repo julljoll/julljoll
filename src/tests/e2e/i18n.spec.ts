@@ -14,8 +14,13 @@ test('Spanish is the default language and the language link opens English', asyn
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('link', { name: 'Language: Español' })).toHaveAttribute('href', '/');
   await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
-  await expect(page.locator('.content-shell > section h2').first()).toContainText(/digital evidence/i);
+  await expect(page.locator('.content-shell > section h2').first()).toContainText(
+    /expert reports for judicial proceedings/i,
+  );
   await expect(page.getByRole('heading', { name: 'Project focus' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'A legal perspective on digital evidence' })).toBeVisible();
+  await expect(page.getByText(/law degree at Universidad Nacional Experimental/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Forensic scope' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Explore SHA256.US' })).toHaveAttribute('href', 'https://sha256.us/es/');
 });
 

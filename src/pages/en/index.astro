@@ -11,7 +11,7 @@ import { withBase } from '@/lib/paths';
 import { AUTHOR_NAME, GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
 
 const description =
-  'Meet julljoll and the SHA256.US venture, focused on mobile-device repair, data extraction, and digital evidence analysis.';
+  'Meet julljoll: a law degree and digital forensics projects focused on digital evidence and technical documentation for judicial proceedings.';
 const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -32,11 +32,12 @@ const personSchema = JSON.stringify({
     <main class="content-shell">
       <PageHero title="julljoll's profile" hideTitle eyebrow="Profile · Entrepreneurship">
         <h2 class="max-w-[19ch] text-[clamp(2.7rem,6vw,5rem)] leading-[1.03] tracking-[-0.045em]">
-          Digital forensics that brings clarity to <Highlight>digital evidence</Highlight>.
+          Digital forensics and expert reports for <Highlight>judicial proceedings</Highlight>.
         </h2>
         <p class="mt-6 max-w-[42rem] text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.6] text-ink-soft">
-          I'm {AUTHOR_NAME}. This is a profile of my venture, SHA256.US, focused on mobile-device repair, data
-          extraction, and analysis, alongside resources on digital forensics and evidence.
+          I'm {AUTHOR_NAME}. My law degree informs my work on digital forensics projects and my venture, SHA256.US,
+          which focuses on mobile-device repair, data extraction, and analysis. The focus is examining digital evidence
+          and documenting technical findings for consideration in judicial contexts.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a class="profile-link" href="https://sha256.us/es/" target="_blank" rel="noopener noreferrer">
@@ -92,6 +93,31 @@ const personSchema = JSON.stringify({
           MUCC-2017.
         </p>
       </section>
+
+      <section class="section" aria-labelledby="judicial-title">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(16rem,0.7fr)]">
+          <article class="profile-card">
+            <p class="mb-2 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">Relevant education</p>
+            <h2 id="judicial-title">A legal perspective on digital evidence</h2>
+            <p>
+              I studied for a law degree at Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel
+              Zamora”, Barinas (2005–2010). This background brings legal context to my interest in documenting,
+              maintaining traceability, and clearly communicating technical findings in judicial matters.
+            </p>
+            <p class="mt-3">
+              My experience in graphic design, image retouching, and video editing can complement the visual
+              presentation of findings; it does not replace forensic methods required to authenticate evidence.
+            </p>
+          </article>
+          <aside class="profile-card profile-note">
+            <h3>Forensic scope</h3>
+            <p>
+              Serving as an expert, preparing or ratifying an expert report, and its admissibility depend on the legal
+              and procedural requirements of each jurisdiction.
+            </p>
+          </aside>
+        </div>
+      </section>
     </main>
   </HeatShimmer>
 </Layout>
@@ -115,7 +141,19 @@ const personSchema = JSON.stringify({
     @apply m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink;
   }
 
+  .profile-card h2 {
+    @apply m-0 text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-ink;
+  }
+
   .profile-card p {
     @apply mb-0 leading-[1.6] text-ink-soft;
+  }
+
+  .profile-card > p:first-child {
+    @apply mb-2;
+  }
+
+  .profile-note {
+    @apply flex flex-col justify-center border-dashed;
   }
 </style>

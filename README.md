@@ -1,8 +1,24 @@
-# julljoll
+# julljoll — Perfil profesional
 
-Personal site built with [Astro](https://astro.build/) and the season-aware, neobrutalist [Astro Seasons theme](https://github.com/nicomiguelino/astro-seasons). Its palette follows the calendar, with light and dark modes for each season. See the [theme screenshots](#seasonal-theme).
+Sitio personal de **julljoll**, con formación universitaria en Derecho y proyectos de informática forense, cumplimiento y evidencia digital. Presenta el emprendimiento [SHA256.US](https://sha256.us/es/) y proyectos de software relacionados con documentación de evidencia y procesos judiciales. La portada está en español y la versión en inglés está disponible en `/en/`.
 
-Spanish is the primary language at `/`; the English version is available at `/en/`. The language switch keeps visitors on the corresponding page, and the theme remembers its selection. Site metadata lives in `src/lib/site.ts`; localized copy is in `src/lib/i18n.ts`. Blog posts declare their `locale` in frontmatter and live in `src/content/blog/`.
+El sitio está construido con [Astro](https://astro.build/) y el tema estacional neobrutalista [Astro Seasons](https://github.com/nicomiguelino/astro-seasons): su paleta cambia según la estación y ofrece modos claro y oscuro. Consulta las [capturas del tema](#seasonal-theme).
+
+## Perfil y proyectos
+
+[SHA256.US](https://sha256.us/es/) se especializa en reparación y extracción de información de dispositivos móviles, además de análisis de evidencia digital. El [blog del proyecto](https://blog-astro-fawn.vercel.app/) describe trabajo relacionado con informática forense, documentos electrónicos, cumplimiento normativo y análisis de datos jurídicos.
+
+El perfil incluye una Licenciatura en Derecho cursada en la Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora”, Barinas (2005–2010), y experiencia complementaria en diseño gráfico, retoque de imágenes y edición de vídeo. Esta formación jurídica aporta contexto para documentar hallazgos técnicos; las competencias visuales ayudan a presentar los resultados, pero no sustituyen métodos forenses de autenticación. La habilitación para actuar como perito y la admisibilidad de un dictamen dependen de los requisitos legales y procesales de cada jurisdicción.
+
+La [página de proyectos](/projects/) presenta estos repositorios:
+
+- [Compliance Forensic](https://github.com/julljoll/Compliace-Forensic-js): CMS de cumplimiento forense para gestionar casos y evidencias, guiar procesos de cadena de custodia y producir documentos con auditoría SHA-256.
+- [Ulpiano — Chief Compliance Officer](https://github.com/julljoll/Ulpiano-Chief-Compliance-Officer): propuesta y arquitectura de referencia sobre ciberseguridad procesal, integridad digital y cumplimiento.
+- [JullBrain](https://github.com/julljoll/JullBrain): plataforma Legal-RAG en Python para organizar normativas, códigos y expedientes como conocimiento consultable.
+- [FotoForense](https://github.com/julljoll/FotoForense): herramienta de apoyo para analizar posibles manipulaciones de imágenes y generar informes preliminares; sus resultados requieren validación pericial.
+- [IPED_SHA256.US](https://github.com/julljoll/IPED_SHA256.US): repositorio relacionado con IPED, procesador e indexador de código abierto para analizar evidencia digital, desarrollado originalmente por especialistas de la Policía Federal de Brasil.
+
+El español es el idioma principal en `/`; la versión en inglés está en `/en/`. El selector conserva la sección correspondiente y el tema recuerda las preferencias. Los metadatos están en `src/lib/site.ts`, las traducciones de interfaz en `src/lib/i18n.ts`, y las descripciones de proyectos en `src/lib/projects.ts`. Las publicaciones indican su idioma en el frontmatter y viven en `src/content/blog/`.
 
 ## Getting started
 
@@ -117,16 +133,15 @@ This applies to `href`, `src`, and `fetch` URLs in `.astro` and `.ts` files. In 
 
 ## Customizing
 
-Site-wide values (site name, author name, description, job title, site URL, the GitHub and LinkedIn profile links, and the blog, tags, experience, and projects page descriptions) live in `src/lib/site.ts`. The header, footer, page titles, RSS feed, search, and structured data all read from it, and the letter in the header logo is the first character of `SITE_NAME`. Everything else to customize:
+Site-wide values (site name, author name, description, job title, site URL, and GitHub and LinkedIn profile links) live in `src/lib/site.ts`. The header, footer, page titles, RSS feed, search, and structured data read from it, and the letter in the header logo is the first character of `SITE_NAME`. Other content locations:
 
 - `src/components/header/index.astro` and `src/components/Footer.astro`: navigation, header icons, footer
-- `src/pages/index.astro`: the home page heading and the intro card
+- `src/pages/index.astro` and `src/pages/en/index.astro`: Spanish and English profile home pages
 - `src/components/experience/` and `src/pages/experience/index.astro`: the experience page. Each job is one component built on `ExperienceEntry.astro`. Rename, edit, or add components, then list them in `src/components/experience/index.astro`
-- `src/components/ProjectCard.astro` and `src/pages/projects/index.astro`: the projects page. Edit the `projects` array in the page (name, description, technologies, and link), and update the matching body in `src/lib/search.ts`
-- `src/lib/search.ts`: the search entries for the static pages (home, blog, tags, experience, projects). Their descriptions come from `site.ts`, but the home, experience, and projects bodies are plain text, so update them when you change those pages
+- `src/lib/projects.ts` and `src/components/ProjectsGrid.astro`: bilingual project descriptions, focus labels, and repository links
+- `src/lib/search.ts`: search entries for the static pages; keep project and profile summaries in sync with their pages
 - `public/favicon.svg`: the tab icon, a static file that doesn't follow `SITE_NAME`, so replace it with your own
 - `src/lib/palette.ts`: the seasonal palette logic and its config (storage keys, season dates); see [Seasonal theme](#seasonal-theme)
-- `src/lib/colors.ts`: the color tokens listed on the `/colors/` page; add a token here when you add one to `src/styles/palettes.css`
 - `public/robots.txt`: the sitemap URL (a static file, so it can't import from `site.ts`). Crawlers only read `robots.txt` at the root of a domain, so it has no effect on a sub-path deploy
 - `public/assets/og.png`: social preview image, 1200x630. It's a screenshot of the autumn home page, so replace it with your own
 
@@ -138,10 +153,10 @@ Posts are markdown files in `src/content/blog/` with `title`, `description`, `da
 
 ```
 src/
-  components/     # reusable UI: layout, header, experience entries, project card, page hero, post card, search, theme toggle
+  components/     # reusable UI: layout, header, experience entries, project cards, page hero, post card, search, theme toggle
   content/blog/   # posts as markdown
-  lib/            # post and tag helpers, palette config, particle shapes, color token list, site constants
-  pages/          # index (home), blog/, experience/, projects/, colors/, tags/, 404, rss
+  lib/            # post and tag helpers, project content, palette config, particle shapes, site constants
+  pages/          # profile home, blog/, experience/, projects/, tags/, 404, rss
   styles/         # global styles, design tokens, palette definitions (Tailwind CSS)
   tests/          # Playwright specs: e2e/ and screenshots/
 screenshots/      # committed screenshot baselines (not deployed)

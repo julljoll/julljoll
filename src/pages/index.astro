@@ -11,7 +11,7 @@ import { withBase } from '@/lib/paths';
 import { AUTHOR_NAME, GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
 
 const description =
-  'Perfil de julljoll y su emprendimiento SHA256.US: reparación, extracción y análisis forense de dispositivos y evidencia digital.';
+  'Perfil de julljoll: formación universitaria en Derecho y proyectos de informática forense, evidencia digital y documentación técnica para procesos judiciales.';
 const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -32,12 +32,12 @@ const personSchema = JSON.stringify({
     <main class="content-shell">
       <PageHero title="Perfil de julljoll" hideTitle eyebrow="Perfil · Emprendimiento">
         <h2 class="max-w-[19ch] text-[clamp(2.7rem,6vw,5rem)] leading-[1.03] tracking-[-0.045em]">
-          Tecnología forense para dar claridad a la <Highlight>evidencia digital</Highlight>.
+          Informática forense y dictámenes periciales para <Highlight>procesos judiciales</Highlight>.
         </h2>
         <p class="mt-6 max-w-[42rem] text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.6] text-ink-soft">
-          Soy {AUTHOR_NAME}. Este espacio presenta mi emprendimiento, SHA256.US, dedicado a la reparación, extracción y
-          análisis de información de dispositivos móviles, y reúne recursos sobre informática forense y evidencia
-          digital.
+          Soy {AUTHOR_NAME}. Mi formación universitaria en Derecho se une a proyectos de informática forense y al
+          trabajo de SHA256.US en reparación, extracción y análisis de información de dispositivos móviles. El enfoque:
+          examinar evidencia digital y documentar hallazgos técnicos para su valoración en contextos judiciales.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a class="profile-link" href="https://sha256.us/es/" target="_blank" rel="noopener noreferrer">
@@ -93,6 +93,31 @@ const personSchema = JSON.stringify({
           El blog del proyecto cita referencias como ISO/IEC 27037, ISO/IEC 27042, NIST SP 800 y MUCC-2017.
         </p>
       </section>
+
+      <section class="section" aria-labelledby="judicial-title">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(16rem,0.7fr)]">
+          <article class="profile-card">
+            <p class="mb-2 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">Formación aplicable</p>
+            <h2 id="judicial-title">Perspectiva jurídica para la evidencia digital</h2>
+            <p>
+              Cursé la Licenciatura en Derecho en la Universidad Nacional Experimental de los Llanos Occidentales
+              “Ezequiel Zamora”, Barinas (2005–2010). Esta formación aporta contexto jurídico a mi interés en la
+              documentación, trazabilidad y comunicación clara de hallazgos técnicos en asuntos judiciales.
+            </p>
+            <p class="mt-3">
+              Mi experiencia en diseño gráfico, retoque de imágenes y edición de vídeo complementa la presentación
+              visual de los hallazgos; no sustituye los métodos forenses necesarios para verificar una evidencia.
+            </p>
+          </article>
+          <aside class="profile-card profile-note">
+            <h3>Alcance pericial</h3>
+            <p>
+              La actuación como perito, la elaboración o ratificación de un dictamen y su admisibilidad dependen de los
+              requisitos legales y procesales aplicables en cada jurisdicción.
+            </p>
+          </aside>
+        </div>
+      </section>
     </main>
   </HeatShimmer>
 </Layout>
@@ -116,7 +141,19 @@ const personSchema = JSON.stringify({
     @apply m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink;
   }
 
+  .profile-card h2 {
+    @apply m-0 text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-ink;
+  }
+
   .profile-card p {
     @apply mb-0 leading-[1.6] text-ink-soft;
+  }
+
+  .profile-card > p:first-child {
+    @apply mb-2;
+  }
+
+  .profile-note {
+    @apply flex flex-col justify-center border-dashed;
   }
 </style>

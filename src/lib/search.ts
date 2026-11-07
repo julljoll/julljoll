@@ -12,9 +12,9 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
   {
     title: 'Home',
     description:
-      'Meet julljoll and the SHA256.US venture, focused on mobile-device repair, data extraction, and digital evidence analysis.',
+      'Meet julljoll: a law degree and digital forensics projects focused on digital evidence and technical documentation for judicial proceedings.',
     tags: [],
-    body: 'julljoll profile and SHA256.US venture. Mobile-device repair, data extraction, digital forensics, electronic documents, legal data analysis, and compliance support.',
+    body: 'julljoll studied law at Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Digital forensics projects, SHA256.US mobile-device repair and extraction, digital evidence, chain of custody, technical documentation and expert reports for judicial proceedings. Expert qualifications and report admissibility depend on local requirements.',
     url: '/',
   },
   {
@@ -51,9 +51,9 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
   {
     title: 'Inicio',
     description:
-      'Perfil de julljoll y su emprendimiento SHA256.US: reparación, extracción y análisis forense de dispositivos y evidencia digital.',
+      'Perfil de julljoll: formación universitaria en Derecho y proyectos de informática forense, evidencia digital y documentación técnica para procesos judiciales.',
     tags: [],
-    body: 'Perfil de julljoll y emprendimiento SHA256.US. Reparación y extracción de datos de dispositivos móviles, informática forense, documentos electrónicos, análisis de datos jurídicos y soporte de cumplimiento.',
+    body: 'julljoll cursó Derecho en la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Proyectos de informática forense, SHA256.US, reparación y extracción de datos móviles, evidencia digital, cadena de custodia, documentación técnica y dictámenes periciales para procesos judiciales. La habilitación pericial y admisibilidad dependen de los requisitos de cada jurisdicción.',
     url: '/',
   },
   {
