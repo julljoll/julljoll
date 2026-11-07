@@ -31,7 +31,8 @@ const messages = {
     colorTheme: 'Cambiar tema de color',
     blogDescription: 'Notas, ideas y cosas que vale la pena compartir',
     tagsDescription: 'Artículos agrupados por etiqueta',
-    aboutDescription: 'Formación, trayectoria y competencias que complementan mi trabajo en informática forense.',
+    aboutDescription:
+      'Perfil de Jull Ortiz: formación en Derecho e informática forense, credenciales verificables y experiencia en diseño digital.',
     projectsDescription: 'Proyectos de informática forense, cumplimiento, análisis legal y evidencia digital.',
     browseTags: 'Ver por etiqueta',
     noPosts: 'Aún no hay publicaciones. Vuelve pronto.',
@@ -85,7 +86,8 @@ const messages = {
     colorTheme: 'Toggle color theme',
     blogDescription: 'Notes, ideas, and things worth sharing',
     tagsDescription: 'Posts grouped by tag',
-    aboutDescription: 'Education, experience, and skills that complement my work on digital forensics.',
+    aboutDescription:
+      'Jull Ortiz’s profile: law and digital forensics education, verifiable credentials, and professional experience in digital design.',
     projectsDescription: 'Projects in digital forensics, compliance, legal analysis, and digital evidence.',
     browseTags: 'Browse by tag',
     noPosts: 'No posts yet, check back soon.',

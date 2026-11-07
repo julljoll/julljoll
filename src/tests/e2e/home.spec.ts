@@ -6,8 +6,8 @@ test('home page shows the renamed profile hero and focuses the page on project a
   await expect(page).toHaveTitle(`${SITE_NAME} — Informática forense`);
   await expect(page.getByRole('heading', { name: /procesos judiciales/i })).toBeVisible();
   await expect(page.getByText(/Soy Jull Ortiz/)).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'Accesos del perfil' }).getByRole('link').last()).toHaveText(
-    'Blog forense↗',
+  await expect(page.getByRole('navigation', { name: 'Accesos del perfil' }).getByRole('link').last()).toContainText(
+    'Blog forense',
   );
   await expect(page.getByRole('heading', { name: 'Áreas del proyecto' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Dispositivos móviles' })).toBeVisible();
@@ -59,5 +59,12 @@ test('About Me contains education, career, and forensic scope', async ({ page })
   await expect(page.getByText(/Licenciatura en Derecho/)).toBeVisible();
   await expect(page.getByText(/Mentors4EDU/)).toBeVisible();
   await expect(page.getByText(/Virtual Engine Marketing/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cursos y certificaciones' })).toBeVisible();
+  await expect(page.getByText('Fundamentos Básicos de la Informática Forense')).toBeVisible();
+  await expect(page.getByText(/Curso autogestionado de 16 horas/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cybersecurity Fundamentals' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Patentes: un recorrido/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Verificar credencial' })).toHaveCount(8);
+  await expect(page.getByText(/modelo AIDAR/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Alcance pericial' })).toBeVisible();
 });

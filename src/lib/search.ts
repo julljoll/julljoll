@@ -35,7 +35,7 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
     title: 'About me',
     description: ABOUT_DESCRIPTION,
     tags: ['career', 'education', 'work'],
-    body: 'Law degree at Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Design at Mentors4EDU (2022-2024). Graphic design, visual identity, email campaigns, image retouching, video editing, user-centered design, experience research and testing. Forensic qualifications and expert report admissibility depend on local requirements.',
+    body: 'Jull Ortiz. Law degree, UNELLEZ, Barinas (2005-2010); design, Mentors4EDU (2022-2024). SUSCERTE Basic Foundations of Digital Forensics, 16 hours (Feb 2026); IBM SkillsBuild Cybersecurity Fundamentals, User Experience Design Fundamentals, AI Fundamentals, Career Management Essentials; Coursera patent research, Agile project management with Google, Figma high-fidelity prototyping, Miro Agile prototype analysis. User-Centered Design (UCD), AIDAR model, Figma, Klaviyo, social content, conversion landing pages, email marketing, image retouching, video editing. Graphic designer: SinnerArt (2022-2023), Virtual Engine Marketing (2024-2026). Forensic qualifications and expert report admissibility depend on local requirements.',
     url: '/experience/',
   },
   {
@@ -72,9 +72,10 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
   },
   {
     title: 'Sobre mí',
-    description: 'Formación, trayectoria y competencias que complementan mi trabajo en informática forense.',
+    description:
+      'Perfil de Jull Ortiz: formación en Derecho e informática forense, credenciales verificables y experiencia en diseño digital.',
     tags: ['trayectoria', 'formación', 'trabajo'],
-    body: 'Licenciatura en Derecho en la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Diseño en Mentors4EDU (2022-2024). Diseño gráfico, identidad visual, campañas de correo, retoque de imágenes, edición de vídeo, diseño centrado en las personas, investigación y pruebas de experiencia de usuario. La habilitación pericial y admisibilidad de dictámenes dependen de cada jurisdicción.',
+    body: 'Jull Ortiz. Licenciatura en Derecho, UNELLEZ, Barinas (2005-2010); Diseño, Mentors4EDU (2022-2024). Fundamentos Básicos de la Informática Forense, SUSCERTE, 16 horas (feb 2026); IBM SkillsBuild: Cybersecurity Fundamentals, User Experience Design Fundamentals, AI Fundamentals, Career Management Essentials; Coursera: búsqueda de patentes, gestión Agile con Google, prototipos de alta fidelidad en Figma, análisis de prototipos Agile en Miro. Diseño centrado en las personas (UCD), modelo AIDAR, Figma, Klaviyo, contenido para redes sociales, landing pages, email marketing, retoque de imágenes y edición de vídeo. Diseñador gráfico: SinnerArt (2022-2023), Virtual Engine Marketing (2024-2026). La formación no habilita por sí sola para ejercer como perito y la admisibilidad depende de cada jurisdicción.',
     url: '/experience/',
   },
   {

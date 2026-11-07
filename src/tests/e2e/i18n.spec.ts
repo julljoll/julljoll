@@ -26,6 +26,10 @@ test('Spanish is the default language and the language link opens English', asyn
   await expect(page.getByRole('heading', { name: 'About me' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Education' })).toBeVisible();
   await expect(page.getByText(/Law degree/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Courses and certifications' })).toBeVisible();
+  await expect(page.getByText('Basic Foundations of Digital Forensics')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cybersecurity Fundamentals' })).toBeVisible();
+  await expect(page.getByText(/16-hour course/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Forensic scope' })).toBeVisible();
 });
 
