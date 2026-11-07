@@ -1,4 +1,4 @@
-import { BLOG_DESCRIPTION, EXPERIENCE_DESCRIPTION, PROJECTS_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
+import { BLOG_DESCRIPTION, EXPERIENCE_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
 
 export type SearchEntry = {
   title: string;
@@ -40,9 +40,9 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
   },
   {
     title: 'Projects',
-    description: PROJECTS_DESCRIPTION,
+    description: 'Projects in digital forensics, compliance, legal analysis, and digital evidence.',
     tags: ['portfolio', 'open source', 'code'],
-    body: 'Projects will be added here.',
+    body: 'Compliance Forensic, Ulpiano Chief Compliance Officer, JullBrain Legal-RAG, FotoForense PhotoHolmes, and IPED_SHA256.US.',
     url: '/projects/',
   },
 ];
@@ -79,9 +79,9 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
   },
   {
     title: 'Proyectos',
-    description: 'Una colección de proyectos y experimentos.',
+    description: 'Proyectos de informática forense, cumplimiento, análisis legal y evidencia digital.',
     tags: ['portafolio', 'código'],
-    body: 'Aquí aparecerán los proyectos.',
+    body: 'Compliance Forensic, Ulpiano Chief Compliance Officer, JullBrain Legal-RAG, FotoForense PhotoHolmes e IPED_SHA256.US.',
     url: '/projects/',
   },
   {

@@ -1,18 +1,22 @@
 ---
-import { PROJECTS_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import { SITE_NAME } from '@/lib/site';
 import Layout from '@/components/Layout.astro';
 import Lede from '@/components/Lede.astro';
 import PageHero from '@/components/PageHero.astro';
+import ProjectsGrid from '@/components/ProjectsGrid.astro';
+import { getMessages } from '@/lib/i18n';
 ---
 
-<Layout title=`Projects — ${SITE_NAME}` description={PROJECTS_DESCRIPTION} canonicalPath="/projects/">
+<Layout
+  title={`Projects — ${SITE_NAME}`}
+  description={getMessages('en').projectsDescription}
+  canonicalPath="/projects/"
+>
   <main class="content-shell">
     <PageHero title="Projects" hideTitle>
-      <Lede>{PROJECTS_DESCRIPTION}</Lede>
+      <Lede>{getMessages('en').projectsDescription}</Lede>
     </PageHero>
 
-    <section class="section grid gap-8 md:grid-cols-2" aria-label="Projects">
-      <p class="text-muted">Projects will be added here.</p>
-    </section>
+    <ProjectsGrid locale="en" />
   </main>
 </Layout>
