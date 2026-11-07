@@ -1,0 +1,12 @@
+export const SITE_NAME = 'julljoll';
+export const AUTHOR_NAME = 'julljoll';
+export const SITE_DESCRIPTION = 'A personal site for notes, projects, and experiments.';
+export const JOB_TITLE = '';
+export const SITE_URL = 'https://julljoll.github.io';
+export const LINKEDIN_URL = '';
+export const GITHUB_URL = 'https://github.com/julljoll';
+export const SOURCE_URL = 'https://github.com/julljoll/julljoll';
+export const BLOG_DESCRIPTION = 'Notes, ideas, and things worth sharing';
+export const TAGS_DESCRIPTION = 'Posts grouped by tag';
+export const EXPERIENCE_DESCRIPTION = 'A little about the work and experiences behind this site.';
+export const PROJECTS_DESCRIPTION = 'A collection of projects and experiments.';

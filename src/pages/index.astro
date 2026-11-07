@@ -1,0 +1,69 @@
+---
+import FallingLeaves from '@/components/effects/FallingLeaves.astro';
+import FallingPetals from '@/components/effects/FallingPetals.astro';
+import FallingSnow from '@/components/effects/FallingSnow.astro';
+import HeatShimmer from '@/components/effects/HeatShimmer.astro';
+import Layout from '@/components/Layout.astro';
+import Highlight from '@/components/Highlight.astro';
+import PageHero from '@/components/PageHero.astro';
+import Sunlight from '@/components/effects/Sunlight.astro';
+import { withBase } from '@/lib/paths';
+import { AUTHOR_NAME, GITHUB_URL, JOB_TITLE, LINKEDIN_URL, SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+
+const personSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: AUTHOR_NAME,
+  jobTitle: JOB_TITLE || undefined,
+  url: new URL(withBase('/'), Astro.site).toString(),
+  sameAs: [GITHUB_URL, LINKEDIN_URL].filter(Boolean),
+}).replace(/</g, '\\u003c');
+---
+
+<Layout title={SITE_NAME} description={SITE_DESCRIPTION} canonicalPath="/">
+  <script type="application/ld+json" is:inline set:html={personSchema}></script>
+  <FallingLeaves />
+  <FallingSnow />
+  <FallingPetals />
+  <Sunlight />
+  <HeatShimmer>
+    <main class="content-shell">
+      <PageHero title="Home" hideTitle>
+        <h2 class:list={['text-[clamp(3rem,4.5vw,4.25rem)]', 'leading-[1.1]', 'tracking-[-0.03em]']}>
+          A <Highlight>season-aware</Highlight>, <Highlight>neobrutalist</Highlight> corner of the internet.
+        </h2>
+      </PageHero>
+
+      <section class="section" aria-label="About">
+        <div class="flex justify-center w-full mt-10">
+          <div class="card">
+            <div class="about-prose">
+              <p>
+                This is a <Highlight bold>personal site</Highlight> built with a{' '}
+                <Highlight bold>neobrutalist</Highlight> Astro theme. Its colors follow the calendar, moving through{' '}
+                <Highlight bold>autumn</Highlight>, <Highlight bold>winter</Highlight>,{' '}
+                <Highlight bold>spring</Highlight>, and <Highlight bold>summer</Highlight>, each with a light and a dark
+                mode.
+              </p>
+
+              <p>A home for notes, projects, and experiments, with a different palette for every season.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </HeatShimmer>
+</Layout>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .card {
+    @apply rounded-none border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)];
+  }
+
+  .about-prose p {
+    @apply mb-[1.2rem] font-heading text-[1.3rem] leading-[1.75] last:mb-0;
+    color: color-mix(in srgb, var(--ink) 82%, var(--muted));
+  }
+</style>
