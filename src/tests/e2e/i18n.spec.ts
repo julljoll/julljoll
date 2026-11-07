@@ -6,6 +6,7 @@ test('Spanish is the default language and the language link opens English', asyn
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
   await expect(page.getByRole('link', { name: 'Idioma: English' })).toHaveAttribute('href', '/en/');
   await expect(page.getByRole('link', { name: 'Inicio' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Jull Ortiz', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Áreas del proyecto' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Dispositivos móviles' })).toBeVisible();
   await expect(page.getByText(/Licenciatura en Derecho/)).toHaveCount(0);
@@ -15,6 +16,7 @@ test('Spanish is the default language and the language link opens English', asyn
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('link', { name: 'Language: Español' })).toHaveAttribute('href', '/');
   await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Jull Ortiz', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Project focus areas' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Mobile devices' })).toBeVisible();
   await expect(page.getByText(/law degree at Universidad Nacional Experimental/)).toHaveCount(0);

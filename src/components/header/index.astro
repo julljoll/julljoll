@@ -2,6 +2,7 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faMagnifyingGlass, faRss } from '@fortawesome/free-solid-svg-icons';
 import Icon from '@/components/Icon.astro';
+import ContactLinks from '@/components/header/ContactLinks.astro';
 import { ANIMATED_UNDERLINE_CLASSES } from '@/lib/animatedUnderline';
 import { withBase, withoutBase } from '@/lib/paths';
 import { GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
@@ -24,11 +25,6 @@ const navMenuItems = [
     current: currentPath === '/' || currentPath === '/en/',
   },
   {
-    href: withBase(localizedPath('/blog/', locale)),
-    title: message.blog,
-    current: currentPath.startsWith('/blog') || currentPath.startsWith('/tags'),
-  },
-  {
     href: withBase(localizedPath('/experience/', locale)),
     title: message.about,
     current: currentPath === '/experience/' || currentPath === '/en/experience/',
@@ -37,6 +33,11 @@ const navMenuItems = [
     href: withBase(localizedPath('/projects/', locale)),
     title: message.projects,
     current: currentPath === '/projects/' || currentPath === '/en/projects/',
+  },
+  {
+    href: withBase(localizedPath('/blog/', locale)),
+    title: message.blog,
+    current: currentPath.startsWith('/blog') || currentPath.startsWith('/tags'),
   },
 ];
 ---
@@ -71,6 +72,9 @@ const navMenuItems = [
             <Icon icon={faLinkedin} />
           </a>
         )}
+        <div class="contact-links-desktop">
+          <ContactLinks locale={locale} />
+        </div>
         <a class="nav-icon-link" href={withBase('/rss.xml')} aria-label={message.rss}>
           <Icon icon={faRss} />
         </a>
@@ -101,6 +105,7 @@ const navMenuItems = [
             </a>
           );
         })}
+        <ContactLinks locale={locale} />
       </div>
     </details>
   </nav>
@@ -152,6 +157,14 @@ const navMenuItems = [
 
   .nav-menu-panel a {
     @apply rounded-none px-[0.7rem] py-[0.62rem] font-heading text-[0.9rem] font-semibold text-ink;
+  }
+
+  .nav-menu-panel > :global(.contact-links) {
+    @apply flex-wrap border-t-2 border-ink p-[0.55rem];
+  }
+
+  .contact-links-desktop {
+    @apply max-[860px]:hidden;
   }
 
   .nav-menu-panel a:hover,

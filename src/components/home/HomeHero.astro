@@ -1,0 +1,98 @@
+---
+import Highlight from '@/components/Highlight.astro';
+import PageHero from '@/components/PageHero.astro';
+import { localizedPath, type Locale } from '@/lib/i18n';
+import { withBase } from '@/lib/paths';
+import { AUTHOR_NAME, WEBSITE_URL } from '@/lib/site';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = {
+  es: {
+    title: `Perfil de ${AUTHOR_NAME}`,
+    eyebrow: 'Informática forense · Evidencia digital',
+    headlineStart: 'Análisis digital y documentación técnica para',
+    headlineHighlight: 'procesos judiciales.',
+    intro: `Soy ${AUTHOR_NAME}. Combino formación en Derecho con proyectos de informática forense y el trabajo de SHA256.US en reparación, extracción y análisis de información de dispositivos móviles.`,
+    projects: 'Explora mis proyectos',
+    about: 'Sobre mí',
+    website: 'SHA256.US',
+    blog: 'Blog forense',
+  },
+  en: {
+    title: `${AUTHOR_NAME}'s profile`,
+    eyebrow: 'Digital forensics · Digital evidence',
+    headlineStart: 'Digital analysis and technical documentation for',
+    headlineHighlight: 'judicial proceedings.',
+    intro: `I'm ${AUTHOR_NAME}. I combine a background in law with digital forensics projects and SHA256.US work on mobile-device repair, data extraction, and analysis.`,
+    projects: 'Explore my projects',
+    about: 'About me',
+    website: 'SHA256.US',
+    blog: 'Forensics blog',
+  },
+}[locale];
+---
+
+<PageHero title={copy.title} hideTitle eyebrow={copy.eyebrow}>
+  <div class="hero-layout">
+    <div>
+      <h1 class="hero-title">
+        {copy.headlineStart} <Highlight>{copy.headlineHighlight}</Highlight>
+      </h1>
+      <p class="hero-intro">{copy.intro}</p>
+    </div>
+    <nav class="hero-menu" aria-label={locale === 'es' ? 'Accesos del perfil' : 'Profile shortcuts'}>
+      <a class="hero-link hero-link-primary" href={withBase(localizedPath('/projects/', locale))}>
+        {copy.projects}
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a class="hero-link" href={withBase(localizedPath('/experience/', locale))}>
+        {copy.about}
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a class="hero-link" href={WEBSITE_URL} target="_blank" rel="noopener noreferrer">
+        {copy.website}
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a class="hero-link" href={withBase(localizedPath('/blog/', locale))}>
+        {copy.blog}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </div>
+</PageHero>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .hero-layout {
+    @apply grid grid-cols-[minmax(0,1.3fr)_minmax(15rem,0.7fr)] items-end gap-8 max-[760px]:grid-cols-1;
+  }
+
+  .hero-title {
+    @apply mt-4 max-w-[19ch] text-[clamp(2.5rem,5.8vw,4.7rem)] leading-[1.03] tracking-[-0.045em];
+  }
+
+  .hero-intro {
+    @apply mt-5 mb-0 max-w-[42rem] text-[clamp(1.05rem,2vw,1.25rem)] leading-[1.6] text-ink-soft;
+  }
+
+  .hero-menu {
+    @apply grid gap-2;
+  }
+
+  .hero-link {
+    @apply flex min-h-12 items-center justify-between gap-5 border-2 border-ink bg-bg-elevated px-4 py-3 font-heading font-bold text-ink shadow-[4px_4px_0_0_var(--ink)] transition-[translate,box-shadow,background-color,color] duration-120 ease-[ease];
+  }
+
+  .hero-link:hover {
+    @apply translate-x-[2px] translate-y-[2px] bg-accent text-bg shadow-[2px_2px_0_0_var(--ink)];
+  }
+
+  .hero-link-primary {
+    @apply bg-accent text-bg;
+  }
+</style>

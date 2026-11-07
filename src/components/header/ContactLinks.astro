@@ -1,0 +1,80 @@
+---
+import { faInstagram, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import Icon from '@/components/Icon.astro';
+import type { Locale } from '@/lib/i18n';
+import { EMAIL_URL, INSTAGRAM_URL, WEBSITE_LABEL, WEBSITE_URL, WHATSAPP_URL, X_URL } from '@/lib/site';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const labels =
+  locale === 'es'
+    ? { whatsapp: 'WhatsApp', instagram: 'Instagram', x: 'X', email: 'Correo electrónico', website: 'Sitio web' }
+    : { whatsapp: 'WhatsApp', instagram: 'Instagram', x: 'X', email: 'Email', website: 'Website' };
+---
+
+<div class="contact-links">
+  <a
+    class="contact-icon-link"
+    href={WHATSAPP_URL}
+    aria-label={labels.whatsapp}
+    title={labels.whatsapp}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon icon={faWhatsapp} />
+  </a>
+  <a
+    class="contact-icon-link"
+    href={INSTAGRAM_URL}
+    aria-label={labels.instagram}
+    title={labels.instagram}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon icon={faInstagram} />
+  </a>
+  <a
+    class="contact-icon-link"
+    href={X_URL}
+    aria-label={labels.x}
+    title={labels.x}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon icon={faXTwitter} />
+  </a>
+  <a class="contact-icon-link" href={EMAIL_URL} aria-label={labels.email} title={labels.email}>
+    <Icon icon={faEnvelope} />
+  </a>
+  <a
+    class="contact-icon-link"
+    href={WEBSITE_URL}
+    aria-label={`${labels.website}: ${WEBSITE_LABEL}`}
+    title={`${labels.website}: ${WEBSITE_LABEL}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon icon={faGlobe} />
+  </a>
+</div>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .contact-links {
+    @apply flex items-center gap-[0.45rem];
+  }
+
+  .contact-icon-link {
+    @apply inline-flex size-[2.1rem] shrink-0 items-center justify-center rounded-none border-2 border-ink bg-bg-elevated text-ink;
+    @apply shadow-[3px_3px_0_0_var(--ink)] transition-[translate,box-shadow,background-color,color] duration-120 ease-[ease];
+  }
+
+  .contact-icon-link:hover {
+    @apply translate-x-[1px] translate-y-[1px] bg-accent text-bg shadow-[2px_2px_0_0_var(--ink)];
+  }
+</style>

@@ -4,6 +4,7 @@ import FallingPetals from '@/components/effects/FallingPetals.astro';
 import FallingSnow from '@/components/effects/FallingSnow.astro';
 import HeatShimmer from '@/components/effects/HeatShimmer.astro';
 import Layout from '@/components/Layout.astro';
+import HomeHero from '@/components/home/HomeHero.astro';
 import ProjectAreas from '@/components/home/ProjectAreas.astro';
 import Sunlight from '@/components/effects/Sunlight.astro';
 import { withBase } from '@/lib/paths';
@@ -21,7 +22,7 @@ const personSchema = JSON.stringify({
 }).replace(/</g, '\\u003c');
 ---
 
-<Layout title={`${SITE_NAME} — Project focus`} description={description} canonicalPath="/">
+<Layout title={`${SITE_NAME} — Digital forensics`} description={description} canonicalPath="/">
   <script type="application/ld+json" is:inline set:html={personSchema}></script>
   <FallingLeaves />
   <FallingSnow />
@@ -29,6 +30,7 @@ const personSchema = JSON.stringify({
   <Sunlight />
   <HeatShimmer>
     <main class="content-shell">
+      <HomeHero locale="en" />
       <ProjectAreas locale="en" />
     </main>
   </HeatShimmer>

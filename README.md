@@ -1,4 +1,4 @@
-# julljoll
+# Jull Ortiz
 
 ### Informática forense · evidencia digital · contexto jurídico
 
@@ -54,4 +54,4 @@ El [blog de SHA256.US](https://blog-astro-fawn.vercel.app/) reúne contenidos so
 
 ## Contacto
 
-Para consultas sobre el perfil o los proyectos, puedes escribirme a [julljoll@gmail.com](mailto:julljoll@gmail.com) o encontrarme en [LinkedIn](https://www.linkedin.com/in/julljoll/).
+Para consultas sobre el perfil o los proyectos, puedes escribirme a [julljoll@gmail.com](mailto:julljoll@gmail.com), contactarme por [WhatsApp](https://wa.me/584245585474) o encontrarme en [LinkedIn](https://www.linkedin.com/in/julljoll/), [Instagram](https://www.instagram.com/julljoll/) y [X](https://x.com/julljoll).
