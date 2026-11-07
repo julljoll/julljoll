@@ -10,6 +10,13 @@ const BASE_PATH = process.env.BASE_PATH || undefined;
 export default defineConfig({
   site: process.env.SITE_URL || SITE_URL,
   base: BASE_PATH,
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 
   compressHTML: true,
 

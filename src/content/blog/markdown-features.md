@@ -2,6 +2,7 @@
 title: 'Markdown features'
 description: 'Every Markdown feature this theme styles, in one post. Copy what you need into your own posts.'
 date: 2026-10-31
+locale: en
 tags:
   - Markdown
   - Guide

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer.astro';
 import Header from '@/components/header/index.astro';
 import { withBase } from '@/lib/paths';
 import { SITE_NAME } from '@/lib/site';
+import { getLocale, localizedPath } from '@/lib/i18n';
 import '@/styles/global.css';
 
 interface Props {
@@ -16,13 +17,14 @@ interface Props {
 }
 
 const { title, description, canonicalPath = '/', ogType = 'website' } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
 
-const canonicalUrl = new URL(withBase(canonicalPath), Astro.site).toString();
+const canonicalUrl = new URL(withBase(localizedPath(canonicalPath, locale)), Astro.site).toString();
 const ogImageUrl = new URL(withBase('/assets/og.png'), Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -59,13 +61,13 @@ const ogImageUrl = new URL(withBase('/assets/og.png'), Astro.site).toString();
     <ClientRouter />
   </head>
   <body>
-    <Header />
+    <Header locale={locale} />
 
     <slot />
 
-    <Footer />
+    <Footer locale={locale} />
 
-    <SearchOverlay />
+    <SearchOverlay locale={locale} />
 
     <SmartCursor />
   </body>

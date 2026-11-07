@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const SEARCH_QUERY: string = 'markdown';
+const SEARCH_QUERY: string = 'Astro';
 const NO_MATCH_QUERY: string = 'zzzzqqqq';
 
 test('search overlay opens from the navbar and closes with escape', async ({ page }) => {
@@ -51,4 +51,14 @@ test('search overlay explains when nothing matches', async ({ page }) => {
   await page.locator('#search-input').fill(NO_MATCH_QUERY);
 
   await expect(page.locator('.search-empty')).toContainText(NO_MATCH_QUERY);
+});
+
+test('English search returns English localized results', async ({ page }) => {
+  await page.goto('/en/');
+  await page.locator('#search-open').click();
+  await page.locator('#search-input').fill('markdown');
+
+  const firstResult = page.locator('.search-result').first();
+  await expect(firstResult).toBeVisible();
+  await expect(firstResult).toHaveAttribute('href', '/en/blog/markdown-features/');
 });

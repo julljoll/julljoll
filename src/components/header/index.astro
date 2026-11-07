@@ -5,43 +5,50 @@ import Icon from '@/components/Icon.astro';
 import { ANIMATED_UNDERLINE_CLASSES } from '@/lib/animatedUnderline';
 import { withBase, withoutBase } from '@/lib/paths';
 import { GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
+import { getMessages, localizedPath, type Locale } from '@/lib/i18n';
 import BrandLogo from './BrandLogo.astro';
 import ThemePicker from './ThemePicker.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
 const currentPath = withoutBase(Astro.url.pathname);
 const navMenuItems = [
   {
-    href: withBase('/'),
-    title: 'Home',
-    current: currentPath === '/',
+    href: withBase(localizedPath('/', locale)),
+    title: message.home,
+    current: currentPath === '/' || currentPath === '/en/',
   },
   {
-    href: withBase('/blog/'),
-    title: 'Blog',
+    href: withBase(localizedPath('/blog/', locale)),
+    title: message.blog,
     current: currentPath.startsWith('/blog') || currentPath.startsWith('/tags'),
   },
   {
-    href: withBase('/experience/'),
-    title: 'Experience',
-    current: currentPath === '/experience/',
+    href: withBase(localizedPath('/experience/', locale)),
+    title: message.experience,
+    current: currentPath === '/experience/' || currentPath === '/en/experience/',
   },
   {
-    href: withBase('/projects/'),
-    title: 'Projects',
-    current: currentPath === '/projects/',
+    href: withBase(localizedPath('/projects/', locale)),
+    title: message.projects,
+    current: currentPath === '/projects/' || currentPath === '/en/projects/',
   },
   {
-    href: withBase('/colors/'),
-    title: 'Colors',
-    current: currentPath.startsWith('/colors'),
+    href: withBase(localizedPath('/colors/', locale)),
+    title: message.colors,
+    current: currentPath.startsWith('/colors') || currentPath.startsWith('/en/colors'),
   },
 ];
 ---
 
 <header class="sticky top-0 z-20 border-b-5 border-ink bg-bg">
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href={withBase('/')} aria-label={SITE_NAME}>
+  <nav class="nav" aria-label={locale === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+    <a class="brand" href={withBase(localizedPath('/', locale))} aria-label={SITE_NAME}>
       <BrandLogo />
       <span>{SITE_NAME}</span>
     </a>
@@ -58,27 +65,35 @@ const navMenuItems = [
 
     <div class="flex items-center gap-[0.45rem] max-[860px]:ml-auto">
       <div class="flex items-center gap-[0.45rem] max-sm:hidden">
-        <button class="nav-icon-link" type="button" id="search-open" aria-label="Search (Ctrl+K)">
+        <button class="nav-icon-link" type="button" id="search-open" aria-label={message.searchLabel}>
           <Icon icon={faMagnifyingGlass} />
         </button>
-        <a class="nav-icon-link" href={GITHUB_URL} aria-label="GitHub" target="_blank" rel="noopener">
+        <a class="nav-icon-link" href={GITHUB_URL} aria-label={message.github} target="_blank" rel="noopener">
           <Icon icon={faGithub} />
         </a>
         {LINKEDIN_URL && (
-          <a class="nav-icon-link" href={LINKEDIN_URL} aria-label="LinkedIn" target="_blank" rel="noopener">
+          <a class="nav-icon-link" href={LINKEDIN_URL} aria-label={message.linkedin} target="_blank" rel="noopener">
             <Icon icon={faLinkedin} />
           </a>
         )}
-        <a class="nav-icon-link" href={withBase('/rss.xml')} aria-label="RSS feed">
+        <a class="nav-icon-link" href={withBase('/rss.xml')} aria-label={message.rss}>
           <Icon icon={faRss} />
         </a>
       </div>
-      <ThemePicker />
-      <ThemeToggle />
+      <a
+        class="language-link"
+        href={withBase(localizedPath(Astro.url.pathname, locale === 'es' ? 'en' : 'es'))}
+        aria-label={`${message.language}: ${message.switchLanguage}`}
+        lang={locale === 'es' ? 'en' : 'es'}
+      >
+        {message.switchLanguage}
+      </a>
+      <ThemePicker locale={locale} />
+      <ThemeToggle locale={locale} />
     </div>
 
     <details class="hidden max-[860px]:flex">
-      <summary class="nav-menu-button" aria-label="Open navigation">
+      <summary class="nav-menu-button" aria-label={locale === 'es' ? 'Abrir navegación' : 'Open navigation'}>
         <span></span>
         <span></span>
         <span></span>
@@ -152,6 +167,10 @@ const navMenuItems = [
   .nav-icon-link {
     @apply inline-flex size-[2.1rem] items-center justify-center rounded-none border-2 border-ink bg-bg-elevated text-ink;
     @apply shadow-[3px_3px_0_0_var(--ink)] transition-[translate,box-shadow,background-color,color] duration-120 ease-[ease];
+  }
+
+  .language-link {
+    @apply rounded-none border-2 border-ink bg-bg-elevated px-2 py-1 font-heading text-[0.78rem] font-bold text-ink shadow-[3px_3px_0_0_var(--ink)];
   }
 
   .nav-menu-button:hover,

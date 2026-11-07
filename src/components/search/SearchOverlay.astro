@@ -1,10 +1,25 @@
 ---
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Icon from '@/components/Icon.astro';
+import { getMessages, type Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
 ---
 
-<div class="theme-overlay" id="search-overlay" hidden>
-  <div class="theme-overlay-panel" role="dialog" aria-label="Search" aria-modal="true">
+<div
+  class="theme-overlay"
+  id="search-overlay"
+  data-search-placeholder={message.searchType}
+  data-search-error={message.searchError}
+  data-search-no-matches={locale === 'es' ? 'No hay resultados para «%s»' : 'No matches for "%s"'}
+  hidden
+>
+  <div class="theme-overlay-panel" role="dialog" aria-label={message.search} aria-modal="true">
     <div class="search-input-row">
       <span class="search-icon" aria-hidden="true">
         <Icon icon={faMagnifyingGlass} />
@@ -14,12 +29,12 @@ import Icon from '@/components/Icon.astro';
         type="search"
         autocomplete="off"
         spellcheck="false"
-        placeholder="Search posts and tags"
-        aria-label="Search query"
+        placeholder={message.searchPlaceholder}
+        aria-label={message.searchQuery}
       />
     </div>
-    <div class="search-results" id="search-results" role="listbox" aria-label="Search results">
-      <p class="search-empty">Type to search</p>
+    <div class="search-results" id="search-results" role="listbox" aria-label={message.searchResults}>
+      <p class="search-empty">{message.searchType}</p>
     </div>
     <div class="theme-overlay-footer">
       <span class="theme-overlay-hints" aria-hidden="true">
@@ -27,7 +42,7 @@ import Icon from '@/components/Icon.astro';
         <kbd>↓</kbd> navigate <kbd>↵</kbd> open
       </span>
       <span class="theme-overlay-actions">
-        <button class="theme-close-btn" type="button" id="search-close-btn">
+        <button class="theme-close-btn" type="button" id="search-close-btn" aria-label={message.close}>
           esc
         </button>
       </span>
@@ -37,6 +52,7 @@ import Icon from '@/components/Icon.astro';
 
 <script>
   import { withBase } from '@/lib/paths';
+  import { localizedPath, getLocale } from '@/lib/i18n';
   import type { SearchEntry } from '@/lib/search';
   import Fuse, { type FuseResult, type RangeTuple } from 'fuse.js';
 
@@ -47,7 +63,8 @@ import Icon from '@/components/Icon.astro';
   async function loadFuse(): Promise<Fuse<SearchEntry> | null> {
     if (fuse || fuseFailed) return fuse;
     try {
-      const response = await fetch(withBase('/search.json'));
+      const locale = getLocale(window.location.pathname);
+      const response = await fetch(withBase(localizedPath('/search.json', locale)));
       const entries: SearchEntry[] = await response.json();
       fuse = new Fuse(entries, {
         keys: [
@@ -127,6 +144,11 @@ import Icon from '@/components/Icon.astro';
     let queryId = 0;
     let historyIndex = -1;
     const HISTORY_KEY = 'site-search-history';
+    const messages = {
+      searchType: overlay.dataset.searchPlaceholder ?? 'Type to search',
+      searchError: overlay.dataset.searchError ?? 'Search index could not be loaded.',
+      searchNoMatches: overlay.dataset.searchNoMatches ?? 'No matches for "%s"',
+    };
 
     function loadHistory(): string[] {
       try {
@@ -149,7 +171,7 @@ import Icon from '@/components/Icon.astro';
       if (index < 0) {
         historyIndex = -1;
         input!.value = '';
-        setEmpty('Type to search');
+        setEmpty(messages.searchType);
         return;
       }
       if (index >= history.length) return;
@@ -180,18 +202,18 @@ import Icon from '@/components/Icon.astro';
     async function runSearch(query: string) {
       const id = ++queryId;
       if (!query.trim()) {
-        setEmpty('Type to search');
+        setEmpty(messages.searchType);
         return;
       }
       const searchIndex = await loadFuse();
       if (!searchIndex) {
-        setEmpty('Search index could not be loaded.');
+        setEmpty(messages.searchError);
         return;
       }
       if (id !== queryId || !results) return;
       const top: FuseResult<SearchEntry>[] = searchIndex.search(query, { limit: 8 });
       if (top.length === 0) {
-        setEmpty(`No matches for "${query}"`);
+        setEmpty(messages.searchNoMatches.replace('%s', query));
         return;
       }
       results.innerHTML = '';
@@ -219,7 +241,7 @@ import Icon from '@/components/Icon.astro';
       document.body.style.overflow = 'hidden';
       input!.value = '';
       historyIndex = -1;
-      setEmpty('Type to search');
+      setEmpty(messages.searchType);
       input!.focus();
       void loadFuse();
     }
