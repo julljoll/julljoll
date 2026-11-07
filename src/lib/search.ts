@@ -1,4 +1,4 @@
-import { BLOG_DESCRIPTION, EXPERIENCE_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
+import { ABOUT_DESCRIPTION, BLOG_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
 
 export type SearchEntry = {
   title: string;
@@ -12,9 +12,9 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
   {
     title: 'Home',
     description:
-      'Meet julljoll: a law degree and digital forensics projects focused on digital evidence and technical documentation for judicial proceedings.',
+      'Project areas at SHA256.US: mobile devices, digital evidence, electronic documents, and digital forensics.',
     tags: [],
-    body: 'julljoll studied law at Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Digital forensics projects, SHA256.US mobile-device repair and extraction, digital evidence, chain of custody, technical documentation and expert reports for judicial proceedings. Expert qualifications and report admissibility depend on local requirements.',
+    body: 'Mobile devices, repair, data extraction, digital evidence, electronic documents, metadata, contracts, digital forensics, legal information analysis, compliance and digital documentation.',
     url: '/',
   },
   {
@@ -32,10 +32,10 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
     url: '/tags/',
   },
   {
-    title: 'Experience',
-    description: EXPERIENCE_DESCRIPTION,
-    tags: ['career', 'resume', 'work'],
-    body: 'Experience will be added here.',
+    title: 'About me',
+    description: ABOUT_DESCRIPTION,
+    tags: ['career', 'education', 'work'],
+    body: 'Law degree at Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Design at Mentors4EDU (2022-2024). Graphic design, visual identity, email campaigns, image retouching, video editing, user-centered design, experience research and testing. Forensic qualifications and expert report admissibility depend on local requirements.',
     url: '/experience/',
   },
   {
@@ -51,9 +51,9 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
   {
     title: 'Inicio',
     description:
-      'Perfil de julljoll: formación universitaria en Derecho y proyectos de informática forense, evidencia digital y documentación técnica para procesos judiciales.',
+      'Áreas del proyecto SHA256.US: dispositivos móviles, evidencia digital, documentos electrónicos e informática forense.',
     tags: [],
-    body: 'julljoll cursó Derecho en la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Proyectos de informática forense, SHA256.US, reparación y extracción de datos móviles, evidencia digital, cadena de custodia, documentación técnica y dictámenes periciales para procesos judiciales. La habilitación pericial y admisibilidad dependen de los requisitos de cada jurisdicción.',
+    body: 'Dispositivos móviles, reparación, extracción de información, evidencia digital, documentos electrónicos, metadatos, contratos, informática forense, análisis de información legal, cumplimiento y documentación digital.',
     url: '/',
   },
   {
@@ -71,10 +71,10 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
     url: '/tags/',
   },
   {
-    title: 'Experiencia',
-    description: 'Un poco sobre las experiencias detrás de este sitio.',
-    tags: ['carrera', 'trabajo'],
-    body: 'Aquí aparecerá la experiencia.',
+    title: 'Sobre mí',
+    description: 'Formación, trayectoria y competencias que complementan mi trabajo en informática forense.',
+    tags: ['trayectoria', 'formación', 'trabajo'],
+    body: 'Licenciatura en Derecho en la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora, Barinas (2005-2010). Diseño en Mentors4EDU (2022-2024). Diseño gráfico, identidad visual, campañas de correo, retoque de imágenes, edición de vídeo, diseño centrado en las personas, investigación y pruebas de experiencia de usuario. La habilitación pericial y admisibilidad de dictámenes dependen de cada jurisdicción.',
     url: '/experience/',
   },
   {

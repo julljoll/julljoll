@@ -1,0 +1,9 @@
+---
+import { ANIMATED_UNDERLINE_CLASSES } from '@/lib/animatedUnderline';
+
+const articleProseClasses = ['article-prose', ...ANIMATED_UNDERLINE_CLASSES];
+---
+
+<div class:list={articleProseClasses}>
+  <slot />
+</div>

@@ -1,22 +1,16 @@
 ---
 import { SITE_NAME } from '@/lib/site';
 import Layout from '@/components/Layout.astro';
-import Lede from '@/components/Lede.astro';
-import PageHero from '@/components/PageHero.astro';
 import ProjectsGrid from '@/components/ProjectsGrid.astro';
+import ProjectPageHeader from '@/components/projects/ProjectPageHeader.astro';
 import { getMessages } from '@/lib/i18n';
+
+const message = getMessages('en');
 ---
 
-<Layout
-  title={`Projects — ${SITE_NAME}`}
-  description={getMessages('en').projectsDescription}
-  canonicalPath="/projects/"
->
+<Layout title={`Projects — ${SITE_NAME}`} description={message.projectsDescription} canonicalPath="/projects/">
   <main class="content-shell">
-    <PageHero title="Projects" hideTitle>
-      <Lede>{getMessages('en').projectsDescription}</Lede>
-    </PageHero>
-
+    <ProjectPageHeader locale="en" description={message.projectsDescription} />
     <ProjectsGrid locale="en" />
   </main>
 </Layout>

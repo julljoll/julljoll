@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleBody from '@/components/blog/ArticleBody.astro';
+import ArticleHeader from '@/components/blog/ArticleHeader.astro';
+import ArticleLayout from '@/components/blog/ArticleLayout.astro';
+import { postSlug } from '@/lib/posts';
+import { slugifyTag } from '@/lib/tags';
+import { withBase } from '@/lib/paths';
+import { getMessages, type Locale } from '@/lib/i18n';
+import { AUTHOR_NAME } from '@/lib/site';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  headings: Heading[];
+  locale: Locale;
+}
+
+const { post, headings, locale } = Astro.props;
+const sectionHeadings = headings.filter((heading) => heading.depth === 2);
+const tags = post.data.tags.filter((tag) => slugifyTag(tag) !== '');
+const slug = postSlug(post);
+const postSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  url: new URL(withBase(`/blog/${slug}/`), Astro.site).toString(),
+  author: {
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    url: new URL(withBase('/'), Astro.site).toString(),
+  },
+}).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" is:inline set:html={postSchema}></script>
+<ArticleLayout headings={sectionHeadings} label={getMessages(locale).articleSections}>
+  <article class="min-w-0">
+    <ArticleHeader
+      title={post.data.title}
+      description={post.data.description}
+      date={post.data.date}
+      tags={tags}
+      locale={locale}
+    />
+    <ArticleBody>
+      <slot />
+    </ArticleBody>
+  </article>
+</ArticleLayout>

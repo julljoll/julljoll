@@ -1,0 +1,31 @@
+---
+import type { Locale } from '@/lib/i18n';
+import PageHero from '@/components/PageHero.astro';
+import Lede from '@/components/Lede.astro';
+import { AUTHOR_NAME } from '@/lib/site';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  es: {
+    title: 'Sobre mí',
+    eyebrow: 'Perfil profesional',
+    lede: `Soy ${AUTHOR_NAME}. Mi formación en Derecho y mi experiencia en diseño visual complementan mi trabajo en proyectos de informática forense, evidencia digital y documentación técnica.`,
+  },
+  en: {
+    title: 'About me',
+    eyebrow: 'Professional profile',
+    lede: `I'm ${AUTHOR_NAME}. My background in law and visual design complements my work on digital forensics, digital evidence, and technical documentation projects.`,
+  },
+}[locale];
+---
+
+<PageHero title={text.title} eyebrow={text.eyebrow}>
+  <h2 class="max-w-[20ch] text-[clamp(2.4rem,5vw,4.2rem)] leading-[1.03] tracking-[-0.045em]">
+    {locale === 'es' ? 'Derecho, tecnología y análisis digital.' : 'Law, technology, and digital analysis.'}
+  </h2>
+  <Lede>{text.lede}</Lede>
+</PageHero>

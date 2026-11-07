@@ -1,0 +1,54 @@
+---
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  es: {
+    title: 'Competencias complementarias',
+    intro:
+      'Mi experiencia en diseño gráfico, retoque de imágenes y edición de vídeo aporta herramientas para presentar información visual con claridad.',
+    method:
+      'También he trabajado con enfoques de diseño centrado en las personas: investigar necesidades, probar soluciones y optimizar contenidos digitales. Estas prácticas pueden apoyar la comunicación, pero no sustituyen los métodos técnicos de análisis forense.',
+    skills: [
+      'Diseño visual',
+      'Retoque de imágenes',
+      'Edición de vídeo',
+      'Investigación y pruebas de experiencia de usuario',
+    ],
+  },
+  en: {
+    title: 'Complementary skills',
+    intro:
+      'My experience in graphic design, image retouching, and video editing provides tools for presenting visual information clearly.',
+    method:
+      'I have also worked with user-centered design approaches: researching needs, testing solutions, and optimizing digital content. These practices can support communication, but they do not replace technical forensic methods.',
+    skills: ['Visual design', 'Image retouching', 'Video editing', 'User experience research and testing'],
+  },
+}[locale];
+---
+
+<section class="section" aria-labelledby="about-approach-title">
+  <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(16rem,0.7fr)]">
+    <article class="border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+      <h2
+        id="about-approach-title"
+        class="mb-3 text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.1] font-bold tracking-[-0.03em]"
+      >
+        {text.title}
+      </h2>
+      <p class="leading-[1.6] text-ink-soft">{text.intro}</p>
+      <p class="mb-0 leading-[1.6] text-ink-soft">{text.method}</p>
+    </article>
+    <aside class="flex flex-col justify-center border-2 border-dashed border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+      <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+        {text.skills.map((skill) => (
+          <li class="border-2 border-ink bg-bg px-2 py-1 font-mono text-xs font-bold text-ink">{skill}</li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</section>

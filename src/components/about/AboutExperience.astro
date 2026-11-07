@@ -1,0 +1,56 @@
+---
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  es: {
+    title: 'Trayectoria',
+    current: 'Profesional independiente',
+    currentDate: 'Enero de 2026–actualidad',
+    currentDetail: 'Actividad profesional independiente.',
+    virtual: 'Diseñador gráfico · Virtual Engine Marketing',
+    virtualDate: 'Febrero de 2024–marzo de 2026',
+    virtualDetail:
+      'Diseño de contenido visual, páginas de destino y materiales de marketing; edición de vídeo y producción de campañas de correo electrónico.',
+    sinner: 'Diseñador gráfico · SinnerArt',
+    sinnerDate: 'Febrero de 2022–septiembre de 2023',
+    sinnerDetail: 'Identidad visual, diseño de campañas de correo electrónico, retoque de imágenes y edición de vídeo.',
+  },
+  en: {
+    title: 'Experience',
+    current: 'Independent professional',
+    currentDate: 'January 2026–present',
+    currentDetail: 'Independent professional activity.',
+    virtual: 'Graphic designer · Virtual Engine Marketing',
+    virtualDate: 'February 2024–March 2026',
+    virtualDetail:
+      'Visual content, landing pages, and marketing materials; video editing and email campaign production.',
+    sinner: 'Graphic designer · SinnerArt',
+    sinnerDate: 'February 2022–September 2023',
+    sinnerDetail: 'Visual identity, email campaign design, image retouching, and video editing.',
+  },
+}[locale];
+---
+
+<section class="section" aria-labelledby="about-experience-title">
+  <h2 id="about-experience-title" class="mb-6 text-[clamp(1.8rem,4vw,2.5rem)] leading-tight tracking-[-0.03em]">
+    {text.title}
+  </h2>
+  <div class="grid gap-5">
+    {[text.current, text.virtual, text.sinner].map((role, index) => {
+      const date = [text.currentDate, text.virtualDate, text.sinnerDate][index];
+      const detail = [text.currentDetail, text.virtualDetail, text.sinnerDetail][index];
+      return (
+        <article class="border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+          <p class="m-0 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{date}</p>
+          <h3 class="mt-2 mb-2 text-xl font-bold">{role}</h3>
+          <p class="m-0 leading-[1.6] text-ink-soft">{detail}</p>
+        </article>
+      );
+    })}
+  </div>
+</section>

@@ -1,26 +1,24 @@
 ---
 import { SITE_NAME } from '@/lib/site';
 import Layout from '@/components/Layout.astro';
-import Lede from '@/components/Lede.astro';
-import PageHero from '@/components/PageHero.astro';
+import AboutHero from '@/components/about/AboutHero.astro';
+import AboutEducation from '@/components/about/AboutEducation.astro';
+import AboutExperience from '@/components/about/AboutExperience.astro';
+import AboutApproach from '@/components/about/AboutApproach.astro';
+import AboutForensicScope from '@/components/about/AboutForensicScope.astro';
 import { getLocale, getMessages } from '@/lib/i18n';
+
+const locale = getLocale(Astro.url.pathname);
+const message = getMessages(locale);
+const title = locale === 'es' ? 'Sobre mí' : 'About me';
 ---
 
-<Layout
-  title={`${Astro.currentLocale === 'en' ? 'Experience' : 'Experiencia'} — ${SITE_NAME}`}
-  description={getMessages(getLocale(Astro.url.pathname)).experienceDescription}
-  canonicalPath="/experience/"
->
+<Layout title={`${title} — ${SITE_NAME}`} description={message.aboutDescription} canonicalPath="/experience/">
   <main class="content-shell">
-    <PageHero title={Astro.currentLocale === 'en' ? 'Experience' : 'Experiencia'} hideTitle>
-      <Lede>{getMessages(getLocale(Astro.url.pathname)).experienceDescription}</Lede>
-    </PageHero>
-
-    <section
-      class="section grid gap-8"
-      aria-label={Astro.currentLocale === 'en' ? 'Work experience' : 'Experiencia laboral'}
-    >
-      <p class="text-muted">{getMessages(getLocale(Astro.url.pathname)).experienceEmpty}</p>
-    </section>
+    <AboutHero locale={locale} />
+    <AboutEducation locale={locale} />
+    <AboutExperience locale={locale} />
+    <AboutApproach locale={locale} />
+    <AboutForensicScope locale={locale} />
   </main>
 </Layout>

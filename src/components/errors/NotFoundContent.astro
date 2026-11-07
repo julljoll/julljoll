@@ -1,0 +1,43 @@
+---
+import PageHero from '@/components/PageHero.astro';
+import Lede from '@/components/Lede.astro';
+import { withBase } from '@/lib/paths';
+import { localizedPath, type Locale, getMessages } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
+---
+
+<PageHero title="404" eyebrow={message.notFound}>
+  <Lede>{message.notFoundDescription}</Lede>
+  <div class="mt-7 flex flex-wrap gap-[0.6rem]">
+    <a class="button button-primary" href={withBase(localizedPath('/', locale))}>
+      {message.goHome}
+    </a>
+    <a class="button button-secondary" href={withBase(localizedPath('/blog/', locale))}>
+      {message.browseBlog}
+    </a>
+  </div>
+</PageHero>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .button {
+    @apply inline-flex min-h-[2.6rem] items-center justify-center rounded-md border border-transparent px-[1.1rem] py-[0.6rem];
+    @apply text-[0.9rem] font-semibold transition-all duration-120 ease-[ease];
+  }
+
+  .button-primary {
+    @apply bg-ink text-bg hover:bg-accent hover:text-white;
+  }
+
+  .button-secondary {
+    @apply border-line-strong bg-transparent text-ink-soft;
+    @apply hover:border-accent hover:bg-accent-soft hover:text-accent;
+  }
+</style>

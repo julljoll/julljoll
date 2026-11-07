@@ -1,9 +1,8 @@
 ---
 import { SITE_NAME } from '@/lib/site';
 import Layout from '@/components/Layout.astro';
-import Lede from '@/components/Lede.astro';
-import PageHero from '@/components/PageHero.astro';
 import ProjectsGrid from '@/components/ProjectsGrid.astro';
+import ProjectPageHeader from '@/components/projects/ProjectPageHeader.astro';
 import { getLocale, getMessages } from '@/lib/i18n';
 
 const locale = getLocale(Astro.url.pathname);
@@ -16,10 +15,7 @@ const message = getMessages(locale);
   canonicalPath="/projects/"
 >
   <main class="content-shell">
-    <PageHero title={message.projects} hideTitle>
-      <Lede>{message.projectsDescription}</Lede>
-    </PageHero>
-
+    <ProjectPageHeader locale={locale} description={message.projectsDescription} />
     <ProjectsGrid locale={locale} />
   </main>
 </Layout>

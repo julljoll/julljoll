@@ -6,28 +6,31 @@ test('Spanish is the default language and the language link opens English', asyn
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
   await expect(page.getByRole('link', { name: 'Idioma: English' })).toHaveAttribute('href', '/en/');
   await expect(page.getByRole('link', { name: 'Inicio' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: /evidencia digital/i })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Áreas del proyecto' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Dispositivos móviles' })).toBeVisible();
+  await expect(page.getByText(/Licenciatura en Derecho/)).toHaveCount(0);
 
   await page.getByRole('link', { name: 'Idioma: English' }).click();
   await expect(page).toHaveURL(/\/en\/$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('link', { name: 'Language: Español' })).toHaveAttribute('href', '/');
   await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
-  await expect(page.locator('.content-shell > section h2').first()).toContainText(
-    /expert reports for judicial proceedings/i,
-  );
-  await expect(page.getByRole('heading', { name: 'Project focus' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'A legal perspective on digital evidence' })).toBeVisible();
-  await expect(page.getByText(/law degree at Universidad Nacional Experimental/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Project focus areas' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Mobile devices' })).toBeVisible();
+  await expect(page.getByText(/law degree at Universidad Nacional Experimental/)).toHaveCount(0);
+
+  await page.goto('/en/experience/');
+  await expect(page).toHaveTitle(/About me —/);
+  await expect(page.getByRole('heading', { name: 'About me' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Education' })).toBeVisible();
+  await expect(page.getByText(/Law degree/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Forensic scope' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Explore SHA256.US' })).toHaveAttribute('href', 'https://sha256.us/es/');
 });
 
 test('language switcher keeps the visitor on the corresponding section', async ({ page }) => {
-  await page.goto('/blog/');
+  await page.goto('/experience/');
   await page.getByRole('link', { name: 'Idioma: English' }).click();
-  await expect(page).toHaveURL(/\/en\/blog\/$/);
+  await expect(page).toHaveURL(/\/en\/experience\/$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 

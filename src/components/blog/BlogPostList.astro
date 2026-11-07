@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostCard from '@/components/posts/PostCard.astro';
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { locale, posts } = Astro.props;
+---
+
+<section class="section" aria-label={locale === 'es' ? 'Publicaciones del blog' : 'Blog posts'}>
+  {posts.length === 0 ? (
+    <p class="text-muted">
+      {locale === 'es' ? 'Aún no hay publicaciones. Vuelve pronto.' : 'No posts yet, check back soon.'}
+    </p>
+  ) : (
+    <div class="grid gap-8">
+      {posts.map((post, index) => (
+        <PostCard post={post} latest={index === 0} />
+      ))}
+    </div>
+  )}
+</section>

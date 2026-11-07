@@ -3,29 +3,18 @@ import { getCollection } from 'astro:content';
 import Layout from '@/components/Layout.astro';
 import Lede from '@/components/Lede.astro';
 import PageHero from '@/components/PageHero.astro';
-import Tag from '@/components/Tag.astro';
-import { withBase } from '@/lib/paths';
+import TagCloudSection from '@/components/tags/TagCloudSection.astro';
 import { getAllTags } from '@/lib/tags';
 import { SITE_NAME, TAGS_DESCRIPTION } from '@/lib/site';
-import { localizedPath } from '@/lib/i18n';
 
 const tags = getAllTags((await getCollection('blog')).filter((post) => post.data.locale === 'en'));
 ---
 
-<Layout title=`Tags — ${SITE_NAME}` description={TAGS_DESCRIPTION} canonicalPath="/tags/">
+<Layout title={`Tags — ${SITE_NAME}`} description={TAGS_DESCRIPTION} canonicalPath="/tags/">
   <main class="content-shell">
     <PageHero title="Tags" hideTitle>
       <Lede>{TAGS_DESCRIPTION}</Lede>
     </PageHero>
-
-    <section class="section" aria-label="Tags">
-      <div class="flex flex-wrap gap-[0.6rem]">
-        {tags.map(({ slug, name, count }) => (
-          <Tag href={withBase(localizedPath(`/tags/${slug}/`, 'en'))} size="lg">
-            #{name} {count > 0 && <span class="font-normal opacity-70">{count}</span>}
-          </Tag>
-        ))}
-      </div>
-    </section>
+    <TagCloudSection locale="en" tags={tags} />
   </main>
 </Layout>

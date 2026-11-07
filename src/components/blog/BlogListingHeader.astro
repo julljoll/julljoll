@@ -1,0 +1,34 @@
+---
+import PageHero from '@/components/PageHero.astro';
+import Lede from '@/components/Lede.astro';
+import { withBase } from '@/lib/paths';
+import { localizedPath, type Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+  description: string;
+}
+
+const { locale, description } = Astro.props;
+---
+
+<PageHero title="Blog" hideTitle>
+  <Lede>{description}</Lede>
+  <a class="tags-link" href={withBase(localizedPath('/tags/', locale))}>
+    {locale === 'es' ? 'Ver por etiqueta' : 'Browse by tag'} <span aria-hidden="true">→</span>
+  </a>
+</PageHero>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .tags-link {
+    @apply inline-flex min-h-[2.6rem] items-center gap-2 border-2 border-ink bg-bg-elevated px-[1.1rem] py-[0.6rem];
+    @apply font-heading text-[0.9rem] font-semibold text-ink shadow-[3px_3px_0_0_var(--ink)];
+    @apply transition-[translate,box-shadow,background-color,color] duration-120 ease-[ease];
+  }
+
+  .tags-link:hover {
+    @apply translate-x-[1px] translate-y-[1px] bg-accent text-bg shadow-[2px_2px_0_0_var(--ink)];
+  }
+</style>

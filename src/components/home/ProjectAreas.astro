@@ -1,0 +1,74 @@
+---
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = {
+  es: {
+    label: 'SHA256.US',
+    title: 'Áreas del proyecto',
+    intro:
+      'Servicios y herramientas para la recuperación y el análisis técnico de dispositivos, documentos y evidencia digital.',
+    areas: [
+      {
+        title: 'Dispositivos móviles',
+        description:
+          'Reparación, extracción de información y revisión de audios, imágenes, mensajes y contenido de aplicaciones de mensajería.',
+      },
+      {
+        title: 'Evidencia y documentos digitales',
+        description:
+          'Informática forense, contratos y documentos electrónicos, metadatos, firmas y análisis de posibles alteraciones.',
+      },
+      {
+        title: 'Análisis técnico-jurídico',
+        description:
+          'Proyectos que conectan el análisis de información legal con herramientas de cumplimiento y documentación digital.',
+      },
+    ],
+  },
+  en: {
+    label: 'SHA256.US',
+    title: 'Project focus areas',
+    intro: 'Services and tools for the recovery and technical analysis of devices, documents, and digital evidence.',
+    areas: [
+      {
+        title: 'Mobile devices',
+        description:
+          'Repair, data extraction, and review of audio, images, messages, and content from messaging applications.',
+      },
+      {
+        title: 'Digital evidence and documents',
+        description:
+          'Digital forensics, contracts and electronic documents, metadata, signatures, and potential alterations.',
+      },
+      {
+        title: 'Technical and legal analysis',
+        description: 'Projects connecting legal information analysis with compliance and digital documentation tools.',
+      },
+    ],
+  },
+}[locale];
+---
+
+<section class="section" aria-labelledby="project-areas-title">
+  <div class="mb-6 max-w-[44rem]">
+    <p class="font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{content.label}</p>
+    <h1 id="project-areas-title" class="mt-2 text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-[-0.03em]">
+      {content.title}
+    </h1>
+    <p class="mt-3 max-w-[40rem] leading-[1.6] text-ink-soft">{content.intro}</p>
+  </div>
+
+  <div class="grid gap-5 md:grid-cols-3">
+    {content.areas.map((area) => (
+      <article class="border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+        <h2 class="m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink">{area.title}</h2>
+        <p class="mt-3 mb-0 leading-[1.6] text-ink-soft">{area.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

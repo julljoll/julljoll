@@ -1,0 +1,46 @@
+---
+import Tag from '@/components/Tag.astro';
+import { formatPostDate } from '@/lib/posts';
+import { slugifyTag } from '@/lib/tags';
+import { withBase } from '@/lib/paths';
+import { localizedPath, type Locale } from '@/lib/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  tags: string[];
+  locale: Locale;
+}
+
+const { title, description, date, tags, locale } = Astro.props;
+---
+
+<header class="mb-[2.35rem] border-b-4 border-ink pb-8">
+  <p class="post-meta">
+    <time datetime={date.toISOString()}>{formatPostDate(date, locale)}</time>
+  </p>
+  <h1 class="m-0 max-w-[22ch] text-[clamp(2rem,4vw,3.4rem)] leading-none font-semibold tracking-[0.005em] text-ink">
+    {title}
+  </h1>
+  <p class="mt-[1.2rem] max-w-[680px] text-[1.18rem] leading-[1.7] text-[color-mix(in_srgb,var(--ink)_68%,var(--muted))]">
+    {description}
+  </p>
+  {tags.length > 0 && (
+    <p class="mt-4 flex max-w-[680px] flex-wrap gap-2">
+      {tags.map((tag) => (
+        <Tag href={withBase(localizedPath(`/tags/${slugifyTag(tag)}/`, locale))}>#{tag}</Tag>
+      ))}
+    </p>
+  )}
+</header>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .post-meta {
+    @apply mb-[0.85rem] flex flex-wrap items-center gap-[0.55rem];
+    @apply text-[0.78rem] font-bold tracking-[-0.03em] uppercase;
+    color: color-mix(in srgb, var(--ink) 58%, var(--muted));
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PageHero from '@/components/PageHero.astro';
+import Lede from '@/components/Lede.astro';
+import PostCard from '@/components/posts/PostCard.astro';
+import type { Locale } from '@/lib/i18n';
+import { getMessages } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+  name: string;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { locale, name, posts } = Astro.props;
+const message = getMessages(locale);
+---
+
+<PageHero title={`# ${name}`}>
+  <Lede>
+    {posts.length === 0
+      ? message.nothingHere
+      : locale === 'es'
+        ? `${posts.length} ${message.posts} con la etiqueta ${name}.`
+        : `${posts.length} ${posts.length === 1 ? message.post : message.posts} tagged ${name}.`}
+  </Lede>
+</PageHero>
+
+{posts.length > 0 && (
+  <section class="section" aria-label={locale === 'es' ? 'Publicaciones' : 'Posts'}>
+    <div class="grid gap-8">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </section>
+)}

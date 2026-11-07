@@ -3,36 +3,22 @@ import { getCollection } from 'astro:content';
 import Layout from '@/components/Layout.astro';
 import Lede from '@/components/Lede.astro';
 import PageHero from '@/components/PageHero.astro';
-import Tag from '@/components/Tag.astro';
-import { withBase } from '@/lib/paths';
+import TagCloudSection from '@/components/tags/TagCloudSection.astro';
 import { getAllTags } from '@/lib/tags';
 import { SITE_NAME } from '@/lib/site';
 import { getLocale, getMessages } from '@/lib/i18n';
-import { localizedPath } from '@/lib/i18n';
 
 const locale = getLocale(Astro.url.pathname);
 const message = getMessages(locale);
+const title = locale === 'es' ? 'Etiquetas' : 'Tags';
 const tags = getAllTags((await getCollection('blog')).filter((post) => post.data.locale === locale));
 ---
 
-<Layout
-  title={`${locale === 'es' ? 'Etiquetas' : 'Tags'} — ${SITE_NAME}`}
-  description={message.tagsDescription}
-  canonicalPath="/tags/"
->
+<Layout title={`${title} — ${SITE_NAME}`} description={message.tagsDescription} canonicalPath="/tags/">
   <main class="content-shell">
-    <PageHero title={locale === 'es' ? 'Etiquetas' : 'Tags'} hideTitle>
+    <PageHero title={title} hideTitle>
       <Lede>{message.tagsDescription}</Lede>
     </PageHero>
-
-    <section class="section" aria-label={locale === 'es' ? 'Etiquetas' : 'Tags'}>
-      <div class="flex flex-wrap gap-[0.6rem]">
-        {tags.map(({ slug, name, count }) => (
-          <Tag href={withBase(localizedPath(`/tags/${slug}/`, locale))} size="lg">
-            #{name} {count > 0 && <span class="font-normal opacity-70">{count}</span>}
-          </Tag>
-        ))}
-      </div>
-    </section>
+    <TagCloudSection locale={locale} tags={tags} />
   </main>
 </Layout>

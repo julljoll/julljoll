@@ -1,0 +1,16 @@
+---
+import type { Locale } from '@/lib/i18n';
+import PageHero from '@/components/PageHero.astro';
+import Lede from '@/components/Lede.astro';
+
+interface Props {
+  locale: Locale;
+  description: string;
+}
+
+const { locale, description } = Astro.props;
+---
+
+<PageHero title={locale === 'es' ? 'Proyectos' : 'Projects'} hideTitle>
+  <Lede>{description}</Lede>
+</PageHero>

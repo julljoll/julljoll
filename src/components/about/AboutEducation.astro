@@ -1,0 +1,50 @@
+---
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  es: {
+    title: 'Formación',
+    law: 'Licenciatura en Derecho',
+    lawDetail: 'Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora” · Barinas',
+    lawDate: '2005–2010',
+    design: 'Diseño',
+    designDetail: 'Mentors4EDU',
+    designDate: '2022–2024',
+    note: 'La formación jurídica aporta contexto para documentar y comunicar hallazgos técnicos; no equivale por sí sola a una acreditación pericial.',
+  },
+  en: {
+    title: 'Education',
+    law: 'Law degree',
+    lawDetail: 'Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora” · Barinas',
+    lawDate: '2005–2010',
+    design: 'Design',
+    designDetail: 'Mentors4EDU',
+    designDate: '2022–2024',
+    note: 'A legal background provides context for documenting and communicating technical findings; it is not, by itself, a forensic expert credential.',
+  },
+}[locale];
+---
+
+<section class="section" aria-labelledby="about-education-title">
+  <h2 id="about-education-title" class="mb-6 text-[clamp(1.8rem,4vw,2.5rem)] leading-tight tracking-[-0.03em]">
+    {text.title}
+  </h2>
+  <div class="grid gap-5 md:grid-cols-2">
+    <article class="border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+      <p class="m-0 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{text.lawDate}</p>
+      <h3 class="mt-2 mb-1 text-xl font-bold">{text.law}</h3>
+      <p class="m-0 leading-[1.6] text-ink-soft">{text.lawDetail}</p>
+    </article>
+    <article class="border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+      <p class="m-0 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{text.designDate}</p>
+      <h3 class="mt-2 mb-1 text-xl font-bold">{text.design}</h3>
+      <p class="m-0 leading-[1.6] text-ink-soft">{text.designDetail}</p>
+    </article>
+  </div>
+  <p class="mt-5 max-w-[56rem] leading-[1.6] text-ink-soft">{text.note}</p>
+</section>

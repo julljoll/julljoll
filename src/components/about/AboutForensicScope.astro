@@ -1,0 +1,28 @@
+---
+import type { Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  es: {
+    title: 'Alcance pericial',
+    body: 'La formación y experiencia descritas aquí no constituyen por sí solas una acreditación o habilitación como perito. La designación, actuación pericial, elaboración o ratificación de un dictamen y su admisibilidad dependen de la legislación y los requisitos procesales de cada jurisdicción.',
+  },
+  en: {
+    title: 'Forensic scope',
+    body: 'The education and experience described here do not, by themselves, constitute accreditation or qualification as an expert witness. Appointment, forensic practice, preparation or ratification of an expert report, and its admissibility depend on the law and procedural requirements of each jurisdiction.',
+  },
+}[locale];
+---
+
+<section class="section" aria-labelledby="forensic-scope-title">
+  <aside class="border-2 border-dashed border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+    <h2 id="forensic-scope-title" class="mb-2 text-xl font-bold">
+      {text.title}
+    </h2>
+    <p class="mb-0 max-w-[58rem] leading-[1.6] text-ink-soft">{text.body}</p>
+  </aside>
+</section>

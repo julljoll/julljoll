@@ -8,4 +8,4 @@ export const GITHUB_URL = 'https://github.com/julljoll';
 export const SOURCE_URL = 'https://github.com/julljoll/julljoll';
 export const BLOG_DESCRIPTION = 'Notes, ideas, and things worth sharing';
 export const TAGS_DESCRIPTION = 'Posts grouped by tag';
-export const EXPERIENCE_DESCRIPTION = 'A little about the work and experiences behind this site.';
+export const ABOUT_DESCRIPTION = 'Education, professional experience, and complementary skills.';

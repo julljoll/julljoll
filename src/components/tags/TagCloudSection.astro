@@ -1,0 +1,23 @@
+---
+import Tag from '@/components/Tag.astro';
+import { withBase } from '@/lib/paths';
+import { localizedPath, type Locale } from '@/lib/i18n';
+import type { TagInfo } from '@/lib/tags';
+
+interface Props {
+  locale: Locale;
+  tags: TagInfo[];
+}
+
+const { locale, tags } = Astro.props;
+---
+
+<section class="section" aria-label={locale === 'es' ? 'Etiquetas' : 'Tags'}>
+  <div class="flex flex-wrap gap-[0.6rem]">
+    {tags.map(({ slug, name, count }) => (
+      <Tag href={withBase(localizedPath(`/tags/${slug}/`, locale))} size="lg">
+        #{name} {count > 0 && <span class="font-normal opacity-70">{count}</span>}
+      </Tag>
+    ))}
+  </div>
+</section>
