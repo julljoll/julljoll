@@ -7,14 +7,15 @@ import PageHero from '@/components/PageHero.astro';
 import PostCard from '@/components/posts/PostCard.astro';
 import { getAllTags, slugifyTag } from '@/lib/tags';
 import { SITE_NAME } from '@/lib/site';
+import { getLocale, getMessages } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const published = posts
-    .filter((post) => !post.data.draft)
+    .filter((post) => !post.data.draft && post.data.locale === 'es')
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-  return getAllTags(posts).map(({ slug, name }) => ({
+  return getAllTags(published).map(({ slug, name }) => ({
     params: { tag: slug },
     props: {
       name,
@@ -30,15 +31,23 @@ interface Props {
 
 const { name, posts } = Astro.props;
 const slug = Astro.params.tag!;
+const locale = getLocale(Astro.url.pathname);
+const message = getMessages(locale);
 ---
 
-<Layout title={`#${name} — ${SITE_NAME}`} description={`Posts tagged "${name}".`} canonicalPath={`/tags/${slug}/`}>
+<Layout
+  title={`#${name} — ${SITE_NAME}`}
+  description={locale === 'es' ? `Publicaciones con la etiqueta «${name}».` : `Posts tagged "${name}".`}
+  canonicalPath={`/tags/${slug}/`}
+>
   <main class="content-shell">
     <PageHero title={`# ${name}`}>
       <Lede>
         {posts.length === 0
-          ? 'Nothing here yet — check back soon.'
-          : `${posts.length} post${posts.length === 1 ? '' : 's'} tagged ${name}.`}{' '}
+          ? message.nothingHere
+          : locale === 'es'
+            ? `${posts.length} ${message.posts} con la etiqueta ${name}.`
+            : `${posts.length} ${posts.length === 1 ? message.post : message.posts} tagged ${name}.`}{' '}
       </Lede>
     </PageHero>
 

@@ -1,18 +1,26 @@
 ---
-import { PROJECTS_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import { SITE_NAME } from '@/lib/site';
 import Layout from '@/components/Layout.astro';
 import Lede from '@/components/Lede.astro';
 import PageHero from '@/components/PageHero.astro';
+import { getLocale, getMessages } from '@/lib/i18n';
+
+const locale = getLocale(Astro.url.pathname);
+const message = getMessages(locale);
 ---
 
-<Layout title=`Projects — ${SITE_NAME}` description={PROJECTS_DESCRIPTION} canonicalPath="/projects/">
+<Layout
+  title={`${message.projects} — ${SITE_NAME}`}
+  description={message.projectsDescription}
+  canonicalPath="/projects/"
+>
   <main class="content-shell">
-    <PageHero title="Projects" hideTitle>
-      <Lede>{PROJECTS_DESCRIPTION}</Lede>
+    <PageHero title={message.projects} hideTitle>
+      <Lede>{message.projectsDescription}</Lede>
     </PageHero>
 
     <section class="section grid gap-8 md:grid-cols-2" aria-label="Projects">
-      <p class="text-muted">Projects will be added here.</p>
+      <p class="text-muted">{message.projectsEmpty}</p>
     </section>
   </main>
 </Layout>

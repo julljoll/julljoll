@@ -1,6 +1,7 @@
 ---
 title: 'Make it yours'
 description: 'A quick tour of where to change the name, the colors, and the content of this theme.'
+locale: en
 date: 2026-10-30
 tags:
   - Guide

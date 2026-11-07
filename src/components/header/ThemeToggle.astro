@@ -2,9 +2,17 @@
 import { faSun } from '@fortawesome/free-regular-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import Icon from '@/components/Icon.astro';
+import { getMessages, type Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
 ---
 
-<button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle color theme">
+<button class="theme-toggle" type="button" id="theme-toggle" aria-label={message.colorTheme}>
   <Icon icon={faSun} class="theme-toggle-sun" />
   <Icon icon={faMoon} class="theme-toggle-moon" />
 </button>

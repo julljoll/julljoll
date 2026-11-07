@@ -10,6 +10,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Icon from '@/components/Icon.astro';
 import type { ThemeChoice } from '@/lib/palette';
+import { getMessages, type Locale } from '@/lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
 
 interface ThemeOption {
   choice: ThemeChoice;
@@ -22,17 +30,23 @@ interface ThemeOption {
 const DEFAULT_CHOICE: ThemeChoice = 'auto';
 
 const themeOptions: ThemeOption[] = [
-  { choice: 'auto', label: 'Automatic', icon: faCalendar },
-  { choice: 'autumn', label: 'Autumn', icon: faCanadianMapleLeaf, iconClass: 'rotate-30', dividerLabel: 'Seasons' },
-  { choice: 'winter', label: 'Winter', icon: faSnowflake },
-  { choice: 'spring', label: 'Spring', icon: faSeedling },
-  { choice: 'summer', label: 'Summer', icon: faUmbrellaBeach },
-  { choice: 'neon', label: 'Neon', icon: faBolt, dividerLabel: 'Other' },
+  { choice: 'auto', label: message.automatic, icon: faCalendar },
+  {
+    choice: 'autumn',
+    label: message.autumn,
+    icon: faCanadianMapleLeaf,
+    iconClass: 'rotate-30',
+    dividerLabel: message.seasons,
+  },
+  { choice: 'winter', label: message.winter, icon: faSnowflake },
+  { choice: 'spring', label: message.spring, icon: faSeedling },
+  { choice: 'summer', label: message.summer, icon: faUmbrellaBeach },
+  { choice: 'neon', label: message.neon, icon: faBolt, dividerLabel: message.other },
 ];
 ---
 
 <details class="theme-picker" id="theme-picker">
-  <summary class="theme-picker-button" aria-label="Choose theme">
+  <summary class="theme-picker-button" aria-label={message.chooseTheme}>
     {themeOptions.map((option: ThemeOption) => (
       <Icon
         icon={option.icon}
@@ -41,7 +55,7 @@ const themeOptions: ThemeOption[] = [
       />
     ))}
   </summary>
-  <div class="theme-picker-panel" role="group" aria-label="Theme">
+  <div class="theme-picker-panel" role="group" aria-label={message.theme}>
     {themeOptions.map((option: ThemeOption) => (
       <>
         {option.dividerLabel && (

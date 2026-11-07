@@ -2,7 +2,7 @@
 
 Personal site built with [Astro](https://astro.build/) and the season-aware, neobrutalist [Astro Seasons theme](https://github.com/nicomiguelino/astro-seasons). Its palette follows the calendar, with light and dark modes for each season. See the [theme screenshots](#seasonal-theme).
 
-Site metadata lives in `src/lib/site.ts`; blog posts are in `src/content/blog/`. Replace the example posts and add personal content to the pages under `src/pages/` as the site grows.
+Spanish is the primary language at `/`; the English version is available at `/en/`. The language switch keeps visitors on the corresponding page, and the theme remembers its selection. Site metadata lives in `src/lib/site.ts`; localized copy is in `src/lib/i18n.ts`. Blog posts declare their `locale` in frontmatter and live in `src/content/blog/`.
 
 ## Getting started
 

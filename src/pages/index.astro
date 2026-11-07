@@ -8,7 +8,7 @@ import Highlight from '@/components/Highlight.astro';
 import PageHero from '@/components/PageHero.astro';
 import Sunlight from '@/components/effects/Sunlight.astro';
 import { withBase } from '@/lib/paths';
-import { AUTHOR_NAME, GITHUB_URL, JOB_TITLE, LINKEDIN_URL, SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import { AUTHOR_NAME, GITHUB_URL, JOB_TITLE, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
 
 const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
@@ -20,7 +20,11 @@ const personSchema = JSON.stringify({
 }).replace(/</g, '\\u003c');
 ---
 
-<Layout title={SITE_NAME} description={SITE_DESCRIPTION} canonicalPath="/">
+<Layout
+  title={SITE_NAME}
+  description="Un sitio personal para compartir notas, proyectos y experimentos."
+  canonicalPath="/"
+>
   <script type="application/ld+json" is:inline set:html={personSchema}></script>
   <FallingLeaves />
   <FallingSnow />
@@ -28,25 +32,26 @@ const personSchema = JSON.stringify({
   <Sunlight />
   <HeatShimmer>
     <main class="content-shell">
-      <PageHero title="Home" hideTitle>
+      <PageHero title="Inicio" hideTitle>
         <h2 class:list={['text-[clamp(3rem,4.5vw,4.25rem)]', 'leading-[1.1]', 'tracking-[-0.03em]']}>
-          A <Highlight>season-aware</Highlight>, <Highlight>neobrutalist</Highlight> corner of the internet.
+          Un rincón de internet <Highlight>neobrutalista</Highlight> que cambia con las{' '}
+          <Highlight>estaciones</Highlight>.
         </h2>
       </PageHero>
 
-      <section class="section" aria-label="About">
+      <section class="section" aria-label="Acerca de">
         <div class="flex justify-center w-full mt-10">
           <div class="card">
             <div class="about-prose">
               <p>
-                This is a <Highlight bold>personal site</Highlight> built with a{' '}
-                <Highlight bold>neobrutalist</Highlight> Astro theme. Its colors follow the calendar, moving through{' '}
-                <Highlight bold>autumn</Highlight>, <Highlight bold>winter</Highlight>,{' '}
-                <Highlight bold>spring</Highlight>, and <Highlight bold>summer</Highlight>, each with a light and a dark
-                mode.
+                Este es un <Highlight bold>sitio personal</Highlight> creado con un tema de Astro{' '}
+                <Highlight bold>neobrutalista</Highlight>. Sus colores siguen el calendario y cambian entre{' '}
+                <Highlight bold>otoño</Highlight>, <Highlight bold>invierno</Highlight>,{' '}
+                <Highlight bold>primavera</Highlight> y <Highlight bold>verano</Highlight>, cada uno con modo claro y
+                oscuro.
               </p>
 
-              <p>A home for notes, projects, and experiments, with a different palette for every season.</p>
+              <p>Un espacio para notas, proyectos y experimentos, con una paleta distinta en cada estación.</p>
             </div>
           </div>
         </div>

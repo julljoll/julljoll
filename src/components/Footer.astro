@@ -1,6 +1,13 @@
 ---
 import { SITE_NAME, SOURCE_URL } from '@/lib/site';
+import { getMessages, type Locale } from '@/lib/i18n';
 
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = getMessages(locale);
 const fullYear = new Date().getFullYear();
 ---
 
@@ -8,7 +15,7 @@ const fullYear = new Date().getFullYear();
   <span>
     &copy; {fullYear}
     <a href={SOURCE_URL} target="_blank" rel="noopener" class="underline underline-offset-4">
-      {SITE_NAME}
+      {SITE_NAME} · {message.footerSource}
     </a>
   </span>
 </footer>

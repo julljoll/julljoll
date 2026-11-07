@@ -4,18 +4,22 @@ import Lede from '@/components/Lede.astro';
 import PageHero from '@/components/PageHero.astro';
 import { withBase } from '@/lib/paths';
 import { SITE_NAME } from '@/lib/site';
+import { getLocale, getMessages, localizedPath } from '@/lib/i18n';
+
+const locale = getLocale(Astro.url.pathname);
+const message = getMessages(locale);
 ---
 
-<Layout title=`404 — ${SITE_NAME}` description="Page not found." canonicalPath="/404/">
+<Layout title={`404 — ${SITE_NAME}`} description={message.notFoundDescription} canonicalPath="/404/">
   <main class="content-shell">
-    <PageHero title="404" eyebrow="page not found">
-      <Lede>This page doesn't exist. It may have been moved, deleted, or never published.</Lede>
+    <PageHero title="404" eyebrow={message.notFound}>
+      <Lede>{message.notFoundDescription}</Lede>
       <div class="mt-7 flex flex-wrap gap-[0.6rem]">
-        <a class="button button-primary" href={withBase('/')}>
-          Go home
+        <a class="button button-primary" href={withBase(localizedPath('/', locale))}>
+          {message.goHome}
         </a>
-        <a class="button button-secondary" href={withBase('/blog/')}>
-          Browse the blog
+        <a class="button button-secondary" href={withBase(localizedPath('/blog/', locale))}>
+          {message.browseBlog}
         </a>
       </div>
     </PageHero>
