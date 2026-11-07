@@ -1,0 +1,62 @@
+---
+import type { Locale } from '@/lib/i18n';
+import { FEATURED_PROJECTS } from '@/lib/projects';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const labels = {
+  es: { section: 'Proyectos seleccionados', open: 'Ver repositorio en GitHub' },
+  en: { section: 'Selected projects', open: 'View repository on GitHub' },
+}[locale];
+---
+
+<section class="section" aria-label={labels.section}>
+  <h2 class="sr-only">{labels.section}</h2>
+  <div class="grid gap-5 md:grid-cols-2">
+    {FEATURED_PROJECTS.map((project) => (
+      <article class="project-card">
+        <h2>{project.name}</h2>
+        <p>{project.description[locale]}</p>
+        <ul aria-label={locale === 'es' ? 'Áreas del proyecto' : 'Project focus'}>
+          {project.focus[locale].map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <a href={project.url} target="_blank" rel="noopener noreferrer">
+          {labels.open} <span aria-hidden="true">↗</span>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .project-card {
+    @apply flex flex-col border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)];
+  }
+
+  .project-card h2 {
+    @apply m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink;
+  }
+
+  .project-card p {
+    @apply mt-3 mb-0 leading-[1.6] text-ink-soft;
+  }
+
+  .project-card ul {
+    @apply mt-4 mb-5 flex list-none flex-wrap gap-2 p-0;
+  }
+
+  .project-card li {
+    @apply border-2 border-ink bg-bg px-2 py-1 font-mono text-xs font-bold text-ink;
+  }
+
+  .project-card a {
+    @apply mt-auto w-fit font-heading font-bold text-accent underline decoration-2 underline-offset-4;
+  }
+</style>
