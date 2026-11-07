@@ -8,23 +8,21 @@ import Highlight from '@/components/Highlight.astro';
 import PageHero from '@/components/PageHero.astro';
 import Sunlight from '@/components/effects/Sunlight.astro';
 import { withBase } from '@/lib/paths';
-import { AUTHOR_NAME, GITHUB_URL, JOB_TITLE, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
+import { AUTHOR_NAME, GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
 
+const description =
+  'Perfil de julljoll y su emprendimiento SHA256.US: reparación, extracción y análisis forense de dispositivos y evidencia digital.';
 const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: AUTHOR_NAME,
-  jobTitle: JOB_TITLE || undefined,
+  description,
   url: new URL(withBase('/'), Astro.site).toString(),
   sameAs: [GITHUB_URL, LINKEDIN_URL].filter(Boolean),
 }).replace(/</g, '\\u003c');
 ---
 
-<Layout
-  title={SITE_NAME}
-  description="Un sitio personal para compartir notas, proyectos y experimentos."
-  canonicalPath="/"
->
+<Layout title={`${SITE_NAME} — Perfil profesional`} description={description} canonicalPath="/">
   <script type="application/ld+json" is:inline set:html={personSchema}></script>
   <FallingLeaves />
   <FallingSnow />
@@ -32,29 +30,68 @@ const personSchema = JSON.stringify({
   <Sunlight />
   <HeatShimmer>
     <main class="content-shell">
-      <PageHero title="Inicio" hideTitle>
-        <h2 class:list={['text-[clamp(3rem,4.5vw,4.25rem)]', 'leading-[1.1]', 'tracking-[-0.03em]']}>
-          Un rincón de internet <Highlight>neobrutalista</Highlight> que cambia con las{' '}
-          <Highlight>estaciones</Highlight>.
+      <PageHero title="Perfil de julljoll" hideTitle eyebrow="Perfil · Emprendimiento">
+        <h2 class="max-w-[19ch] text-[clamp(2.7rem,6vw,5rem)] leading-[1.03] tracking-[-0.045em]">
+          Tecnología forense para dar claridad a la <Highlight>evidencia digital</Highlight>.
         </h2>
+        <p class="mt-6 max-w-[42rem] text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.6] text-ink-soft">
+          Soy {AUTHOR_NAME}. Este espacio presenta mi emprendimiento, SHA256.US, dedicado a la reparación, extracción y
+          análisis de información de dispositivos móviles, y reúne recursos sobre informática forense y evidencia
+          digital.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a class="profile-link" href="https://sha256.us/es/" target="_blank" rel="noopener noreferrer">
+            Conoce SHA256.US
+          </a>
+          <a
+            class="profile-link profile-link-secondary"
+            href="https://blog-astro-fawn.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explora el blog forense
+          </a>
+        </div>
       </PageHero>
 
-      <section class="section" aria-label="Acerca de">
-        <div class="flex justify-center w-full mt-10">
-          <div class="card">
-            <div class="about-prose">
-              <p>
-                Este es un <Highlight bold>sitio personal</Highlight> creado con un tema de Astro{' '}
-                <Highlight bold>neobrutalista</Highlight>. Sus colores siguen el calendario y cambian entre{' '}
-                <Highlight bold>otoño</Highlight>, <Highlight bold>invierno</Highlight>,{' '}
-                <Highlight bold>primavera</Highlight> y <Highlight bold>verano</Highlight>, cada uno con modo claro y
-                oscuro.
-              </p>
-
-              <p>Un espacio para notas, proyectos y experimentos, con una paleta distinta en cada estación.</p>
-            </div>
-          </div>
+      <section class="section" aria-labelledby="areas-title">
+        <div class="mb-6 max-w-[44rem]">
+          <p class="font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">SHA256.US</p>
+          <h2 id="areas-title" class="mt-2 text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-[-0.03em]">
+            Áreas del proyecto
+          </h2>
+          <p class="mt-3 max-w-[40rem] leading-[1.6] text-ink-soft">
+            El proyecto reúne servicios de recuperación y análisis técnico de dispositivos, documentos y evidencia
+            digital.
+          </p>
         </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="profile-card">
+            <h3>Dispositivos móviles</h3>
+            <p>
+              Reparación, extracción de información y validación de audios, imágenes, mensajes y contenido de
+              aplicaciones de mensajería.
+            </p>
+          </article>
+          <article class="profile-card">
+            <h3>Evidencia y documentos digitales</h3>
+            <p>
+              Informática forense, análisis de contratos y documentos electrónicos, y revisión de firmas, metadatos y
+              posibles alteraciones.
+            </p>
+          </article>
+          <article class="profile-card">
+            <h3>Análisis técnico-jurídico</h3>
+            <p>
+              Análisis de datos e información legal y soporte técnico para procesos de cumplimiento normativo, según lo
+              descrito en los sitios del proyecto.
+            </p>
+          </article>
+        </div>
+        <p class="mt-5 max-w-[54rem] text-sm leading-[1.6] text-ink-soft">
+          El blog del proyecto cita referencias como ISO/IEC 27037, ISO/IEC 27042, NIST SP 800 y MUCC-2017.
+        </p>
       </section>
     </main>
   </HeatShimmer>
@@ -63,12 +100,23 @@ const personSchema = JSON.stringify({
 <style>
   @reference "@/styles/global.css";
 
-  .card {
-    @apply rounded-none border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)];
+  .profile-link {
+    @apply inline-flex min-h-12 items-center justify-center border-2 border-ink bg-accent px-5 py-3 font-heading font-bold text-bg shadow-[4px_4px_0_0_var(--ink)] transition-[translate,box-shadow] duration-120 ease-[ease] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink;
   }
 
-  .about-prose p {
-    @apply mb-[1.2rem] font-heading text-[1.3rem] leading-[1.75] last:mb-0;
-    color: color-mix(in srgb, var(--ink) 82%, var(--muted));
+  .profile-link-secondary {
+    @apply bg-bg text-ink;
+  }
+
+  .profile-card {
+    @apply border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)];
+  }
+
+  .profile-card h3 {
+    @apply m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink;
+  }
+
+  .profile-card p {
+    @apply mb-0 leading-[1.6] text-ink-soft;
   }
 </style>

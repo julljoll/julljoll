@@ -1,10 +1,4 @@
-import {
-  BLOG_DESCRIPTION,
-  EXPERIENCE_DESCRIPTION,
-  PROJECTS_DESCRIPTION,
-  SITE_DESCRIPTION,
-  TAGS_DESCRIPTION,
-} from '@/lib/site';
+import { BLOG_DESCRIPTION, EXPERIENCE_DESCRIPTION, PROJECTS_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
 
 export type SearchEntry = {
   title: string;
@@ -17,9 +11,10 @@ export type SearchEntry = {
 export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
   {
     title: 'Home',
-    description: SITE_DESCRIPTION,
+    description:
+      'Meet julljoll and the SHA256.US venture, focused on mobile-device repair, data extraction, and digital evidence analysis.',
     tags: [],
-    body: 'A personal site built with a neobrutalist Astro theme. Its colors follow the calendar through autumn, winter, spring, and summer, each with a light and dark mode. A home for notes, projects, and experiments.',
+    body: 'julljoll profile and SHA256.US venture. Mobile-device repair, data extraction, digital forensics, electronic documents, legal data analysis, and compliance support.',
     url: '/',
   },
   {
@@ -55,9 +50,10 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
 export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
   {
     title: 'Inicio',
-    description: 'Un sitio personal para notas, proyectos y experimentos.',
+    description:
+      'Perfil de julljoll y su emprendimiento SHA256.US: reparación, extracción y análisis forense de dispositivos y evidencia digital.',
     tags: [],
-    body: 'Un sitio personal creado con un tema de Astro neobrutalista. Sus colores siguen el calendario y cambian entre otoño, invierno, primavera y verano, cada uno con modo claro y oscuro. Un espacio para notas, proyectos y experimentos.',
+    body: 'Perfil de julljoll y emprendimiento SHA256.US. Reparación y extracción de datos de dispositivos móviles, informática forense, documentos electrónicos, análisis de datos jurídicos y soporte de cumplimiento.',
     url: '/',
   },
   {
