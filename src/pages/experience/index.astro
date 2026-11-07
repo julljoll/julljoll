@@ -1,0 +1,18 @@
+---
+import { EXPERIENCE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import Layout from '@/components/Layout.astro';
+import Lede from '@/components/Lede.astro';
+import PageHero from '@/components/PageHero.astro';
+---
+
+<Layout title=`Experience — ${SITE_NAME}` description={EXPERIENCE_DESCRIPTION} canonicalPath="/experience/">
+  <main class="content-shell">
+    <PageHero title="Experience" hideTitle>
+      <Lede>{EXPERIENCE_DESCRIPTION}</Lede>
+    </PageHero>
+
+    <section class="section grid gap-8" aria-label="Work experience">
+      <p class="text-muted">Experience will be added here.</p>
+    </section>
+  </main>
+</Layout>
