@@ -9,8 +9,12 @@ interface Props {
 }
 
 const { locale, description } = Astro.props;
+const eyebrow =
+  locale === 'es'
+    ? 'SHA256.US · Informática Forense y Repositorios Oficiales'
+    : 'SHA256.US · Digital Forensics & Official Repositories';
 ---
 
-<PageHero title={locale === 'es' ? 'Proyectos' : 'Projects'} hideTitle>
+<PageHero title={locale === 'es' ? 'Proyectos' : 'Projects'} eyebrow={eyebrow} hideTitle>
   <Lede>{description}</Lede>
 </PageHero>

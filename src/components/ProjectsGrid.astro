@@ -8,8 +8,18 @@ interface Props {
 
 const { locale } = Astro.props;
 const labels = {
-  es: { section: 'Proyectos seleccionados', open: 'Ver repositorio en GitHub' },
-  en: { section: 'Selected projects', open: 'View repository on GitHub' },
+  es: {
+    section: 'Proyectos seleccionados',
+    primaryBadge: 'PROYECTO PRINCIPAL · SHA256.US',
+    repoLabel: 'Repositorio:',
+    open: 'Ver repositorio en GitHub',
+  },
+  en: {
+    section: 'Selected projects',
+    primaryBadge: 'PRIMARY PROJECT · SHA256.US',
+    repoLabel: 'Repository:',
+    open: 'View repository on GitHub',
+  },
 }[locale];
 ---
 
@@ -17,8 +27,21 @@ const labels = {
   <h2 class="sr-only">{labels.section}</h2>
   <div class="grid gap-5 md:grid-cols-2">
     {FEATURED_PROJECTS.map((project) => (
-      <article class="project-card">
+      <article class:list={['project-card', project.primary && 'project-card-primary']}>
+        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <span class="font-mono text-xs font-bold tracking-[0.06em] text-accent uppercase">
+            {project.role[locale]}
+          </span>
+          {project.primary && (
+            <span class="border-2 border-ink bg-accent px-2.5 py-0.5 font-mono text-xs font-bold tracking-[0.06em] text-bg uppercase shadow-[2px_2px_0_0_var(--ink)]">
+              {labels.primaryBadge}
+            </span>
+          )}
+        </div>
         <h2>{project.name}</h2>
+        <p class="mt-1 mb-0 font-mono text-xs text-ink-soft">
+          {labels.repoLabel} <strong class="text-ink">{project.repoSlug}</strong>
+        </p>
         <p>{project.description[locale]}</p>
         <ul aria-label={locale === 'es' ? 'Áreas del proyecto' : 'Project focus'}>
           {project.focus[locale].map((item) => (
@@ -40,8 +63,16 @@ const labels = {
     @apply flex flex-col border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)];
   }
 
+  .project-card-primary {
+    @apply md:col-span-2 border-3 bg-bg-elevated p-7 shadow-[8px_8px_0_0_var(--ink)];
+  }
+
   .project-card h2 {
     @apply m-0 text-[1.4rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink;
+  }
+
+  .project-card-primary h2 {
+    @apply text-[clamp(1.6rem,3vw,2.1rem)];
   }
 
   .project-card p {

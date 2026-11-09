@@ -34,7 +34,7 @@ const messages = {
     aboutDescription:
       'Perfil de Jull Ortiz: Data & AI Analyst especializado en Governed AI, formación en Derecho e informática forense, credenciales verificables y diseño de sistemas auditables.',
     projectsDescription:
-      'Proyectos de Governed AI, Legal-RAG, informática forense, cumplimiento, trazabilidad y evidencia digital.',
+      'Ecosistema de repositorios encabezados por SHA256.US, enfocado principalmente en informática forense, preservación de evidencia digital, cadena de custodia, cumplimiento y análisis técnico-jurídico.',
     browseTags: 'Ver por etiqueta',
     noPosts: 'Aún no hay publicaciones. Vuelve pronto.',
     latest: 'Nuevo',
@@ -90,7 +90,7 @@ const messages = {
     aboutDescription:
       'Jull Ortiz’s profile: Data & AI Analyst specializing in Governed AI, law and digital forensics background, verifiable credentials, and auditable system design.',
     projectsDescription:
-      'Projects in Governed AI, Legal-RAG, digital forensics, compliance, traceability, and digital evidence.',
+      'Repository ecosystem led by SHA256.US, primarily focused on digital forensics, digital evidence preservation, chain of custody, compliance, and technical-legal analysis.',
     browseTags: 'Browse by tag',
     noPosts: 'No posts yet, check back soon.',
     latest: 'latest',

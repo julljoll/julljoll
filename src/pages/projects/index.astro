@@ -1,5 +1,7 @@
 ---
 import { SITE_NAME } from '@/lib/site';
+import { FEATURED_PROJECTS } from '@/lib/projects';
+import { withBase } from '@/lib/paths';
 import Layout from '@/components/Layout.astro';
 import ProjectsGrid from '@/components/ProjectsGrid.astro';
 import ProjectPageHeader from '@/components/projects/ProjectPageHeader.astro';
@@ -7,6 +9,23 @@ import { getLocale, getMessages } from '@/lib/i18n';
 
 const locale = getLocale(Astro.url.pathname);
 const message = getMessages(locale);
+const projectsSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${message.projects} — ${SITE_NAME}`,
+  description: message.projectsDescription,
+  url: new URL(withBase('/projects/'), Astro.site).toString(),
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: FEATURED_PROJECTS.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: project.name,
+      description: project.description.es,
+      url: project.url,
+    })),
+  },
+}).replace(/</g, '\\u003c');
 ---
 
 <Layout
@@ -14,6 +33,7 @@ const message = getMessages(locale);
   description={message.projectsDescription}
   canonicalPath="/projects/"
 >
+  <script type="application/ld+json" is:inline set:html={projectsSchema}></script>
   <main class="content-shell">
     <ProjectPageHeader locale={locale} description={message.projectsDescription} />
     <ProjectsGrid locale={locale} />
