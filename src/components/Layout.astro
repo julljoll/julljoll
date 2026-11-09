@@ -14,15 +14,16 @@ interface Props {
   description: string;
   canonicalPath?: string;
   ogType?: 'website' | 'article' | 'profile';
+  ogImage?: string;
 }
 
-const { title, description, canonicalPath = '/', ogType = 'website' } = Astro.props;
+const { title, description, canonicalPath = '/', ogType = 'website', ogImage } = Astro.props;
 const locale = getLocale(Astro.url.pathname);
 
 const canonicalUrl = new URL(withBase(localizedPath(canonicalPath, locale)), Astro.site).toString();
 const esUrl = new URL(withBase(localizedPath(canonicalPath, 'es')), Astro.site).toString();
 const enUrl = new URL(withBase(localizedPath(canonicalPath, 'en')), Astro.site).toString();
-const ogImageUrl = new URL(withBase('/assets/og.png'), Astro.site).toString();
+const ogImageUrl = new URL(withBase(ogImage ?? '/assets/og.png'), Astro.site).toString();
 const ogLocale = locale === 'es' ? 'es_ES' : 'en_US';
 const ogLocaleAlternate = locale === 'es' ? 'en_US' : 'es_ES';
 ---

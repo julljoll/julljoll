@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '@/components/Layout.astro';
 import BlogPostContent from '@/components/blog/BlogPostContent.astro';
-import { postSlug } from '@/lib/posts';
+import { postImage, postSlug } from '@/lib/posts';
 import { getLocale } from '@/lib/i18n';
 import { SITE_NAME } from '@/lib/site';
 
@@ -27,6 +27,7 @@ const { Content, headings } = await render(post);
   description={post.data.description}
   canonicalPath={`/blog/${postSlug(post)}/`}
   ogType="article"
+  ogImage={postImage(post)}
 >
   <main class="content-shell">
     <BlogPostContent post={post} headings={headings} locale={locale}>

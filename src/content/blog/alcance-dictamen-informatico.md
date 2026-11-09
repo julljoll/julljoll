@@ -3,6 +3,8 @@ title: 'Cómo delimitar el alcance de un dictamen informático'
 description: 'Una guía de ejemplo para definir preguntas, fuentes, métodos y limitaciones en un análisis pericial digital.'
 date: 2026-11-07
 locale: es
+image: '/assets/blog/alcance-dictamen-informatico.svg'
+imageAlt: 'Ilustración sobre el alcance, método verificable y trazabilidad en un dictamen informático forense.'
 tags:
   - Peritaje informático
   - Informes técnicos

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#09090B"/>
+  <g stroke="#18181B" stroke-width="2">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  <rect x="88" y="88" width="1040" height="470" fill="#000000"/>
+  <rect x="74" y="74" width="1040" height="470" fill="#18181B" stroke="#FAFAFA" stroke-width="6"/>
+  <rect x="74" y="74" width="1040" height="54" fill="#38BDF8" stroke="#FAFAFA" stroke-width="6"/>
+  <text x="104" y="108" fill="#09090B" font-family="monospace" font-weight="bold" font-size="20" letter-spacing="2">CRYPTOGRAPHIC INTEGRITY · SHA-256 VERIFICATION</text>
+  <!-- Input File -->
+  <rect x="130" y="200" width="240" height="230" fill="#27272A" stroke="#FAFAFA" stroke-width="4"/>
+  <text x="165" y="255" fill="#38BDF8" font-family="monospace" font-weight="bold" font-size="20">EVIDENCE.IMG</text>
+  <rect x="165" y="285" width="170" height="12" fill="#71717A"/>
+  <rect x="165" y="310" width="140" height="12" fill="#71717A"/>
+  <rect x="165" y="335" width="160" height="12" fill="#71717A"/>
+  <text x="165" y="390" fill="#FAFAFA" font-family="monospace" font-size="14">01001101 10110010</text>
+  <!-- Hash Function Box -->
+  <rect x="450" y="235" width="220" height="160" fill="#F59E0B" stroke="#FAFAFA" stroke-width="5"/>
+  <text x="488" y="305" fill="#09090B" font-family="monospace" font-weight="bold" font-size="28">SHA-256</text>
+  <text x="485" y="340" fill="#09090B" font-family="monospace" font-weight="bold" font-size="15">HASH FUNCTION</text>
+  <!-- Output Digest -->
+  <rect x="750" y="200" width="310" height="230" fill="#09090B" stroke="#10B981" stroke-width="4"/>
+  <rect x="775" y="228" width="260" height="28" fill="#10B981"/>
+  <text x="790" y="248" fill="#09090B" font-family="monospace" font-weight="bold" font-size="15">256-BIT DIGEST (64 HEX)</text>
+  <text x="775" y="295" fill="#10B981" font-family="monospace" font-size="16">e3b0c44298fc1c14</text>
+  <text x="775" y="323" fill="#10B981" font-family="monospace" font-size="16">9afbf4c8996fb924</text>
+  <text x="775" y="351" fill="#10B981" font-family="monospace" font-size="16">27ae41e4649b934c</text>
+  <text x="775" y="379" fill="#10B981" font-family="monospace" font-size="16">a495991b7852b855</text>
+  <!-- Arrows -->
+  <line x1="370" y1="315" x2="450" y2="315" stroke="#FAFAFA" stroke-width="5"/>
+  <line x1="670" y1="315" x2="750" y2="315" stroke="#FAFAFA" stroke-width="5"/>
+</svg>
+

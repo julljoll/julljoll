@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { withBase } from '@/lib/paths';
 import { getLocale, getMessages, localizedPath } from '@/lib/i18n';
-import { formatPostDate, postSlug } from '@/lib/posts';
+import { formatPostDate, postImage, postImageAlt, postSlug } from '@/lib/posts';
 import { slugifyTag } from '@/lib/tags';
 import Tag from '@/components/Tag.astro';
 
@@ -15,10 +15,26 @@ const { post, latest = false } = Astro.props;
 const tags = post.data.tags.filter((tag) => slugifyTag(tag) !== '');
 const locale = getLocale(Astro.url.pathname);
 const message = getMessages(locale);
+const thumbnailUrl = withBase(postImage(post));
+const thumbnailAlt = postImageAlt(post);
 ---
 
 <article class="group border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)] transition-[translate,box-shadow] duration-120 ease-[ease] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_0_var(--ink)]">
-  <a class="block" href={withBase(localizedPath(`/blog/${postSlug(post)}/`, locale))}>
+  <a
+    class="grid items-start gap-6 md:grid-cols-[15rem_minmax(0,1fr)]"
+    href={withBase(localizedPath(`/blog/${postSlug(post)}/`, locale))}
+  >
+    <div class="overflow-hidden border-2 border-ink bg-bg shadow-[4px_4px_0_0_var(--ink)]">
+      <img
+        src={thumbnailUrl}
+        alt={thumbnailAlt}
+        width="480"
+        height="252"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[1200/630] h-auto w-full object-cover transition-transform duration-200 ease-[ease] group-hover:scale-[1.03]"
+      />
+    </div>
     <div>
       <h2 class="m-0 text-[clamp(1.45rem,3vw,2.05rem)] leading-none font-bold tracking-[0.005em] text-ink transition-colors duration-160 ease-[ease] group-hover:text-accent">
         {post.data.title}
@@ -29,13 +45,15 @@ const message = getMessages(locale);
           {latest && <span class="border-l-2 border-ink bg-accent px-3 py-1 text-bg">{message.latest}</span>}
         </span>
       </div>
-      <p class="mt-4 leading-[1.55] text-[color-mix(in_srgb,var(--ink)_62%,var(--muted))]">{post.data.description}</p>
+      <p class="mt-4 mb-0 leading-[1.55] text-[color-mix(in_srgb,var(--ink)_62%,var(--muted))]">
+        {post.data.description}
+      </p>
     </div>
   </a>
   {tags.length > 0 && (
-    <p class="mt-4 flex max-w-[680px] flex-wrap gap-2">
+    <p class="mt-4 mb-0 flex max-w-[680px] flex-wrap gap-2">
       {tags.map((tag) => (
-        <Tag href={withBase(`/tags/${slugifyTag(tag)}/`)}>#{tag}</Tag>
+        <Tag href={withBase(localizedPath(`/tags/${slugifyTag(tag)}/`, locale))}>#{tag}</Tag>
       ))}
     </p>
   )}

@@ -3,6 +3,8 @@ title: 'Preservación de evidencia digital: primeros criterios'
 description: 'Una introducción práctica a la documentación, integridad y límites al preservar evidencia digital.'
 date: 2026-11-07
 locale: es
+image: '/assets/blog/preservacion-evidencia-digital.svg'
+imageAlt: 'Diagrama de identificación, cadena de custodia y copia forense verificada para preservar evidencia digital.'
 tags:
   - Informática forense
   - Evidencia digital

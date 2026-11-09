@@ -2,7 +2,16 @@ import type { CollectionEntry } from 'astro:content';
 import type { Locale } from '@/lib/i18n';
 
 export function postSlug(post: CollectionEntry<'blog'>): string {
-  return post.id.replace(/\.(md|mdx)$/i, '');
+  const filename = post.id.split('/').pop() ?? post.id;
+  return filename.replace(/\.(md|mdx)$/i, '');
+}
+
+export function postImage(post: CollectionEntry<'blog'>): string {
+  return post.data.image ?? '/assets/blog/ibm-razonamiento-gobernado.svg';
+}
+
+export function postImageAlt(post: CollectionEntry<'blog'>): string {
+  return post.data.imageAlt ?? post.data.title;
 }
 
 export function formatPostDate(date: Date, locale: Locale = 'es'): string {

@@ -3,10 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 import ArticleBody from '@/components/blog/ArticleBody.astro';
 import ArticleHeader from '@/components/blog/ArticleHeader.astro';
 import ArticleLayout from '@/components/blog/ArticleLayout.astro';
-import { postSlug } from '@/lib/posts';
+import { postImage, postImageAlt, postSlug } from '@/lib/posts';
 import { slugifyTag } from '@/lib/tags';
 import { withBase } from '@/lib/paths';
-import { getMessages, type Locale } from '@/lib/i18n';
+import { getMessages, localizedPath, type Locale } from '@/lib/i18n';
 import { AUTHOR_NAME } from '@/lib/site';
 
 interface Heading {
@@ -25,17 +25,20 @@ const { post, headings, locale } = Astro.props;
 const sectionHeadings = headings.filter((heading) => heading.depth === 2);
 const tags = post.data.tags.filter((tag) => slugifyTag(tag) !== '');
 const slug = postSlug(post);
+const imagePath = postImage(post);
+const imageAltText = postImageAlt(post);
 const postSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.data.title,
   description: post.data.description,
+  image: [new URL(withBase(imagePath), Astro.site).toString()],
   datePublished: post.data.date.toISOString(),
-  url: new URL(withBase(`/blog/${slug}/`), Astro.site).toString(),
+  url: new URL(withBase(localizedPath(`/blog/${slug}/`, locale)), Astro.site).toString(),
   author: {
     '@type': 'Person',
     name: AUTHOR_NAME,
-    url: new URL(withBase('/'), Astro.site).toString(),
+    url: new URL(withBase(localizedPath('/', locale)), Astro.site).toString(),
   },
 }).replace(/</g, '\\u003c');
 ---
@@ -49,6 +52,8 @@ const postSchema = JSON.stringify({
       date={post.data.date}
       tags={tags}
       locale={locale}
+      image={imagePath}
+      imageAlt={imageAltText}
     />
     <ArticleBody>
       <slot />

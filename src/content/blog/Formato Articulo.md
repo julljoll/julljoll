@@ -1,9 +1,11 @@
 ---
-# Mantén estos seis campos; coinciden con el esquema de src/content.config.ts.
+# Mantén estos campos; coinciden con el esquema de src/content.config.ts.
 title: 'Título del artículo'
 description: 'Resumen breve y fiel al contenido del artículo.'
 date: 2026-11-07
 locale: es
+image: '/assets/blog/ibm-razonamiento-gobernado.svg'
+imageAlt: 'Descripción accesible e ilustrativa de la imagen de cabecera y miniatura.'
 tags:
   - informática-forense
   - evidencia-digital

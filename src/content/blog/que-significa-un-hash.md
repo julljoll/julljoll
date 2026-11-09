@@ -3,6 +3,8 @@ title: 'Qué significa un hash en informática forense'
 description: 'Qué aporta una huella criptográfica al análisis de archivos y cuáles son sus límites como evidencia.'
 date: 2026-11-07
 locale: es
+image: '/assets/blog/que-significa-un-hash.svg'
+imageAlt: 'Esquema de verificación de integridad criptográfica mediante función hash SHA-256.'
 tags:
   - Informática forense
   - SHA-256

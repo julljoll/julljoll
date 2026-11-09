@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <g stroke="#1E293B" stroke-width="2">
+    <line x1="0" y1="90" x2="1200" y2="90"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+  <!-- Outer Neobrutalist Frame -->
+  <rect x="76" y="76" width="1060" height="490" fill="#020617"/>
+  <rect x="64" y="64" width="1060" height="490" fill="#1E293B" stroke="#F8FAFC" stroke-width="6"/>
+  <!-- Top Bar -->
+  <rect x="64" y="64" width="1060" height="54" fill="#0F62FE" stroke="#F8FAFC" stroke-width="6"/>
+  <circle cx="100" cy="91" r="9" fill="#F8FAFC"/>
+  <circle cx="130" cy="91" r="9" fill="#F8FAFC"/>
+  <circle cx="160" cy="91" r="9" fill="#F8FAFC"/>
+  <text x="200" y="98" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="20" letter-spacing="2">IBM RESEARCH · GOVERNED REASONING AI · XAI</text>
+  <!-- Left Panel: Source Dossier / Evidence -->
+  <rect x="110" y="158" width="270" height="340" fill="#0F172A" stroke="#38BDF8" stroke-width="4"/>
+  <rect x="134" y="186" width="140" height="22" fill="#0F62FE"/>
+  <text x="144" y="202" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="13">EVIDENCE INPUT</text>
+  <rect x="134" y="226" width="220" height="12" fill="#475569"/>
+  <rect x="134" y="250" width="190" height="12" fill="#475569"/>
+  <rect x="134" y="274" width="210" height="12" fill="#38BDF8"/>
+  <rect x="134" y="310" width="220" height="68" fill="#1E293B" stroke="#38BDF8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="148" y="338" fill="#38BDF8" font-family="monospace" font-weight="bold" font-size="14">CONTEXT: 128K-512K</text>
+  <text x="148" y="362" fill="#94A3B8" font-family="monospace" font-size="13">SHA-256 VERIFIED</text>
+  <rect x="134" y="402" width="180" height="12" fill="#475569"/>
+  <rect x="134" y="426" width="210" height="12" fill="#475569"/>
+  <rect x="134" y="454" width="120" height="24" fill="#10B981"/>
+  <text x="146" y="471" fill="#020617" font-family="monospace" font-weight="bold" font-size="13">ON-PREMISE</text>
+  <!-- Center Panel: Reasoning Engine <think> -->
+  <rect x="445" y="158" width="310" height="340" fill="#0F172A" stroke="#F59E0B" stroke-width="4"/>
+  <rect x="469" y="186" width="262" height="34" fill="#F59E0B"/>
+  <text x="485" y="209" fill="#020617" font-family="monospace" font-weight="bold" font-size="18">&lt;think&gt; REASONING &lt;/think&gt;</text>
+  <!-- Nodes inside reasoning -->
+  <circle cx="520" cy="285" r="24" fill="#0F62FE" stroke="#F8FAFC" stroke-width="4"/>
+  <text x="508" y="291" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="16">3B</text>
+  <circle cx="600" cy="285" r="28" fill="#0F62FE" stroke="#F8FAFC" stroke-width="4"/>
+  <text x="588" y="291" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="16">8B</text>
+  <circle cx="685" cy="285" r="32" fill="#F59E0B" stroke="#F8FAFC" stroke-width="4"/>
+  <text x="667" y="291" fill="#020617" font-family="monospace" font-weight="bold" font-size="17">30B</text>
+  <line x1="544" y1="285" x2="572" y2="285" stroke="#F8FAFC" stroke-width="4"/>
+  <line x1="628" y1="285" x2="653" y2="285" stroke="#F8FAFC" stroke-width="4"/>
+  <rect x="469" y="346" width="262" height="54" fill="#1E293B" stroke="#F8FAFC" stroke-width="2"/>
+  <text x="485" y="370" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="14">CHAIN-OF-THOUGHT TRACE</text>
+  <text x="485" y="390" fill="#38BDF8" font-family="monospace" font-size="13"> Full · Low-Effort · Direct</text>
+  <rect x="469" y="422" width="262" height="52" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+  <text x="485" y="445" fill="#10B981" font-family="monospace" font-weight="bold" font-size="14">AGENTIC RL &amp; TOOL CALLS</text>
+  <text x="485" y="464" fill="#94A3B8" font-family="monospace" font-size="12">APACHE 2.0 · AUDITABLE</text>
+  <!-- Right Panel: Audited Output -->
+  <rect x="820" y="158" width="260" height="340" fill="#0F172A" stroke="#10B981" stroke-width="4"/>
+  <rect x="844" y="186" width="160" height="22" fill="#10B981"/>
+  <text x="854" y="202" fill="#020617" font-family="monospace" font-weight="bold" font-size="13">AUDITED OUTPUT</text>
+  <rect x="844" y="232" width="212" height="85" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+  <text x="858" y="258" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="14">CLAIM → SOURCE</text>
+  <text x="858" y="280" fill="#10B981" font-family="monospace" font-size="13">Confidence: 99.4%</text>
+  <text x="858" y="302" fill="#94A3B8" font-family="monospace" font-size="12">Ref: Page 14, Par 3</text>
+  <rect x="844" y="340" width="212" height="75" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <text x="858" y="366" fill="#38BDF8" font-family="monospace" font-weight="bold" font-size="14">GOVERNANCE READY</text>
+  <text x="858" y="388" fill="#F8FAFC" font-family="monospace" font-size="12">NIST AI RMF · ISO 42001</text>
+  <text x="858" y="405" fill="#94A3B8" font-family="monospace" font-size="12">ISO/IEC 27037</text>
+  <path d="M885 456 L905 476 L945 436" stroke="#10B981" stroke-width="8" stroke-linecap="square"/>
+  <text x="965" y="464" fill="#F8FAFC" font-family="monospace" font-weight="bold" font-size="16">VERIFIED</text>
+  <!-- Connecting Arrows -->
+  <path d="M380 328 L445 328" stroke="#F8FAFC" stroke-width="5"/>
+  <polygon points="445,328 431,319 431,337" fill="#F8FAFC"/>
+  <path d="M755 328 L820 328" stroke="#F8FAFC" stroke-width="5"/>
+  <polygon points="820,328 806,319 806,337" fill="#F8FAFC"/>
+</svg>
+
