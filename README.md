@@ -6,7 +6,7 @@ Soy **Jull Ortiz**, licenciado en Derecho y **Data & AI Analyst** especializado 
 
 Transformo datos no estructurados y de alto riesgo en **sistemas de IA que puedes auditar**: preparo la ingesta documental (**Docling**), diseño la arquitectura (**pipelines RAG sobre el stack open-source de IBM**) y la implemento localmente bajo estrictos controles de seguridad, cadena de custodia y trazabilidad (**Explainable AI · IBM Granite Guardian**), para que la información sensible nunca salga del entorno y los resultados se sostengan ante un auditor o un tribunal.
 
-[Perfil profesional](https://julljoll.github.io/) · [Sobre mí](https://julljoll.github.io/experience/) · [SHA256.US](https://sha256.us/es/) · [LinkedIn](https://www.linkedin.com/in/julljoll/) · [GitHub](https://github.com/julljoll)
+[Perfil profesional](https://jull.sha256.us) · [Sobre mí](https://jull.sha256.us/experience/) · [SHA256.US](https://sha256.us) · [LinkedIn](https://www.linkedin.com/in/julljoll/) · [GitHub](https://github.com/julljoll)
 
 ---
 
