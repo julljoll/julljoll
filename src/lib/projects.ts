@@ -12,60 +12,60 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     name: 'SHA256.US · Compliance Forensic',
     url: 'https://github.com/julljoll/Compliace-Forensic-js',
     description: {
-      es: 'CMS de cumplimiento forense digital para gestionar casos y evidencias, guiar flujos de cadena de custodia, generar documentos y mantener una auditoría encadenada con SHA-256. El repositorio también describe funcionamiento local sin conexión y sincronización opcional.',
-      en: 'A digital-forensics compliance CMS for managing cases and evidence, guiding chain-of-custody workflows, generating documents, and maintaining SHA-256-linked audit records. The repository also describes offline operation with optional synchronization.',
+      es: 'CMS de cumplimiento forense digital para gestionar casos y evidencias, guiar flujos de cadena de custodia, generar dictámenes exportables con timestamps y mantener una auditoría inmutable encadenada con SHA-256. Incluye operación local sin conexión (On-Premise) y privacidad de datos por diseño.',
+      en: 'Digital-forensics compliance CMS for managing cases and evidence, guiding chain-of-custody workflows, generating exportable reports with timestamps, and maintaining immutable SHA-256-linked audit logs. Built for local offline operation (On-Premise) and data privacy by design.',
     },
     focus: {
-      es: ['Forense digital', 'Compliance', 'SHA-256'],
-      en: ['Digital forensics', 'Compliance', 'SHA-256'],
+      es: ['Chain of Custody', 'Compliance', 'SHA-256', 'On-Premise', 'Digital Forensics'],
+      en: ['Chain of Custody', 'Compliance', 'SHA-256', 'On-Premise', 'Digital Forensics'],
     },
   },
   {
     name: 'Ulpiano · Chief Compliance Officer',
     url: 'https://github.com/julljoll/Ulpiano-Chief-Compliance-Officer',
     description: {
-      es: 'Propuesta y arquitectura de referencia para un Chief Compliance Officer que reúne ciberseguridad procesal, integridad digital, cadena de custodia y marcos de cumplimiento.',
-      en: 'A proposal and reference architecture for a Chief Compliance Officer platform bringing together procedural cybersecurity, digital integrity, chain of custody, and compliance frameworks.',
+      es: 'Propuesta y arquitectura de referencia de gobernanza de IA y cumplimiento (Chief Compliance Officer) que integra ciberseguridad procesal, integridad digital, cadena de custodia y alineación con marcos como NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 e ISO/IEC 27037.',
+      en: 'Reference architecture and governance framework for a Chief Compliance Officer platform integrating procedural cybersecurity, digital integrity, chain of custody, and alignment with NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001, and ISO/IEC 27037.',
     },
     focus: {
-      es: ['Arquitectura', 'Integridad digital', 'Compliance'],
-      en: ['Architecture', 'Digital integrity', 'Compliance'],
+      es: ['AI Governance', 'NIST AI RMF', 'ISO 27001 · 42001', 'Integridad digital'],
+      en: ['AI Governance', 'NIST AI RMF', 'ISO 27001 · 42001', 'Digital integrity'],
     },
   },
   {
     name: 'JullBrain',
     url: 'https://github.com/julljoll/JullBrain',
     description: {
-      es: 'Plataforma Legal-RAG en Python para organizar normativas, códigos y expedientes en conocimiento consultable, con enfoque en informática forense y tecnología como Docling, Granite y OpenSearch.',
-      en: 'A Python Legal-RAG platform for organizing regulations, codes, and case files into searchable knowledge, focused on digital forensics and technologies such as Docling, Granite, and OpenSearch.',
+      es: 'Agente y plataforma Legal-RAG local en Python para transformar expedientes y normativas en conocimiento auditable. Integra ingesta estructurada con Docling (chunks con metadatos de página y hash), Data Prep Kit, modelos IBM Granite, BeeAI, filtros anti-alucinación con Granite Guardian y trazabilidad Explainable AI (XAI).',
+      en: 'On-premise Python Legal-RAG agent and platform turning case files and regulations into auditable knowledge. Integrates structured document ingestion with Docling (chunks with page metadata and hashes), Data Prep Kit, IBM Granite, BeeAI, Granite Guardian anti-hallucination guardrails, and Explainable AI (XAI) traceability.',
     },
     focus: {
-      es: ['Legal-RAG', 'Python', 'Informática forense'],
-      en: ['Legal-RAG', 'Python', 'Digital forensics'],
+      es: ['Legal-RAG', 'Docling', 'IBM Granite', 'Granite Guardian', 'Explainable AI (XAI)'],
+      en: ['Legal-RAG', 'Docling', 'IBM Granite', 'Granite Guardian', 'Explainable AI (XAI)'],
     },
   },
   {
     name: 'FotoForense · PhotoHolmes',
     url: 'https://github.com/julljoll/FotoForense',
     description: {
-      es: 'Herramienta de apoyo pericial para analizar posibles manipulaciones en imágenes y generar informes preliminares y paquetes de evidencia. Sus resultados requieren validación de un perito habilitado.',
-      en: 'Forensic support software for analyzing potential image manipulation and generating preliminary reports and evidence packages. Its results require review by a qualified forensic examiner.',
+      es: 'Herramienta de apoyo pericial para analizar posibles manipulaciones en imágenes, explicar indicadores visuales de alteración y generar informes preliminares y paquetes de evidencia con preservación de hash. Sus resultados requieren validación de un perito habilitado.',
+      en: 'Forensic support software for analyzing potential image manipulation, surfacing explainable visual alteration indicators, and generating preliminary reports and hash-preserved evidence packages. Results require review by a qualified forensic examiner.',
     },
     focus: {
-      es: ['Análisis de imágenes', 'Evidencia digital', 'Python'],
-      en: ['Image analysis', 'Digital evidence', 'Python'],
+      es: ['Análisis de imágenes', 'Evidencia digital', 'Python', 'Trazabilidad'],
+      en: ['Image analysis', 'Digital evidence', 'Python', 'Traceability'],
     },
   },
   {
     name: 'IPED_SHA256.US',
     url: 'https://github.com/julljoll/IPED_SHA256.US',
     description: {
-      es: 'Repositorio del procesador e indexador forense IPED, software de código abierto para procesar y analizar evidencia digital. IPED fue creado y continúa siendo desarrollado por especialistas de la Policía Federal de Brasil.',
-      en: 'Repository for IPED, an open-source forensic processor and indexer for processing and analyzing digital evidence. IPED was created and continues to be developed by experts at the Brazilian Federal Police.',
+      es: 'Repositorio relacionado con el procesador e indexador forense IPED, software de código abierto de alto rendimiento para procesar, indexar y auditar grandes volúmenes de evidencia digital de forma local. IPED fue creado y continúa siendo desarrollado por especialistas de la Policía Federal de Brasil.',
+      en: 'Repository for the IPED forensic processor and indexer, high-performance open-source software for locally processing, indexing, and auditing large volumes of digital evidence. IPED was created and continues to be developed by experts at the Brazilian Federal Police.',
     },
     focus: {
-      es: ['IPED', 'Indexación', 'Evidencia digital'],
-      en: ['IPED', 'Indexing', 'Digital evidence'],
+      es: ['IPED', 'Indexación forense', 'Evidencia digital', 'On-Premise'],
+      en: ['IPED', 'Forensic indexing', 'Digital evidence', 'On-Premise'],
     },
   },
 ];

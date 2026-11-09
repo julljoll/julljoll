@@ -8,33 +8,103 @@ interface Props {
 const { locale } = Astro.props;
 const text = {
   es: {
-    title: 'Competencias complementarias',
+    title: 'Gobernanza de IA, arquitectura y competencias complementarias',
     intro:
-      'Trabajo con metodologías de diseño centrado en las personas (UCD) y el modelo AIDAR: investigo, analizo, pruebo y optimizo experiencias digitales para responder a objetivos reales.',
+      'Integro gobernanza de IA por diseño (Explainable AI, RAG on-premise, Document Intelligence con Docling y filtros Trust & Safety con IBM Granite Guardian) con metodologías de diseño centrado en las personas (UCD) y el modelo AIDAR: investigo, analizo, pruebo y optimizo interfaces e informes técnicos para que cada hallazgo muestre su fuente, nivel de confianza y trazabilidad.',
     method:
-      'La experiencia en diseño gráfico, contenido para redes sociales, landing pages, email marketing, retoque de imágenes y edición de vídeo fortalece la comunicación visual. Estas competencias apoyan la presentación de información, pero no sustituyen los métodos técnicos de análisis forense.',
+      'Alineo la arquitectura técnica con referencias como NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (gestión de IA) e ISO/IEC 27037 (evidencia digital). La experiencia en diseño UX/UI en Figma, comunicación visual, landing pages, email marketing, retoque de imágenes y edición de vídeo fortalece la presentación de interfaces XAI y dictámenes, pero no sustituye los métodos técnicos de adquisición, preservación ni análisis forense.',
+    mappingTitle: 'Arquitectura y evidencia técnica',
+    mapping: [
+      {
+        area: 'AI-First UX/UI (XAI)',
+        evidence:
+          'Interfaces que muestran fuente, confianza y trazabilidad de cada afirmación (“afirmación → fragmento exacto del documento”).',
+      },
+      {
+        area: 'Ingesta de documentos',
+        evidence:
+          'Pipelines con Docling para convertir expedientes en datos estructurados: chunks con metadatos de página y hash SHA-256 hacia índice RAG.',
+      },
+      {
+        area: 'Trust & Safety On-Premise',
+        evidence:
+          'Controles anti-alucinación y mitigación de sesgo con IBM Granite Guardian ejecutados en entorno local auditable.',
+      },
+      {
+        area: 'Reporte forense y compliance',
+        evidence:
+          'Cadena de custodia documentada, registro de auditoría inmutable con timestamps, hashes SHA-256 y dictamen exportable.',
+      },
+    ],
     skills: [
+      'Explainable AI (XAI)',
+      'RAG',
+      'Document Intelligence',
+      'Docling',
+      'IBM Granite',
+      'Granite Guardian',
+      'AI Governance',
+      'Responsible AI',
+      'Data Privacy',
+      'Chain of Custody',
+      'Digital Forensics',
+      'On-premise AI',
+      'NIST AI RMF',
+      'ISO/IEC 27001 · 42001 · 27037',
+      'Python · Podman · OCI',
       'Diseño centrado en las personas (UCD)',
       'Modelo AIDAR',
       'Diseño y prototipado en Figma',
-      'Email marketing y Klaviyo',
-      'Retoque de imágenes',
-      'Edición de vídeo',
     ],
   },
   en: {
-    title: 'Complementary skills',
+    title: 'AI governance, architecture, and complementary skills',
     intro:
-      'I work with User-Centered Design (UCD) methodologies and the AIDAR model: researching, analyzing, testing, and optimizing digital experiences to meet real goals.',
+      'I combine governance-by-design AI (Explainable AI, on-premise RAG, Document Intelligence with Docling, and Trust & Safety guardrails with IBM Granite Guardian) with User-Centered Design (UCD) methodologies and the AIDAR model: researching, analyzing, testing, and optimizing interfaces and technical reports so every claim displays its source, confidence, and traceability.',
     method:
-      'Experience in graphic design, social content, landing pages, email marketing, image retouching, and video editing strengthens visual communication. These skills support how information is presented but do not replace technical forensic methods.',
+      'I align technical architecture with frameworks such as NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (AI management), and ISO/IEC 27037 (digital evidence). Experience in Figma UX/UI prototyping, visual communication, landing pages, email marketing, image retouching, and video editing strengthens XAI interfaces and report presentation, but does not replace technical forensic acquisition, preservation, or analysis methods.',
+    mappingTitle: 'Architecture and technical evidence',
+    mapping: [
+      {
+        area: 'AI-First UX/UI (XAI)',
+        evidence:
+          'Interfaces showing source, confidence score, and traceability for every claim (“claim → exact document passage”).',
+      },
+      {
+        area: 'Document Ingestion',
+        evidence:
+          'Docling pipelines converting scanned case files into structured data: chunks with page metadata and SHA-256 hashes indexed for RAG.',
+      },
+      {
+        area: 'On-Premise Trust & Safety',
+        evidence:
+          'Anti-hallucination and bias mitigation filters using IBM Granite Guardian in local, auditable environments.',
+      },
+      {
+        area: 'Forensic Reporting & Compliance',
+        evidence:
+          'Documented chain of custody, immutable audit logs with timestamps, SHA-256 hashes, and exportable forensic reports.',
+      },
+    ],
     skills: [
+      'Explainable AI (XAI)',
+      'RAG',
+      'Document Intelligence',
+      'Docling',
+      'IBM Granite',
+      'Granite Guardian',
+      'AI Governance',
+      'Responsible AI',
+      'Data Privacy',
+      'Chain of Custody',
+      'Digital Forensics',
+      'On-premise AI',
+      'NIST AI RMF',
+      'ISO/IEC 27001 · 42001 · 27037',
+      'Python · Podman · OCI',
       'User-Centered Design (UCD)',
       'AIDAR model',
       'Figma design and prototyping',
-      'Email marketing and Klaviyo',
-      'Image retouching',
-      'Video editing',
     ],
   },
 }[locale];
@@ -59,5 +129,17 @@ const text = {
         ))}
       </ul>
     </aside>
+  </div>
+
+  <div class="mt-6 border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]">
+    <h3 class="m-0 mb-4 text-xl font-bold">{text.mappingTitle}</h3>
+    <div class="grid gap-4 md:grid-cols-2">
+      {text.mapping.map((item) => (
+        <div class="border-2 border-ink bg-bg p-4">
+          <p class="m-0 font-mono text-xs font-bold tracking-[0.08em] text-accent uppercase">{item.area}</p>
+          <p class="mt-2 mb-0 text-sm leading-[1.55] text-ink-soft">{item.evidence}</p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>

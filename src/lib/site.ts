@@ -1,8 +1,9 @@
 export const SITE_NAME = 'Jull Ortiz';
 export const AUTHOR_NAME = 'Jull Ortiz';
 export const SITE_DESCRIPTION =
-  'Perfil profesional de Jull Ortiz: informática forense, evidencia digital y documentación técnica.';
-export const JOB_TITLE = '';
+  'Perfil profesional de Jull Ortiz: Data & AI Analyst especializado en Governed AI, informática forense, evidencia digital y compliance.';
+export const JOB_TITLE =
+  'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics | RAG · Explainable AI · Data Governance';
 export const SITE_URL = 'https://julljoll.github.io';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/julljoll/';
 export const GITHUB_URL = 'https://github.com/julljoll';

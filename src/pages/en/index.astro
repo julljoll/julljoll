@@ -11,12 +11,14 @@ import { withBase } from '@/lib/paths';
 import { AUTHOR_NAME, GITHUB_URL, LINKEDIN_URL, SITE_NAME } from '@/lib/site';
 
 const description =
-  'SHA256.US project focus areas: mobile devices, digital evidence, electronic documents, and digital forensics.';
+  'Data & AI Analyst specializing in Governed AI (legal, forensics, and compliance). SHA256.US focus areas: mobile devices, digital evidence, electronic documents, and digital forensics.';
 const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: AUTHOR_NAME,
-  description: 'A law degree and digital forensics projects focused on digital evidence and technical documentation.',
+  jobTitle: 'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics',
+  description:
+    'Data & AI Analyst specializing in Governed AI, with a law degree and projects focused on digital forensics, digital evidence, RAG pipelines, and technical documentation.',
   url: new URL(withBase('/'), Astro.site).toString(),
   sameAs: [GITHUB_URL, LINKEDIN_URL].filter(Boolean),
 }).replace(/</g, '\\u003c');

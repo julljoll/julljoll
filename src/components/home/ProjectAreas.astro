@@ -8,46 +8,48 @@ interface Props {
 const { locale } = Astro.props;
 const content = {
   es: {
-    label: 'SHA256.US',
+    label: 'SHA256.US · Governed AI & Digital Forensics',
     title: 'Áreas del proyecto',
     intro:
-      'Servicios y herramientas para la recuperación y el análisis técnico de dispositivos, documentos y evidencia digital.',
+      'Arquitecturas de IA gobernada, ingesta documental estructurada y herramientas para la preservación, cadena de custodia y análisis técnico de evidencia digital.',
     areas: [
       {
         title: 'Dispositivos móviles',
         description:
-          'Reparación, extracción de información y revisión de audios, imágenes, mensajes y contenido de aplicaciones de mensajería.',
+          'Reparación, extracción de información y revisión de audios, imágenes, mensajes y contenido de aplicaciones de mensajería bajo trazabilidad forense.',
       },
       {
         title: 'Evidencia y documentos digitales',
         description:
-          'Informática forense, contratos y documentos electrónicos, metadatos, firmas y análisis de posibles alteraciones.',
+          'Ingesta y estructuración de expedientes con Docling (chunks con metadatos de página y hash SHA-256), contratos electrónicos, firmas y análisis de posibles alteraciones.',
       },
       {
         title: 'Análisis técnico-jurídico',
         description:
-          'Proyectos que conectan el análisis de información legal con herramientas de cumplimiento y documentación digital.',
+          'Pipelines Legal-RAG on-premise, Explainable AI (XAI) con trazabilidad exacta a la fuente, filtros Trust & Safety (IBM Granite Guardian) y dictámenes exportables con cadena de custodia.',
       },
     ],
   },
   en: {
-    label: 'SHA256.US',
+    label: 'SHA256.US · Governed AI & Digital Forensics',
     title: 'Project focus areas',
-    intro: 'Services and tools for the recovery and technical analysis of devices, documents, and digital evidence.',
+    intro:
+      'Governed AI architectures, structured document ingestion, and tools for the preservation, chain of custody, and technical analysis of digital evidence.',
     areas: [
       {
         title: 'Mobile devices',
         description:
-          'Repair, data extraction, and review of audio, images, messages, and content from messaging applications.',
+          'Repair, data extraction, and review of audio, images, messages, and messaging app content with forensic traceability.',
       },
       {
         title: 'Digital evidence and documents',
         description:
-          'Digital forensics, contracts and electronic documents, metadata, signatures, and potential alterations.',
+          'Document ingestion and structuring with Docling (page metadata and SHA-256 hash chunks), electronic contracts, signatures, and analysis of potential alterations.',
       },
       {
         title: 'Technical and legal analysis',
-        description: 'Projects connecting legal information analysis with compliance and digital documentation tools.',
+        description:
+          'On-premise Legal-RAG pipelines, Explainable AI (XAI) tracing every claim to its exact source, Trust & Safety guardrails (IBM Granite Guardian), and exportable chain-of-custody reports.',
       },
     ],
   },

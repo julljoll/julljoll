@@ -32,8 +32,9 @@ const messages = {
     blogDescription: 'Notas, ideas y cosas que vale la pena compartir',
     tagsDescription: 'Artículos agrupados por etiqueta',
     aboutDescription:
-      'Perfil de Jull Ortiz: formación en Derecho e informática forense, credenciales verificables y experiencia en diseño digital.',
-    projectsDescription: 'Proyectos de informática forense, cumplimiento, análisis legal y evidencia digital.',
+      'Perfil de Jull Ortiz: Data & AI Analyst especializado en Governed AI, formación en Derecho e informática forense, credenciales verificables y diseño de sistemas auditables.',
+    projectsDescription:
+      'Proyectos de Governed AI, Legal-RAG, informática forense, cumplimiento, trazabilidad y evidencia digital.',
     browseTags: 'Ver por etiqueta',
     noPosts: 'Aún no hay publicaciones. Vuelve pronto.',
     latest: 'Nuevo',
@@ -87,8 +88,9 @@ const messages = {
     blogDescription: 'Notes, ideas, and things worth sharing',
     tagsDescription: 'Posts grouped by tag',
     aboutDescription:
-      'Jull Ortiz’s profile: law and digital forensics education, verifiable credentials, and professional experience in digital design.',
-    projectsDescription: 'Projects in digital forensics, compliance, legal analysis, and digital evidence.',
+      'Jull Ortiz’s profile: Data & AI Analyst specializing in Governed AI, law and digital forensics background, verifiable credentials, and auditable system design.',
+    projectsDescription:
+      'Projects in Governed AI, Legal-RAG, digital forensics, compliance, traceability, and digital evidence.',
     browseTags: 'Browse by tag',
     noPosts: 'No posts yet, check back soon.',
     latest: 'latest',

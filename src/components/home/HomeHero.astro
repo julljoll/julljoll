@@ -13,10 +13,11 @@ const { locale } = Astro.props;
 const copy = {
   es: {
     title: `Perfil de ${AUTHOR_NAME}`,
-    eyebrow: 'Informática forense · Evidencia digital',
-    headlineStart: 'Análisis digital y documentación técnica para',
+    eyebrow: 'Data & AI Analyst · Governed, On-Premise AI · Informática forense y Compliance',
+    headlineStart: 'Sistemas de IA auditables, análisis digital y documentación para',
     headlineHighlight: 'procesos judiciales.',
-    intro: `Soy ${AUTHOR_NAME}. Combino formación en Derecho con proyectos de informática forense y el trabajo de SHA256.US en reparación, extracción y análisis de información de dispositivos móviles.`,
+    intro: `Soy ${AUTHOR_NAME}. Transformo datos no estructurados y de alto riesgo en sistemas de IA que puedes auditar. Preparo la ingesta documental (Docling), diseño arquitecturas RAG locales (stack open-source de IBM) bajo estrictos controles de seguridad y cadena de custodia, integrando mi formación en Derecho con el trabajo forense de SHA256.US.`,
+    tagline: 'RAG · Explainable AI (XAI) · Data Governance · Digital Forensics · Chain of Custody',
     projects: 'Explora mis proyectos',
     about: 'Sobre mí',
     website: 'SHA256.US',
@@ -24,10 +25,11 @@ const copy = {
   },
   en: {
     title: `${AUTHOR_NAME}'s profile`,
-    eyebrow: 'Digital forensics · Digital evidence',
-    headlineStart: 'Digital analysis and technical documentation for',
+    eyebrow: 'Data & AI Analyst · Governed, On-Premise AI · Legal, Compliance & Digital Forensics',
+    headlineStart: 'Auditable AI systems, digital analysis, and technical documentation for',
     headlineHighlight: 'judicial proceedings.',
-    intro: `I'm ${AUTHOR_NAME}. I combine a background in law with digital forensics projects and SHA256.US work on mobile-device repair, data extraction, and analysis.`,
+    intro: `I'm ${AUTHOR_NAME}. I turn messy, high-stakes data into AI systems you can audit—combining document ingestion (Docling), local RAG architectures (IBM open-source stack), and strict chain-of-custody controls with a background in law and SHA256.US digital forensics work.`,
+    tagline: 'RAG · Explainable AI (XAI) · Data Governance · Digital Forensics · Chain of Custody',
     projects: 'Explore my projects',
     about: 'About me',
     website: 'SHA256.US',
@@ -43,6 +45,7 @@ const copy = {
         {copy.headlineStart} <Highlight>{copy.headlineHighlight}</Highlight>
       </h1>
       <p class="hero-intro">{copy.intro}</p>
+      <p class="mt-4 mb-0 font-mono text-xs font-bold tracking-[0.06em] text-accent uppercase">{copy.tagline}</p>
     </div>
     <nav class="hero-menu" aria-label={locale === 'es' ? 'Accesos del perfil' : 'Profile shortcuts'}>
       <a class="hero-link hero-link-primary" href={withBase(localizedPath('/projects/', locale))}>
