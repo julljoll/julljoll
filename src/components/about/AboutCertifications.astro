@@ -39,7 +39,23 @@ const text = {
           {certification.category[locale]}
         </p>
         <h3 class="mt-2 mb-2 text-lg leading-[1.25] font-bold">{certification.title[locale]}</h3>
-        <p class="m-0 text-sm leading-[1.5] text-ink-soft">{certification.issuer}</p>
+        <p class="m-0 text-sm leading-[1.5] text-ink-soft">
+          {certification.issuer.includes('SUSCERTE') ? (
+            <>
+              <a
+                href="https://www.suscerte.gob.ve/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline decoration-1 underline-offset-2 hover:text-accent"
+              >
+                SUSCERTE
+              </a>
+              <span>{certification.issuer.replace('SUSCERTE', '')}</span>
+            </>
+          ) : (
+            certification.issuer
+          )}
+        </p>
         <p class="mt-2 mb-0 font-mono text-xs text-ink-soft">{certification.date[locale]}</p>
         {certification.detail && (
           <p class="mt-3 mb-0 text-sm leading-[1.5] text-ink-soft">{certification.detail[locale]}</p>

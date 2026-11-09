@@ -17,11 +17,10 @@ const copy = {
     headlineStart: 'Sistemas de IA auditables, análisis digital y documentación para',
     headlineHighlight: 'procesos judiciales.',
     intro: `Soy ${AUTHOR_NAME}. Transformo datos no estructurados y de alto riesgo en sistemas de IA que puedes auditar. Preparo la ingesta y estructuración documental, diseño arquitecturas de recuperación y generación aumentada (RAG) en ejecución local con ecosistemas de IBM y Oracle bajo estrictos controles de seguridad y cadena de custodia, integrando mi formación en Derecho con el trabajo forense de SHA256.US.`,
-    tagline: 'IBM · Oracle · Explainable AI (XAI) · Data Governance · Digital Forensics · Chain of Custody',
     projects: 'Explora mis proyectos',
     about: 'Sobre mí',
     website: 'SHA256.US',
-    blog: 'Blog forense',
+    blog: 'Blog',
   },
   en: {
     title: `${AUTHOR_NAME}'s profile`,
@@ -29,11 +28,10 @@ const copy = {
     headlineStart: 'Auditable AI systems, digital analysis, and technical documentation for',
     headlineHighlight: 'judicial proceedings.',
     intro: `I'm ${AUTHOR_NAME}. I turn messy, high-stakes data into AI systems you can audit—combining structured document ingestion, local retrieval-augmented generation (RAG) architectures built on IBM and Oracle ecosystems, and strict chain-of-custody controls with a background in law and SHA256.US digital forensics work.`,
-    tagline: 'IBM · Oracle · Explainable AI (XAI) · Data Governance · Digital Forensics · Chain of Custody',
     projects: 'Explore my projects',
     about: 'About me',
     website: 'SHA256.US',
-    blog: 'Forensics blog',
+    blog: 'Blog',
   },
 }[locale];
 ---
@@ -45,7 +43,6 @@ const copy = {
         {copy.headlineStart} <Highlight>{copy.headlineHighlight}</Highlight>
       </h1>
       <p class="hero-intro">{copy.intro}</p>
-      <p class="mt-4 mb-0 font-mono text-xs font-bold tracking-[0.06em] text-accent uppercase">{copy.tagline}</p>
     </div>
     <nav class="hero-menu" aria-label={locale === 'es' ? 'Accesos del perfil' : 'Profile shortcuts'}>
       <a class="hero-link hero-link-primary" href={withBase(localizedPath('/projects/', locale))}>

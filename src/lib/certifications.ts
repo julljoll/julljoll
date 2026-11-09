@@ -19,9 +19,10 @@ export const CERTIFICATIONS: Certification[] = [
     date: { es: '3–18 feb 2026', en: 'Feb 3–18, 2026' },
     category: { es: 'Informática forense', en: 'Digital forensics' },
     detail: {
-      es: 'Curso autogestionado de 16 horas. Contenido: fundamentos estructurales y marco jurídico.',
-      en: 'Self-paced, 16-hour course covering structural fundamentals and legal framework.',
+      es: 'Curso autogestionado. Contenido: fundamentos estructurales y marco jurídico.',
+      en: 'Self-paced course covering structural fundamentals and legal framework.',
     },
+    verificationUrl: 'https://www.suscerte.gob.ve/',
   },
   {
     title: { es: 'Cybersecurity Fundamentals', en: 'Cybersecurity Fundamentals' },

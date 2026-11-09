@@ -2,7 +2,7 @@
 **Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics**
 Location: Remote (US-compatible time zone / UTC-4)  
 Email: [julljoll@gmail.com](mailto:julljoll@gmail.com) | Phone/WhatsApp: [+58 424 5585474](https://wa.me/584245585474)  
-Portfolio & Website: [https://julljoll.github.io/en/](https://julljoll.github.io/en/) | Project: [https://sha256.us/es/](https://sha256.us/es/)  
+Portfolio & Website: [https://julljoll.github.io/en/](https://julljoll.github.io/en/) | Project: [https://sha256.us/](https://sha256.us/)  
 LinkedIn: [linkedin.com/in/julljoll](https://www.linkedin.com/in/julljoll/) | GitHub: [github.com/julljoll](https://github.com/julljoll)
 
 ---
@@ -84,7 +84,7 @@ Data & AI Analyst with a background in Law and specialized expertise in **Govern
 - **Cybersecurity Fundamentals** — IBM SkillsBuild (Aug 2026) | [Credly Verification](https://www.credly.com/badges/d427c6ef-e272-47e1-b054-8e293142dc25)
 - **User Experience Design Fundamentals** — IBM SkillsBuild (Feb 2026) | [Credly Verification](https://www.credly.com/badges/0527bd85-6a24-489f-ae3d-eb0f7e4bf7e9)
 - **Career Management Essentials** — IBM SkillsBuild (Aug 2026) | [Credly Verification](https://www.credly.com/badges/a2dca596-2edb-41da-886b-46e5a3cfd0ec)
-- **Basic Foundations of Digital Forensics (16 Hours)** — SUSCERTE (Feb 2026)
+- **Basic Foundations of Digital Forensics** — [SUSCERTE](https://www.suscerte.gob.ve/) (Feb 2026)
 - **Patents: From Meaning to Search** — Universidad Nacional de Colombia / Coursera (Oct 2025) | [Coursera Verification](https://coursera.org/verify/DZ34Y9XNV2ZW)
 - **Agile Project Management** — Google / Coursera (Jan 2023) | [Coursera Verification](https://coursera.org/verify/G2GXFRD8GYSG)
 - **Create High-Fidelity Designs & Prototypes in Figma** — Coursera (Oct 2022) | [Coursera Verification](https://coursera.org/verify/PHPHPXAMMM5J)

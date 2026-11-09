@@ -60,7 +60,7 @@ Repositorio relacionado con el procesamiento e indexación forense de código ab
 
 - **Licenciatura en Derecho** — Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora”, Barinas · 2005–2010.
 - **Especialidad en Diseño Digital, Web y Programación** — Mentors International / Mentors4EDU · 2022–2024 (incluye certificación en *Diseño y Programación Web*, Trujillo, septiembre–diciembre de 2023).
-- **Fundamentos Básicos de la Informática Forense** — SUSCERTE · 16 horas · febrero de 2026. Curso autogestionado sobre fundamentos estructurales y marco jurídico.
+- **Fundamentos Básicos de la Informática Forense** — [SUSCERTE](https://www.suscerte.gob.ve/) · febrero de 2026. Curso autogestionado sobre fundamentos estructurales y marco jurídico.
 - **Cybersecurity Fundamentals**, **User Experience Design Fundamentals**, **AI Fundamentals: Foundations for Understanding AI** y **Career Management Essentials** — IBM SkillsBuild · credenciales verificables en Credly.
 - **Patentes: un recorrido desde su significado hasta su búsqueda** — Universidad Nacional de Colombia / Coursera · 2025.
 - **Gestión de proyectos con la metodología Agile** — Google / Coursera · 2023.

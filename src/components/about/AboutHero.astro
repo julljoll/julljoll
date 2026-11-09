@@ -15,7 +15,7 @@ const text = {
     eyebrow:
       'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics | RAG · Explainable AI · Data Governance',
     headline: 'Transformo datos complejos y de alto riesgo en sistemas de IA que puedes auditar.',
-    lede: `Soy ${AUTHOR_NAME}, licenciado en Derecho y formado en fundamentos básicos de informática forense (SUSCERTE, 16 horas). Preparo los datos mediante procesos de ingesta y estructuración documental, diseño la arquitectura de recuperación y generación aumentada (RAG) sobre ecosistemas de IBM y Oracle, y la implemento localmente bajo estrictos controles de seguridad para que la información sensible nunca salga del entorno.`,
+    lede: `Soy ${AUTHOR_NAME}, licenciado en Derecho y formado en fundamentos básicos de informática forense (<a href="https://www.suscerte.gob.ve/" target="_blank" rel="noopener noreferrer" class="underline decoration-2 underline-offset-4 text-accent hover:text-ink">SUSCERTE</a>). Preparo los datos mediante procesos de ingesta y estructuración documental, diseño la arquitectura de recuperación y generación aumentada (RAG) sobre ecosistemas de IBM y Oracle, y la implemento localmente bajo estrictos controles de seguridad para que la información sensible nunca salga del entorno.`,
     paragraphs: [
       'Mi enfoque es la gobernanza por diseño (Governance by Design): salidas explicables (Explainable AI) que trazan cada afirmación hasta su fragmento exacto en la fuente, controles de validación contra alucinaciones y sesgos, y cumplimiento normativo y cadena de custodia integrados en todo el proceso para que los resultados se sostengan ante una auditoría o un tribunal.',
       'Ecosistemas y marcos de referencia: IBM · Oracle · RAG · Explainable AI (XAI) · On-Premise AI · NIST AI RMF · ISO/IEC 27001 · ISO/IEC 42001 · ISO/IEC 27037.',
@@ -27,7 +27,7 @@ const text = {
     eyebrow:
       'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics | RAG · Explainable AI · Data Governance',
     headline: 'I turn messy, high-stakes data into AI systems you can audit.',
-    lede: `I'm ${AUTHOR_NAME}, a law graduate with foundational digital forensics training (SUSCERTE, 16 hours). I prepare the data through structured document ingestion workflows, design retrieval-augmented generation (RAG) architectures across IBM and Oracle ecosystems, and implement them locally under strict security controls so sensitive information never leaves the environment.`,
+    lede: `I'm ${AUTHOR_NAME}, a law graduate with foundational digital forensics training (<a href="https://www.suscerte.gob.ve/" target="_blank" rel="noopener noreferrer" class="underline decoration-2 underline-offset-4 text-accent hover:text-ink">SUSCERTE</a>). I prepare the data through structured document ingestion workflows, design retrieval-augmented generation (RAG) architectures across IBM and Oracle ecosystems, and implement them locally under strict security controls so sensitive information never leaves the environment.`,
     paragraphs: [
       'My focus is governance by design: explainable outputs that trace every claim to its exact source, validation guardrails against hallucination and bias, and compliance and chain-of-custody built into the workflow so results hold up in front of an auditor or a court.',
       'Ecosystems & Frameworks: IBM · Oracle · RAG · Explainable AI (XAI) · On-Premise AI · NIST AI RMF · ISO/IEC 27001 · ISO/IEC 42001 · ISO/IEC 27037.',
@@ -41,7 +41,7 @@ const text = {
   <h2 class="max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1.05] tracking-[-0.045em]">
     {text.headline}
   </h2>
-  <Lede>{text.lede}</Lede>
+  <Lede><Fragment set:html={text.lede} /></Lede>
   <div class="mt-4 grid max-w-[54rem] gap-3 text-base leading-[1.65] text-ink-soft">
     {text.paragraphs.map((paragraph) => (
       <p class="m-0">{paragraph}</p>
