@@ -48,9 +48,14 @@ const labels = {
             <li>{item}</li>
           ))}
         </ul>
-        <a href={project.url} target="_blank" rel="noopener noreferrer">
-          {labels.open} <span aria-hidden="true">↗</span>
-        </a>
+        <div class="mt-auto flex flex-wrap items-center justify-between gap-4">
+          <a href={project.url} target="_blank" rel="noopener noreferrer">
+            {labels.open} <span aria-hidden="true">↗</span>
+          </a>
+          {project.primary && (
+            <span class="font-mono text-xs font-bold text-ink-soft">SHA256.US · Digital Forensics</span>
+          )}
+        </div>
       </article>
     ))}
   </div>

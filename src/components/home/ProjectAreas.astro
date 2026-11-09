@@ -1,5 +1,8 @@
 ---
-import type { Locale } from '@/lib/i18n';
+import { localizedPath, type Locale } from '@/lib/i18n';
+import { withBase } from '@/lib/paths';
+import { FEATURED_PROJECTS } from '@/lib/projects';
+import { WEBSITE_URL } from '@/lib/site';
 
 interface Props {
   locale: Locale;
@@ -8,7 +11,7 @@ interface Props {
 const { locale } = Astro.props;
 const content = {
   es: {
-    label: 'SHA256.US · Informática Forense y Evidencia Digital',
+    label: 'SHA256.US · Proyecto Principal en Informática Forense',
     title: 'Áreas del proyecto',
     intro:
       'SHA256.US es el proyecto principal enfocado en informática forense, preservación de evidencia digital, cadena de custodia y procesos de análisis técnico-jurídico auditable.',
@@ -29,9 +32,18 @@ const content = {
           'Procesos de cadena de custodia, cumplimiento forense, consulta jurídica asistida en entorno local (On-Premise) con trazabilidad exacta a la fuente sobre arquitecturas de IBM y Oracle, y dictámenes exportables.',
       },
     ],
+    reposLabel: 'Repositorios en GitHub · Ecosistema SHA256.US',
+    reposTitle: 'Proyectos y repositorios publicados',
+    reposIntro:
+      'El ecosistema está encabezado por el repositorio de cumplimiento e informática forense de SHA256.US, complementado por repositorios de gobernanza, análisis documental Legal-RAG, inspección de imágenes e indexación forense.',
+    primaryBadge: 'PROYECTO PRINCIPAL · SHA256.US',
+    repoPrefix: 'Repositorio:',
+    openRepo: 'Ver repositorio en GitHub',
+    openWebsite: 'Visitar SHA256.US',
+    viewAll: 'Ver sección completa de proyectos',
   },
   en: {
-    label: 'SHA256.US · Digital Forensics & Digital Evidence',
+    label: 'SHA256.US · Flagship Project in Digital Forensics',
     title: 'Project focus areas',
     intro:
       'SHA256.US is the flagship project focused on digital forensics, digital evidence preservation, chain of custody, and auditable technical-legal analysis workflows.',
@@ -52,17 +64,26 @@ const content = {
           'Chain-of-custody workflows, forensic compliance, on-premise legal retrieval tracing every claim to its exact source across IBM and Oracle environments, and exportable forensic reports.',
       },
     ],
+    reposLabel: 'GitHub Repositories · SHA256.US Ecosystem',
+    reposTitle: 'Published projects and repositories',
+    reposIntro:
+      'Led by the SHA256.US digital forensics and compliance repository, complemented by repositories for governance architecture, Legal-RAG document analysis, image forensics, and evidence indexing.',
+    primaryBadge: 'PRIMARY PROJECT · SHA256.US',
+    repoPrefix: 'Repository:',
+    openRepo: 'View repository on GitHub',
+    openWebsite: 'Visit SHA256.US',
+    viewAll: 'View full projects section',
   },
 }[locale];
 ---
 
 <section class="section" aria-labelledby="project-areas-title">
-  <div class="mb-6 max-w-[44rem]">
+  <div class="mb-6 max-w-[46rem]">
     <p class="font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{content.label}</p>
     <h1 id="project-areas-title" class="mt-2 text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-[-0.03em]">
       {content.title}
     </h1>
-    <p class="mt-3 max-w-[40rem] leading-[1.6] text-ink-soft">{content.intro}</p>
+    <p class="mt-3 max-w-[42rem] leading-[1.6] text-ink-soft">{content.intro}</p>
   </div>
 
   <div class="grid gap-5 md:grid-cols-3">
@@ -72,5 +93,80 @@ const content = {
         <p class="mt-3 mb-0 leading-[1.6] text-ink-soft">{area.description}</p>
       </article>
     ))}
+  </div>
+
+  <div class="mt-12 border-t-3 border-ink pt-10">
+    <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+      <div class="max-w-[44rem]">
+        <p class="m-0 font-mono text-sm font-bold tracking-[0.12em] text-accent uppercase">{content.reposLabel}</p>
+        <h2 class="mt-2 mb-0 text-[clamp(1.65rem,3.4vw,2.35rem)] leading-tight tracking-[-0.03em]">
+          {content.reposTitle}
+        </h2>
+        <p class="mt-2 mb-0 leading-[1.6] text-ink-soft">{content.reposIntro}</p>
+      </div>
+      <a
+        class="inline-flex items-center gap-2 border-2 border-ink bg-bg-elevated px-4 py-2.5 font-heading text-sm font-bold text-ink shadow-[4px_4px_0_0_var(--ink)] transition-[translate,box-shadow,background-color,color] duration-120 ease-[ease] hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-accent hover:text-bg hover:shadow-[2px_2px_0_0_var(--ink)]"
+        href={withBase(localizedPath('/projects/', locale))}
+      >
+        {content.viewAll} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {FEATURED_PROJECTS.map((project) => (
+        <article
+          class:list={[
+            'flex flex-col border-2 border-ink bg-bg-elevated p-6 shadow-[6px_6px_0_0_var(--ink)]',
+            project.primary && 'md:col-span-2 border-3 p-7 shadow-[8px_8px_0_0_var(--ink)]',
+          ]}
+        >
+          <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <span class="font-mono text-xs font-bold tracking-[0.06em] text-accent uppercase">
+              {project.role[locale]}
+            </span>
+            {project.primary && (
+              <span class="border-2 border-ink bg-accent px-2.5 py-0.5 font-mono text-xs font-bold tracking-[0.06em] text-bg uppercase shadow-[2px_2px_0_0_var(--ink)]">
+                {content.primaryBadge}
+              </span>
+            )}
+          </div>
+          <h3 class="m-0 text-[1.35rem] leading-[1.2] font-bold tracking-[-0.02em] text-ink">
+            {project.name}
+          </h3>
+          <p class="mt-1 mb-0 font-mono text-xs text-ink-soft">
+            {content.repoPrefix} <strong class="text-ink">{project.repoSlug}</strong>
+          </p>
+          <p class="mt-3 mb-0 leading-[1.6] text-ink-soft">{project.description[locale]}</p>
+          <ul
+            class="mt-4 mb-5 flex list-none flex-wrap gap-2 p-0"
+            aria-label={locale === 'es' ? 'Áreas del proyecto' : 'Project focus'}
+          >
+            {project.focus[locale].map((item) => (
+              <li class="border-2 border-ink bg-bg px-2 py-1 font-mono text-xs font-bold text-ink">{item}</li>
+            ))}
+          </ul>
+          <div class="mt-auto flex flex-wrap items-center gap-5">
+            <a
+              class="w-fit font-heading font-bold text-accent underline decoration-2 underline-offset-4"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {content.openRepo} <span aria-hidden="true">↗</span>
+            </a>
+            {project.primary && (
+              <a
+                class="w-fit font-heading font-bold text-ink underline decoration-2 underline-offset-4 hover:text-accent"
+                href={WEBSITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {content.openWebsite} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   </div>
 </section>
