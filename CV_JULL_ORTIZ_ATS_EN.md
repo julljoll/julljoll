@@ -72,8 +72,9 @@ Data & AI Analyst with a background in Law and specialized expertise in **Govern
 - **Licenciatura en Derecho (Law Degree / LL.B. Equivalent)**  
   *Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora” (UNELLEZ)* | Barinas, Venezuela (2005 – 2010)  
   *Key Coursework:* Evidence Law, Procedural Law, Legal Argumentation, Judicial Norms.
-- **Digital Design & UX Specialization**  
-  *Mentors4EDU* (2022 – 2024)
+- **Specialization in Digital Design, Web & Programming**  
+  *Mentors International / Mentors4EDU* (2022 – 2024)  
+  *Includes certification in Web Design & Programming (Trujillo, Sept 4 – Dec 15, 2023).*
 
 ---
 

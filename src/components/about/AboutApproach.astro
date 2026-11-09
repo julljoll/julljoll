@@ -8,41 +8,40 @@ interface Props {
 const { locale } = Astro.props;
 const text = {
   es: {
-    title: 'Gobernanza de IA, arquitectura y competencias complementarias',
+    title: 'Gobernanza de IA, procesos y competencias complementarias',
     intro:
-      'Integro gobernanza de IA por diseño (Explainable AI, RAG on-premise, Document Intelligence con Docling y filtros Trust & Safety con IBM Granite Guardian) con metodologías de diseño centrado en las personas (UCD) y el modelo AIDAR: investigo, analizo, pruebo y optimizo interfaces e informes técnicos para que cada hallazgo muestre su fuente, nivel de confianza y trazabilidad.',
+      'Integro procesos de gobernanza de IA por diseño (IA explicable, recuperación y generación aumentada en entorno local, inteligencia documental y validación de seguridad y fiabilidad sobre ecosistemas de IBM y Oracle) con metodologías de diseño centrado en las personas (UCD) y el modelo AIDAR: investigo, analizo, pruebo y optimizo flujos e informes técnicos para que cada hallazgo muestre su fuente, nivel de confianza y trazabilidad.',
     method:
-      'Alineo la arquitectura técnica con referencias como NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (gestión de IA) e ISO/IEC 27037 (evidencia digital). La experiencia en diseño UX/UI en Figma, comunicación visual, landing pages, email marketing, retoque de imágenes y edición de vídeo fortalece la presentación de interfaces XAI y dictámenes, pero no sustituye los métodos técnicos de adquisición, preservación ni análisis forense.',
-    mappingTitle: 'Arquitectura y evidencia técnica',
+      'Alineo el proceso técnico con estándares como NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (gestión de IA) e ISO/IEC 27037 (evidencia digital). La experiencia en diseño de experiencia de usuario, comunicación visual, estructuración de contenidos, retoque de imágenes y edición de vídeo fortalece la claridad de las interfaces explicables y los dictámenes, sin sustituir los métodos técnicos de adquisición, preservación ni análisis forense.',
+    mappingTitle: 'Procesos de arquitectura y evidencia técnica',
     mapping: [
       {
-        area: 'AI-First UX/UI (XAI)',
+        area: 'AI-First UX/UI (Explainable AI)',
         evidence:
-          'Interfaces que muestran fuente, confianza y trazabilidad de cada afirmación (“afirmación → fragmento exacto del documento”).',
+          'Procesos de visualización e interfaces que muestran fuente, nivel de confianza y trazabilidad de cada afirmación (“afirmación → fragmento exacto del documento”).',
       },
       {
-        area: 'Ingesta de documentos',
+        area: 'Ingesta y estructuración documental',
         evidence:
-          'Pipelines con Docling para convertir expedientes en datos estructurados: chunks con metadatos de página y hash SHA-256 hacia índice RAG.',
+          'Flujos de transformación de expedientes escaneados o no estructurados en datos organizados por fragmentos con metadatos de página y hash SHA-256 para indexación RAG.',
       },
       {
-        area: 'Trust & Safety On-Premise',
+        area: 'Trust & Safety en entorno local',
         evidence:
-          'Controles anti-alucinación y mitigación de sesgo con IBM Granite Guardian ejecutados en entorno local auditable.',
+          'Procesos de validación anti-alucinación, control de fiabilidad y mitigación de sesgo ejecutados en entornos locales auditables con tecnología de IBM y Oracle.',
       },
       {
         area: 'Reporte forense y compliance',
         evidence:
-          'Cadena de custodia documentada, registro de auditoría inmutable con timestamps, hashes SHA-256 y dictamen exportable.',
+          'Cadena de custodia documentada, registro de auditoría inmutable con marcas de tiempo (timestamps), hashes SHA-256 y dictamen técnico exportable.',
       },
     ],
     skills: [
+      'IBM',
+      'Oracle',
       'Explainable AI (XAI)',
       'RAG',
       'Document Intelligence',
-      'Docling',
-      'IBM Granite',
-      'Granite Guardian',
       'AI Governance',
       'Responsible AI',
       'Data Privacy',
@@ -51,34 +50,32 @@ const text = {
       'On-premise AI',
       'NIST AI RMF',
       'ISO/IEC 27001 · 42001 · 27037',
-      'Python · Podman · OCI',
       'Diseño centrado en las personas (UCD)',
       'Modelo AIDAR',
-      'Diseño y prototipado en Figma',
     ],
   },
   en: {
-    title: 'AI governance, architecture, and complementary skills',
+    title: 'AI governance, processes, and complementary skills',
     intro:
-      'I combine governance-by-design AI (Explainable AI, on-premise RAG, Document Intelligence with Docling, and Trust & Safety guardrails with IBM Granite Guardian) with User-Centered Design (UCD) methodologies and the AIDAR model: researching, analyzing, testing, and optimizing interfaces and technical reports so every claim displays its source, confidence, and traceability.',
+      'I combine governance-by-design AI workflows (Explainable AI, on-premise retrieval-augmented generation, Document Intelligence, and trust & safety validation across IBM and Oracle ecosystems) with User-Centered Design (UCD) methodologies and the AIDAR model: researching, analyzing, testing, and optimizing interfaces and technical reports so every claim displays its source, confidence, and traceability.',
     method:
-      'I align technical architecture with frameworks such as NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (AI management), and ISO/IEC 27037 (digital evidence). Experience in Figma UX/UI prototyping, visual communication, landing pages, email marketing, image retouching, and video editing strengthens XAI interfaces and report presentation, but does not replace technical forensic acquisition, preservation, or analysis methods.',
-    mappingTitle: 'Architecture and technical evidence',
+      'I align technical workflows with frameworks such as NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 (AI management), and ISO/IEC 27037 (digital evidence). Experience in user experience design, visual communication, content structuring, image retouching, and video editing strengthens XAI interfaces and report presentation without replacing technical forensic acquisition, preservation, or analysis methods.',
+    mappingTitle: 'Architecture processes and technical evidence',
     mapping: [
       {
-        area: 'AI-First UX/UI (XAI)',
+        area: 'AI-First UX/UI (Explainable AI)',
         evidence:
-          'Interfaces showing source, confidence score, and traceability for every claim (“claim → exact document passage”).',
+          'Visualization workflows and interfaces showing source, confidence score, and traceability for every claim (“claim → exact document passage”).',
       },
       {
-        area: 'Document Ingestion',
+        area: 'Document Ingestion & Structuring',
         evidence:
-          'Docling pipelines converting scanned case files into structured data: chunks with page metadata and SHA-256 hashes indexed for RAG.',
+          'Ingestion workflows converting scanned or unstructured case files into structured data chunks with page metadata and SHA-256 hashes indexed for RAG.',
       },
       {
         area: 'On-Premise Trust & Safety',
         evidence:
-          'Anti-hallucination and bias mitigation filters using IBM Granite Guardian in local, auditable environments.',
+          'Anti-hallucination validation, reliability verification, and bias mitigation processes running in local, auditable IBM and Oracle environments.',
       },
       {
         area: 'Forensic Reporting & Compliance',
@@ -87,12 +84,11 @@ const text = {
       },
     ],
     skills: [
+      'IBM',
+      'Oracle',
       'Explainable AI (XAI)',
       'RAG',
       'Document Intelligence',
-      'Docling',
-      'IBM Granite',
-      'Granite Guardian',
       'AI Governance',
       'Responsible AI',
       'Data Privacy',
@@ -101,10 +97,8 @@ const text = {
       'On-premise AI',
       'NIST AI RMF',
       'ISO/IEC 27001 · 42001 · 27037',
-      'Python · Podman · OCI',
       'User-Centered Design (UCD)',
       'AIDAR model',
-      'Figma design and prototyping',
     ],
   },
 }[locale];
