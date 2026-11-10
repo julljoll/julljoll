@@ -8,39 +8,86 @@ import HomeHero from '@/components/home/HomeHero.astro';
 import ProjectAreas from '@/components/home/ProjectAreas.astro';
 import Sunlight from '@/components/effects/Sunlight.astro';
 import { withBase } from '@/lib/paths';
-import { AUTHOR_NAME, GITHUB_URL, INSTAGRAM_URL, LINKEDIN_URL, SITE_NAME, WEBSITE_URL, X_URL } from '@/lib/site';
+import {
+  AUTHOR_NAME,
+  GITHUB_URL,
+  GOOGLE_MAPS_URL,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  SITE_NAME,
+  WEBSITE_URL,
+  X_URL,
+} from '@/lib/site';
 
 const description =
   'Data & AI Analyst especializado en Governed AI (legal, forense y compliance) con ecosistemas de IBM y Oracle. Áreas de trabajo de SHA256.US: dispositivos móviles, evidencia digital, documentos electrónicos e informática forense.';
-const personSchema = JSON.stringify({
+
+const siteBaseUrl = new URL(withBase('/'), Astro.site).toString();
+const personId = `${siteBaseUrl}#person`;
+const orgId = 'https://sha256.us/#organization';
+
+const graphSchema = JSON.stringify({
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: AUTHOR_NAME,
-  jobTitle: 'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics',
-  description:
-    'Data & AI Analyst con especialidad en Governed AI sobre ecosistemas de IBM y Oracle, formación universitaria en Derecho y procesos de informática forense, evidencia digital, RAG, IA explicable (XAI) y cadena de custodia.',
-  url: new URL(withBase('/'), Astro.site).toString(),
-  knowsAbout: [
-    'Governed AI',
-    'Explainable AI (XAI)',
-    'Retrieval-Augmented Generation (RAG)',
-    'Document Intelligence',
-    'Digital Forensics',
-    'Chain of Custody',
-    'AI Governance',
-    'IBM',
-    'Oracle',
-    'NIST AI RMF',
-    'ISO/IEC 27001',
-    'ISO/IEC 42001',
-    'ISO/IEC 27037',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: AUTHOR_NAME,
+      jobTitle: 'Data & AI Analyst | Governed, On-Premise AI for Legal, Compliance & Digital Forensics',
+      description:
+        'Data & AI Analyst con especialidad en Governed AI sobre ecosistemas de IBM y Oracle, formación universitaria en Derecho y procesos de informática forense, evidencia digital, RAG, IA explicable (XAI) y cadena de custodia.',
+      url: siteBaseUrl,
+      worksFor: { '@id': orgId },
+      knowsAbout: [
+        'Governed AI',
+        'Explainable AI (XAI)',
+        'Retrieval-Augmented Generation (RAG)',
+        'Document Intelligence',
+        'Digital Forensics',
+        'Chain of Custody',
+        'AI Governance',
+        'IBM',
+        'Oracle',
+        'NIST AI RMF',
+        'ISO/IEC 27001',
+        'ISO/IEC 42001',
+        'ISO/IEC 27037',
+      ],
+      sameAs: [GITHUB_URL, LINKEDIN_URL, WEBSITE_URL, GOOGLE_MAPS_URL, INSTAGRAM_URL, X_URL].filter(Boolean),
+    },
+    {
+      '@type': ['LegalService', 'ProfessionalService'],
+      '@id': orgId,
+      name: 'SHA256.US · Informática Forense y Evidencia Digital',
+      url: WEBSITE_URL,
+      hasMap: GOOGLE_MAPS_URL,
+      founder: { '@id': personId },
+      description:
+        'Firma especializada en informática forense, preservación de evidencia digital, cadena de custodia y procesos de análisis técnico-jurídico auditable.',
+      areaServed: ['Venezuela', 'United States', 'Latin America'],
+      serviceType: [
+        'Informática Forense',
+        'Preservación de Evidencia Digital',
+        'Cadena de Custodia',
+        'Análisis Técnico-Jurídico',
+        'Governed AI',
+      ],
+      sameAs: [GOOGLE_MAPS_URL, WEBSITE_URL].filter(Boolean),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteBaseUrl}#website`,
+      url: siteBaseUrl,
+      name: `${SITE_NAME} — Informática forense`,
+      publisher: { '@id': personId },
+      inLanguage: 'es',
+    },
   ],
-  sameAs: [GITHUB_URL, LINKEDIN_URL, WEBSITE_URL, INSTAGRAM_URL, X_URL].filter(Boolean),
 }).replace(/</g, '\\u003c');
 ---
 
 <Layout title={`${SITE_NAME} — Informática forense`} description={description} canonicalPath="/">
-  <script type="application/ld+json" is:inline set:html={personSchema}></script>
+  <script type="application/ld+json" is:inline set:html={graphSchema}></script>
   <FallingLeaves />
   <FallingSnow />
   <FallingPetals />

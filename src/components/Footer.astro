@@ -1,6 +1,7 @@
 ---
-import { SITE_NAME, SOURCE_URL } from '@/lib/site';
-import { getMessages, type Locale } from '@/lib/i18n';
+import { GOOGLE_MAPS_URL, SITE_NAME, SOURCE_URL } from '@/lib/site';
+import { getMessages, localizedPath, type Locale } from '@/lib/i18n';
+import { withBase } from '@/lib/paths';
 
 interface Props {
   locale: Locale;
@@ -9,13 +10,36 @@ interface Props {
 const { locale } = Astro.props;
 const message = getMessages(locale);
 const fullYear = new Date().getFullYear();
+const cookiesPath = withBase(localizedPath('/cookies/', locale));
 ---
 
-<footer class="flex items-center justify-center gap-4 border-t-4 border-ink px-5 py-7 font-heading text-[0.95rem] font-semibold text-ink">
-  <span>
-    &copy; {fullYear}
-    <a href={SOURCE_URL} target="_blank" rel="noopener" class="underline underline-offset-4">
-      {SITE_NAME} · {message.footerSource}
-    </a>
-  </span>
+<footer class="border-t-4 border-ink px-5 py-7 font-heading text-[0.95rem] font-semibold text-ink">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-wrap items-center gap-4">
+      <span>
+        &copy; {fullYear} {SITE_NAME}
+      </span>
+      <span class="text-ink-soft" aria-hidden="true">·</span>
+      <a
+        href={GOOGLE_MAPS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 underline decoration-2 underline-offset-4 hover:text-accent"
+      >
+        <span aria-hidden="true">📍</span>
+        <span>{message.mapsLink}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 text-sm">
+      <a href={cookiesPath} class="underline decoration-2 underline-offset-4 hover:text-accent">
+        {message.cookies}
+      </a>
+      <span class="text-ink-soft" aria-hidden="true">·</span>
+      <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" class="underline decoration-2 underline-offset-4 hover:text-accent">
+        {message.footerSource}
+      </a>
+    </div>
+  </div>
 </footer>

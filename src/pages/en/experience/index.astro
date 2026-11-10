@@ -1,5 +1,15 @@
 ---
-import { AUTHOR_NAME, GITHUB_URL, INSTAGRAM_URL, JOB_TITLE, LINKEDIN_URL, SITE_NAME, WEBSITE_URL, X_URL } from '@/lib/site';
+import {
+  AUTHOR_NAME,
+  GITHUB_URL,
+  GOOGLE_MAPS_URL,
+  INSTAGRAM_URL,
+  JOB_TITLE,
+  LINKEDIN_URL,
+  SITE_NAME,
+  WEBSITE_URL,
+  X_URL,
+} from '@/lib/site';
 import { withBase } from '@/lib/paths';
 import Layout from '@/components/Layout.astro';
 import AboutHero from '@/components/about/AboutHero.astro';
@@ -21,7 +31,13 @@ const profilePageSchema = JSON.stringify({
     jobTitle: JOB_TITLE,
     description: message.aboutDescription,
     url: new URL(withBase('/en/'), Astro.site).toString(),
-    sameAs: [GITHUB_URL, LINKEDIN_URL, WEBSITE_URL, INSTAGRAM_URL, X_URL].filter(Boolean),
+    worksFor: {
+      '@type': ['LegalService', 'ProfessionalService'],
+      name: 'SHA256.US',
+      url: WEBSITE_URL,
+      hasMap: GOOGLE_MAPS_URL,
+    },
+    sameAs: [GITHUB_URL, LINKEDIN_URL, WEBSITE_URL, GOOGLE_MAPS_URL, INSTAGRAM_URL, X_URL].filter(Boolean),
   },
 }).replace(/</g, '\\u003c');
 ---

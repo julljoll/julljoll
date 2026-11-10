@@ -49,6 +49,37 @@ test('header exposes WhatsApp, Instagram, X, email, and website links', async ({
   await expect(page.getByRole('link', { name: 'X', exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Correo electrónico' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Sitio web: SHA256.US' })).toBeVisible();
+
+  const footer = page.locator('footer');
+  await expect(footer.getByRole('link', { name: /Google Maps/i })).toHaveAttribute(
+    'href',
+    'https://maps.app.goo.gl/PjviydJ99uLtzPAL9',
+  );
+  await expect(footer.getByRole('link', { name: /Política de cookies/i })).toHaveAttribute(
+    'href',
+    '/cookies/',
+  );
+});
+
+test('cookie banner appears, persists acceptance, and links to cookie policy', async ({ page }) => {
+  await page.goto('/');
+  const banner = page.locator('#cookie-banner');
+  await expect(banner).toBeVisible();
+  await expect(banner.getByRole('link', { name: /Más información/i })).toHaveAttribute('href', '/cookies/');
+
+  await page.locator('#cookie-banner-accept').click();
+  await expect(banner).toBeHidden();
+
+  await page.reload();
+  await expect(banner).toBeHidden();
+});
+
+test('homepage includes Schema.org graph with Person and LegalService referencing Google Maps', async ({ page }) => {
+  await page.goto('/');
+  const scriptContent = await page.locator('script[type="application/ld+json"]').first().textContent();
+  expect(scriptContent).toContain('https://maps.app.goo.gl/PjviydJ99uLtzPAL9');
+  expect(scriptContent).toContain('LegalService');
+  expect(scriptContent).toContain('SHA256.US');
 });
 
 test('About Me contains education, career, and forensic scope', async ({ page }) => {

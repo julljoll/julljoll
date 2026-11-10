@@ -1,4 +1,4 @@
-import { ABOUT_DESCRIPTION, BLOG_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
+import { ABOUT_DESCRIPTION, BLOG_DESCRIPTION, COOKIES_DESCRIPTION, TAGS_DESCRIPTION } from '@/lib/site';
 
 export type SearchEntry = {
   title: string;
@@ -46,6 +46,13 @@ export const PAGE_SEARCH_ENTRIES_EN: SearchEntry[] = [
     body: 'Compliance Forensic, Ulpiano Chief Compliance Officer, JullBrain Legal-RAG on IBM and Oracle ecosystems, FotoForense PhotoHolmes, and IPED_SHA256.US.',
     url: '/projects/',
   },
+  {
+    title: 'Cookie policy',
+    description: 'Technical local storage and privacy details for Jull Ortiz’s site.',
+    tags: ['privacy', 'cookies', 'legal'],
+    body: 'Information about technical local storage (theme preferences, notice acceptance) and privacy by design without tracking cookies.',
+    url: '/cookies/',
+  },
 ];
 
 export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
@@ -86,6 +93,13 @@ export const PAGE_SEARCH_ENTRIES_ES: SearchEntry[] = [
     tags: ['portafolio', 'código', 'IBM', 'Oracle'],
     body: 'Compliance Forensic, Ulpiano Chief Compliance Officer, JullBrain Legal-RAG con ecosistemas de IBM y Oracle, FotoForense PhotoHolmes e IPED_SHA256.US.',
     url: '/projects/',
+  },
+  {
+    title: 'Política de cookies',
+    description: COOKIES_DESCRIPTION,
+    tags: ['privacidad', 'cookies', 'legal'],
+    body: 'Información sobre almacenamiento técnico local esencial (preferencias de tema, consentimiento) y privacidad por diseño sin cookies de rastreo publicitario.',
+    url: '/cookies/',
   },
   {
     title: 'Bienvenida al sitio',
