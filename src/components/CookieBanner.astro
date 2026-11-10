@@ -19,16 +19,13 @@ const cookiesPath = withBase(localizedPath('/cookies/', locale));
 >
   <div class="flex flex-col gap-4">
     <div class="flex items-start gap-3">
-      <span class="text-2xl" aria-hidden="true">🍪</span>
-      <p class="m-0 text-sm leading-[1.55] text-ink-soft">
-        {message.cookiesBannerText}
-      </p>
+      <span class="text-2xl" aria-hidden="true">
+        🍪
+      </span>
+      <p class="m-0 text-sm leading-[1.55] text-ink-soft">{message.cookiesBannerText}</p>
     </div>
     <div class="flex flex-wrap items-center justify-end gap-3 font-heading text-sm font-bold">
-      <a
-        href={cookiesPath}
-        class="text-ink underline decoration-2 underline-offset-4 hover:text-accent"
-      >
+      <a href={cookiesPath} class="text-ink underline decoration-2 underline-offset-4 hover:text-accent">
         {message.cookiesBannerMore}
       </a>
       <button
@@ -71,4 +68,3 @@ const cookiesPath = withBase(localizedPath('/cookies/', locale));
   setupCookieBanner();
   document.addEventListener('astro:page-load', setupCookieBanner);
 </script>
-

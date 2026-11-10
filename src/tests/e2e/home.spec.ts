@@ -55,10 +55,7 @@ test('header exposes WhatsApp, Instagram, X, email, and website links', async ({
     'href',
     'https://maps.app.goo.gl/PjviydJ99uLtzPAL9',
   );
-  await expect(footer.getByRole('link', { name: /Política de cookies/i })).toHaveAttribute(
-    'href',
-    '/cookies/',
-  );
+  await expect(footer.getByRole('link', { name: /Política de cookies/i })).toHaveAttribute('href', '/cookies/');
 });
 
 test('cookie banner appears, persists acceptance, and links to cookie policy', async ({ page }) => {

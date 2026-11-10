@@ -37,7 +37,7 @@ Case File / Evidence (SHA-256) → Structured Ingestion → Auditable Deliberati
 
 ## Operational Scales and Data Sovereignty On-Premise
 
-One of the primary challenges in legal and forensic practice is preserving confidentiality and legal privilege without exposing sensitive case files to uncontrolled external services. The architecture introduced by **IBM** addresses this requirement through three dense operational scales designed to run **locally (*On-Premise*)** or within controlled enterprise infrastructures (such as hybrid **IBM** and **Oracle** environments):
+One of the primary challenges in legal and forensic practice is preserving confidentiality and legal privilege without exposing sensitive case files to uncontrolled external services. The architecture introduced by **IBM** addresses this requirement through three dense operational scales designed to run **locally (_On-Premise_)** or within controlled enterprise infrastructures (such as hybrid **IBM** and **Oracle** environments):
 
 - **Compact Scale (3B):** Optimized for local execution on forensic workstations or air-gapped environments, ideal for preliminary classification and entity extraction with minimal resource overhead.
 - **Balanced Mid-Scale (8B):** Designed for enterprise retrieval-augmented generation (**RAG**) workflows, summarizing case dossiers with strict source attribution.
@@ -59,7 +59,7 @@ However, a larger context window does not replace methodological rigor. In a **G
 
 ## Controlled Agentic Execution and Tool Calling
 
-Another core advancement in this **IBM Research** architecture is reinforcement learning tailored for agentic workflows (*Agentic RL*). Rather than guessing facts or approximating calculations in free text, the workflow evaluates when and why to invoke an external deterministic tool.
+Another core advancement in this **IBM Research** architecture is reinforcement learning tailored for agentic workflows (_Agentic RL_). Rather than guessing facts or approximating calculations in free text, the workflow evaluates when and why to invoke an external deterministic tool.
 
 Applied to compliance and forensic analysis, this allows the system to:
 
@@ -75,6 +75,6 @@ In technical and legal practice, these capabilities strengthen explainable inter
 
 ---
 
-**Technical Reference:**  
-- IBM Research Blog: [*Introducing Granite 4.2*](https://research.ibm.com/blog/introducing-granite-4-2).
+**Technical Reference:**
 
+- IBM Research Blog: [_Introducing Granite 4.2_](https://research.ibm.com/blog/introducing-granite-4-2).

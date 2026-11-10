@@ -38,10 +38,10 @@ const text = {
 ---
 
 <PageHero title={text.title} eyebrow={text.eyebrow}>
-  <h2 class="max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1.05] tracking-[-0.045em]">
-    {text.headline}
-  </h2>
-  <Lede><Fragment set:html={text.lede} /></Lede>
+  <h2 class="max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1.05] tracking-[-0.045em]">{text.headline}</h2>
+  <Lede>
+    <Fragment set:html={text.lede} />
+  </Lede>
   <div class="mt-4 grid max-w-[54rem] gap-3 text-base leading-[1.65] text-ink-soft">
     {text.paragraphs.map((paragraph) => (
       <p class="m-0">{paragraph}</p>

@@ -19,7 +19,9 @@ const cookiesPath = withBase(localizedPath('/cookies/', locale));
       <span>
         &copy; {fullYear} {SITE_NAME}
       </span>
-      <span class="text-ink-soft" aria-hidden="true">·</span>
+      <span class="text-ink-soft" aria-hidden="true">
+        ·
+      </span>
       <a
         href={GOOGLE_MAPS_URL}
         target="_blank"
@@ -36,8 +38,15 @@ const cookiesPath = withBase(localizedPath('/cookies/', locale));
       <a href={cookiesPath} class="underline decoration-2 underline-offset-4 hover:text-accent">
         {message.cookies}
       </a>
-      <span class="text-ink-soft" aria-hidden="true">·</span>
-      <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" class="underline decoration-2 underline-offset-4 hover:text-accent">
+      <span class="text-ink-soft" aria-hidden="true">
+        ·
+      </span>
+      <a
+        href={SOURCE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline decoration-2 underline-offset-4 hover:text-accent"
+      >
         {message.footerSource}
       </a>
     </div>

@@ -38,4 +38,3 @@ jobs:
           server-dir: ${{ secrets.CPANEL_SERVER_DIR || 'public_html/' }}
           local-dir: './dist/'
           dangerous-clean-slate: false
-

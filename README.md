@@ -12,12 +12,12 @@ Transformo datos no estructurados y de alto riesgo en **sistemas de IA que puede
 
 ## Posicionamiento y procesos (Governance by Design)
 
-| Dominio | Proceso que implemento | Evidencia concreta en el portafolio |
-| --- | --- | --- |
-| **AI-First UX/UI (Explainable AI / XAI)** | Procesos de visualización e interfaces que muestran fuente, confianza y trazabilidad de cada afirmación | Flujos y visores de trazabilidad «afirmación → fragmento exacto del documento» |
-| **Ingesta de documentos (Document Intelligence)** | Conversión de expedientes complejos o escaneados en datos estructurados aptos para RAG | Procesos de fragmentación con metadatos de página y hash SHA-256 hacia índice RAG |
-| **Trust & Safety On-Premise** | Controles de validación anti-alucinación y mitigación de sesgo en entorno local | Arquitecturas gobernadas sobre **IBM** y **Oracle** con operación local sin exposición a terceros |
-| **Reporte forense y compliance** | Cadena de custodia, registro de auditoría inmutable y dictamen exportable | Dictámenes con hash SHA-256, marcas de tiempo (timestamps), log encadenado y alineación con NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 e ISO/IEC 27037 |
+| Dominio                                           | Proceso que implemento                                                                                  | Evidencia concreta en el portafolio                                                                                                                   |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI-First UX/UI (Explainable AI / XAI)**         | Procesos de visualización e interfaces que muestran fuente, confianza y trazabilidad de cada afirmación | Flujos y visores de trazabilidad «afirmación → fragmento exacto del documento»                                                                        |
+| **Ingesta de documentos (Document Intelligence)** | Conversión de expedientes complejos o escaneados en datos estructurados aptos para RAG                  | Procesos de fragmentación con metadatos de página y hash SHA-256 hacia índice RAG                                                                     |
+| **Trust & Safety On-Premise**                     | Controles de validación anti-alucinación y mitigación de sesgo en entorno local                         | Arquitecturas gobernadas sobre **IBM** y **Oracle** con operación local sin exposición a terceros                                                     |
+| **Reporte forense y compliance**                  | Cadena de custodia, registro de auditoría inmutable y dictamen exportable                               | Dictámenes con hash SHA-256, marcas de tiempo (timestamps), log encadenado y alineación con NIST AI RMF, ISO/IEC 27001, ISO/IEC 42001 e ISO/IEC 27037 |
 
 **Ecosistemas y marcos de referencia:** `IBM` · `Oracle` · `RAG` · `Explainable AI (XAI)` · `Document Intelligence` · `Chain of Custody` · `Digital Forensics` · `On-Premise AI` · `NIST AI RMF` · `ISO/IEC 27001` · `ISO/IEC 42001` · `ISO/IEC 27037`
 
@@ -25,12 +25,12 @@ Transformo datos no estructurados y de alto riesgo en **sistemas de IA que puede
 
 ## Áreas de enfoque (SHA256.US)
 
-| Área                             | En qué consiste                                                                                                                  |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Dispositivos móviles**         | Reparación y extracción de información; revisión de audios, imágenes, mensajes y otros datos digitales bajo trazabilidad forense.|
-| **Evidencia y documentos**       | Ingesta y estructuración documental, informática forense, contratos y documentos electrónicos, metadatos y análisis de alteraciones. |
-| **Trazabilidad y documentación** | Procesos y flujos orientados a organizar casos, registrar evidencias y documentar la cadena de custodia con verificación SHA-256.|
-| **Comunicación e interfaces XAI**| Formación jurídica y diseño centrado en las personas (UCD, AIDAR) aplicados a presentar hallazgos técnicos con trazabilidad a la fuente. |
+| Área                              | En qué consiste                                                                                                                          |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dispositivos móviles**          | Reparación y extracción de información; revisión de audios, imágenes, mensajes y otros datos digitales bajo trazabilidad forense.        |
+| **Evidencia y documentos**        | Ingesta y estructuración documental, informática forense, contratos y documentos electrónicos, metadatos y análisis de alteraciones.     |
+| **Trazabilidad y documentación**  | Procesos y flujos orientados a organizar casos, registrar evidencias y documentar la cadena de custodia con verificación SHA-256.        |
+| **Comunicación e interfaces XAI** | Formación jurídica y diseño centrado en las personas (UCD, AIDAR) aplicados a presentar hallazgos técnicos con trazabilidad a la fuente. |
 
 La experiencia en diseño, retoque de imágenes y edición de vídeo es complementaria: ayuda a construir interfaces explicables y comunicar hallazgos, pero **no sustituye la adquisición, preservación ni autenticación forense de la evidencia**.
 
@@ -59,7 +59,7 @@ Repositorio relacionado con el procesamiento e indexación forense de código ab
 ## Educación y formación complementaria
 
 - **Licenciatura en Derecho** — Universidad Nacional Experimental de los Llanos Occidentales “Ezequiel Zamora”, Barinas · 2005–2010.
-- **Especialidad en Diseño Digital, Web y Programación** — Mentors International / Mentors4EDU · 2022–2024 (incluye certificación en *Diseño y Programación Web*, Trujillo, septiembre–diciembre de 2023).
+- **Especialidad en Diseño Digital, Web y Programación** — Mentors International / Mentors4EDU · 2022–2024 (incluye certificación en _Diseño y Programación Web_, Trujillo, septiembre–diciembre de 2023).
 - **Fundamentos Básicos de la Informática Forense** — [SUSCERTE](https://www.suscerte.gob.ve/) · febrero de 2026. Curso autogestionado sobre fundamentos estructurales y marco jurídico.
 - **Cybersecurity Fundamentals**, **User Experience Design Fundamentals**, **AI Fundamentals: Foundations for Understanding AI** y **Career Management Essentials** — IBM SkillsBuild · credenciales verificables en Credly.
 - **Patentes: un recorrido desde su significado hasta su búsqueda** — Universidad Nacional de Colombia / Coursera · 2025.

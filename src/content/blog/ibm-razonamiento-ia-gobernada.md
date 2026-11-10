@@ -14,7 +14,7 @@ tags:
 draft: false
 ---
 
-La evolución reciente de las arquitecturas de inteligencia artificial empresarial impulsadas por **IBM Research** marca una transición fundamental: pasar de modelos que simplemente generan respuestas directas a sistemas con **razonamiento nativo y trazabilidad explícita**. Para disciplinas de alto riesgo —como el análisis documental jurídico, la informática forense y el cumplimiento normativo (*compliance*)— este cambio de proceso resulta determinante.
+La evolución reciente de las arquitecturas de inteligencia artificial empresarial impulsadas por **IBM Research** marca una transición fundamental: pasar de modelos que simplemente generan respuestas directas a sistemas con **razonamiento nativo y trazabilidad explícita**. Para disciplinas de alto riesgo —como el análisis documental jurídico, la informática forense y el cumplimiento normativo (_compliance_)— este cambio de proceso resulta determinante.
 
 En contextos donde cada afirmación debe sostenerse ante una auditoría técnica o un procedimiento judicial, una respuesta sin trazabilidad carece de valor probatorio. La incorporación de cadenas de pensamiento estructuradas y auditables permite inspeccionar no solo **qué** concluye un sistema, sino **bajo qué secuencia lógica** y **a partir de qué fragmento documental** llegó a ese resultado.
 
@@ -26,9 +26,9 @@ En un proceso de **IA Explicable (Explainable AI / XAI)**, esta separación apor
 
 1. **Inspección de la ruta lógica:** Permite a los analistas y auditores revisar los pasos intermedios de evaluación, descartando inferencias infundadas antes de que lleguen al informe final.
 2. **Modos de deliberación ajustables:** El proceso permite alternar dinámicamente entre tres niveles según la criticidad de la tarea:
-   - **Razonamiento profundo (*full thinking*):** Para cruce de normativas, detección de contradicciones en expedientes complejos y evaluación de riesgos de cumplimiento.
-   - **Razonamiento ligero (*low-effort thinking*):** Para clasificación estructurada de documentos y validaciones rápidas con baja latencia.
-   - **Modo directo (*non-thinking*):** Para extracción inmediata de metadatos o formateo determinista donde no se requiere inferencia adicional.
+   - **Razonamiento profundo (_full thinking_):** Para cruce de normativas, detección de contradicciones en expedientes complejos y evaluación de riesgos de cumplimiento.
+   - **Razonamiento ligero (_low-effort thinking_):** Para clasificación estructurada de documentos y validaciones rápidas con baja latencia.
+   - **Modo directo (_non-thinking_):** Para extracción inmediata de metadatos o formateo determinista donde no se requiere inferencia adicional.
 3. **Separación entre observación e inferencia:** Facilita distinguir los datos objetivos extraídos de la fuente respecto de la articulación analítica generada por el sistema.
 
 ```text
@@ -37,9 +37,9 @@ Expediente / Evidencia (SHA-256) → Ingesta estructurada → Deliberación audi
 
 ## Escalas operativas y soberanía del dato en entorno local
 
-Uno de los mayores retos en la práctica legal y forense es preservar la confidencialidad y el secreto profesional sin enviar expedientes sensibles a servicios externos no controlados. La arquitectura presentada por **IBM** aborda este requerimiento mediante tres escalas densas diseñadas para operar de forma **local (*On-Premise*)** o en infraestructuras empresariales controladas (como entornos híbridos de **IBM** y **Oracle**):
+Uno de los mayores retos en la práctica legal y forense es preservar la confidencialidad y el secreto profesional sin enviar expedientes sensibles a servicios externos no controlados. La arquitectura presentada por **IBM** aborda este requerimiento mediante tres escalas densas diseñadas para operar de forma **local (_On-Premise_)** o en infraestructuras empresariales controladas (como entornos híbridos de **IBM** y **Oracle**):
 
-- **Escala compacta (3B):** Optimizada para ejecución local en estaciones de trabajo forenses o entornos desconectados (*air-gapped*), ideal para clasificación preliminar y extracción de entidades sin consumo excesivo de recursos.
+- **Escala compacta (3B):** Optimizada para ejecución local en estaciones de trabajo forenses o entornos desconectados (_air-gapped_), ideal para clasificación preliminar y extracción de entidades sin consumo excesivo de recursos.
 - **Escala intermedia balanceada (8B):** Diseñada para flujos empresariales de recuperación y generación aumentada (**RAG**), resumiendo expedientes con atribución estricta a la fuente.
 - **Escala avanzada de alta complejidad (30B):** Orientada a razonamiento lógico profundo, auditoría de múltiples pasos e invocación controlada de herramientas de verificación.
 
@@ -59,22 +59,22 @@ Sin embargo, ampliar el contexto no sustituye el rigor metodológico. En un fluj
 
 ## Ejecución agéntica controlada y llamadas a herramientas
 
-Otro avance central de esta arquitectura de **IBM Research** es el entrenamiento mediante aprendizaje por refuerzo orientado a flujos agénticos (*Agentic RL*). En lugar de adivinar datos o realizar cálculos aproximados en texto libre, el proceso evalúa cuándo y por qué debe invocar una herramienta determinista externa.
+Otro avance central de esta arquitectura de **IBM Research** es el entrenamiento mediante aprendizaje por refuerzo orientado a flujos agénticos (_Agentic RL_). En lugar de adivinar datos o realizar cálculos aproximados en texto libre, el proceso evalúa cuándo y por qué debe invocar una herramienta determinista externa.
 
 Aplicado al ámbito de cumplimiento y análisis forense, esto permite que el sistema:
 
-1. **Verifique antes de afirmar:** Consulte índices documentales exactos, compruebe marcas de tiempo (*timestamps*) o valide sumas criptográficas mediante funciones deterministas.
+1. **Verifique antes de afirmar:** Consulte índices documentales exactos, compruebe marcas de tiempo (_timestamps_) o valide sumas criptográficas mediante funciones deterministas.
 2. **Registre cada acción:** Deje constancia en un log inmutable de qué consulta ejecutó, qué parámetro utilizó y qué resultado exacto obtuvo del entorno.
 3. **Alinee el flujo con estándares internacionales:** Facilite el cumplimiento de los criterios de gobernabilidad, mapeo, medición y gestión del **NIST AI RMF**, así como de los sistemas de gestión de IA (**ISO/IEC 42001**), seguridad de la información (**ISO/IEC 27001**) y preservación de evidencia digital (**ISO/IEC 27037**).
 
 ## Conclusión y alcance pericial
 
-Los avances en razonamiento nativo y arquitecturas abiertas de **IBM** demuestran que la inteligencia artificial empresarial avanza decididamente hacia la **transparencia, la eficiencia local y la auditabilidad**. 
+Los avances en razonamiento nativo y arquitecturas abiertas de **IBM** demuestran que la inteligencia artificial empresarial avanza decididamente hacia la **transparencia, la eficiencia local y la auditabilidad**.
 
 En la práctica técnico-jurídica, estas capacidades fortalecen el diseño de interfaces explicables y aceleran la revisión de grandes volúmenes documentales, siempre bajo una premisa innegociable: la tecnología actúa como un instrumento de apoyo trazable, pero la validación final, la preservación de la cadena de custodia y la responsabilidad sobre las conclusiones corresponden siempre al especialista humano y a los requisitos procesales de cada jurisdicción.
 
 ---
 
-**Referencia técnica:**  
-- IBM Research Blog: [*Introducing Granite 4.2*](https://research.ibm.com/blog/introducing-granite-4-2).
+**Referencia técnica:**
 
+- IBM Research Blog: [_Introducing Granite 4.2_](https://research.ibm.com/blog/introducing-granite-4-2).

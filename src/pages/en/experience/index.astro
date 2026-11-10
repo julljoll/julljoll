@@ -42,7 +42,12 @@ const profilePageSchema = JSON.stringify({
 }).replace(/</g, '\\u003c');
 ---
 
-<Layout title={`About me — ${SITE_NAME}`} description={message.aboutDescription} canonicalPath="/experience/" ogType="profile">
+<Layout
+  title={`About me — ${SITE_NAME}`}
+  description={message.aboutDescription}
+  canonicalPath="/experience/"
+  ogType="profile"
+>
   <script type="application/ld+json" is:inline set:html={profilePageSchema}></script>
   <main class="content-shell">
     <AboutHero locale="en" />
